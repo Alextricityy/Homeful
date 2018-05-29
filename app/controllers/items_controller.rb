@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.recipient_id = params[:recipient_id].to_i
     if @item.save
-      redirect_to recipient_item_path(@recipient, @item)
+      redirect_to recipient_path(@recipient)
     else
       render "recipients/show"
     end
