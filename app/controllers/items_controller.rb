@@ -1,21 +1,27 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update]
+  before_action :set_recipient
 
+  def new
+    @item = Item.new
+    @recipient = Recipient.find(params[:recipient_id])
+  end
 
   def create
     @item = Item.new(item_params)
     @item.recipient_id = params[:recipient_id].to_i
     if @item.save
-      redirect_to item_path(@item)
+      redirect_to recipient_item_path(@recipient, @item)
     else
       render "recipients/show"
     end
+  end
 
-    def show
-     @item
-   end
+  def show
+    @item
+  end
 
-   def edit
+  def edit
     @item
   end
 
@@ -35,7 +41,11 @@ class ItemsController < ApplicationController
   end
 
   def set_item
-    @item = Item.find(params[:item_id])
+    @item = Item.find(params[:id])
+  end
+
+  def set_recipient
+    @recipient = Recipient.find(params[:recipient_id])
   end
 
 end
