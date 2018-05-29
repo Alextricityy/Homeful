@@ -1,10 +1,15 @@
 class LocationsController < ApplicationController
-  before_action :set_recipient, only: :create
+  before_action :set_recipient, only: [:create, :new]
+
+  def new
+   @location = Location.new
+  end
+
 
   def create
     @location = Location.new(location_params)
     @location.recipient = @recipient
-    if @location.safe
+    if @location.save
       redirect_to recipient_path(@recipient)
     else
       render "recipient/show"
@@ -15,7 +20,7 @@ class LocationsController < ApplicationController
   end
 
   def update
-    @location = location.find(params[:location_id])
+    @location = Location.find(params[:location_id])
     @location.address = params[:address]
     @location.save
   end
@@ -24,11 +29,11 @@ class LocationsController < ApplicationController
   private
 
   def set_recipient
-    @recipient = recipient.find(params[:id])
+    @recipient = Recipient.find(params[:recipient_id])
   end
 
   def location_params
-    params.require(:address)
+    params.require(:location).permit(:address)
   end
 
 end
