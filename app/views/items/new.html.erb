@@ -1,0 +1,12 @@
+<div class="container">
+<%= simple_form_for [@recipient, @item] do |f| %>
+<div class="col-xs-6 col-xs-offset-2">
+<%= f.input :title %>
+<%= f.input :description %>
+<%= f.input :category %>
+<%= f.input :cost %>
+<%= f.submit %>
+</div>
+
+<% end %>
+</div>
