@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :recipients do
     resources :locations
-    resources :items, except: [:new]
+    resources :items
   end
 end
