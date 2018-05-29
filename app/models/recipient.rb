@@ -1,5 +1,5 @@
 class Recipient < ApplicationRecord
-  belongs_to :users
+  belongs_to :user
   has_many :items
   has_many :locations
   mount_uploader :photo, PhotoUploader
