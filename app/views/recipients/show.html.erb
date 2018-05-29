@@ -3,7 +3,7 @@
   <%= cl_image_tag @recipient.photo, height: 300, width: 400, crop: :fill %>
   <p><%= @recipient.bio %></p>
   <div class="row">
-    <% @recipient.items.first(4).each do |item| %>
+    <% @recipient.items.each do |item| %>
       <div class="col-md-6 col-xs-12">
         <div class="item-card">
           <h1><%= item.title %></h1>
@@ -31,6 +31,13 @@
           </h3>
           <p><%= item.description %></p>
           <!-- <p><%#= item.contributions %></p> -->
+          <% if item.total_contributions && item.cost %>
+            <div class="performance-container">
+              <% value = ( item.total_contributions.to_f / item.cost.to_f ) * 200 %>
+               <% color = value >= 75 ? "green" : value < 75 && value >= 40 ? "orange" : "red" %>
+              <%= progress_bar(color, value) %>
+            </div>
+          <% end %>
           <p><%= item.total_contributions %></p>
           <p><%= item.cost %></p>
         </div>
