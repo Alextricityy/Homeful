@@ -1,0 +1,16 @@
+<div class="container text-center">
+<%= simple_form_for @recipient do |f| %>
+<div class="col-xs-4 offset-md-4">
+<%= f.input :first_name %>
+<%= f.input :last_name %>
+<%= f.input :bio %>
+<%= f.input :dob %>
+<%= f.input :phone_number %>
+<%= f.input :photo %>
+<%= f.input :photo_cache, as: :hidden %>
+<%= f.input :gender, collection: ["Female", "Male"] %>
+<%= f.submit %>
+</div>
+
+<% end %>
+</div>
