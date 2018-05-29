@@ -1,0 +1,34 @@
+.card {
+  position: relative;
+  margin: 20px 0;
+  box-shadow: 0.3px 0.7px 0.3px 3px #ffffff;
+ // width:  93% !important;
+ padding: 10px;
+}
+
+.card-photo {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-name {
+  padding: 10px;
+  // height: 80px;
+  // font-size: 32px;
+  font-style: thin;
+  font-family: 'Heebo', sans-serif;
+  color: black;
+  background: #e2eaec;
+}
+
+.card-name p {
+  font-size: 15px;
+  color: gray;
+  font-style: thin;
+}
+
+
+.card-name h3 {
+  padding-bottom:20px;
+}

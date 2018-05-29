@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <% Recipient.all.each do |recipient|%>
+      <%link_to recipient %>
+      <div class="col-xs-12 col-sm-3">
+        <div class = "card">
+         <div class="card-photo" style="background-image: url('<%= recipient.photo %>');">
+         </div>
+         <div class="card card-name">
+          <%= recipient.first_name %>
+        </div>
+        <div class="card-info">
+          <%= recipient.bio %>
+        </div>
+      </div>
+    </div>
+    <%end%>
+  </div>
+</div>
+</div>
