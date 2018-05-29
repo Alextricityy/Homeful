@@ -51,4 +51,5 @@ class RecipientsController < ApplicationController
 
   def recipient_params
     params.require(:recipient).permit(:first_name, :last_name, :gender, :dob, :bio, :phone_number, :photo)
+  end
 end

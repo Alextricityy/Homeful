@@ -10,24 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_29_104439) do
+ActiveRecord::Schema.define(version: 2018_05_29_141012) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "contributions", force: :cascade do |t|
     t.integer "amount"
-    t.bigint "users_id"
     t.text "message"
-    t.bigint "items_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["items_id"], name: "index_contributions_on_items_id"
-    t.index ["users_id"], name: "index_contributions_on_users_id"
+    t.bigint "user_id"
+    t.bigint "item_id"
+    t.index ["item_id"], name: "index_contributions_on_item_id"
+    t.index ["user_id"], name: "index_contributions_on_user_id"
   end
 
   create_table "items", force: :cascade do |t|
-    t.bigint "recipients_id"
     t.string "title"
     t.text "description"
     t.string "category"
@@ -36,30 +35,30 @@ ActiveRecord::Schema.define(version: 2018_05_29_104439) do
     t.boolean "purchased", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["recipients_id"], name: "index_items_on_recipients_id"
+    t.bigint "recipient_id"
+    t.index ["recipient_id"], name: "index_items_on_recipient_id"
   end
 
   create_table "locations", force: :cascade do |t|
     t.string "address"
     t.float "latitude"
     t.float "longitude"
-    t.bigint "recipients_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["recipients_id"], name: "index_locations_on_recipients_id"
+    t.bigint "recipient_id"
+    t.index ["recipient_id"], name: "index_locations_on_recipient_id"
   end
 
   create_table "payments", force: :cascade do |t|
     t.integer "amount"
     t.string "status"
-    t.bigint "contributions_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["contributions_id"], name: "index_payments_on_contributions_id"
+    t.bigint "location_id"
+    t.index ["location_id"], name: "index_payments_on_location_id"
   end
 
   create_table "recipients", force: :cascade do |t|
-    t.bigint "users_id"
     t.string "first_name"
     t.string "last_name"
     t.string "gender"
@@ -69,7 +68,8 @@ ActiveRecord::Schema.define(version: 2018_05_29_104439) do
     t.string "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["users_id"], name: "index_recipients_on_users_id"
+    t.bigint "user_id_id"
+    t.index ["user_id_id"], name: "index_recipients_on_user_id_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -99,10 +99,4 @@ ActiveRecord::Schema.define(version: 2018_05_29_104439) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "contributions", "items", column: "items_id"
-  add_foreign_key "contributions", "users", column: "users_id"
-  add_foreign_key "items", "recipients", column: "recipients_id"
-  add_foreign_key "locations", "recipients", column: "recipients_id"
-  add_foreign_key "payments", "contributions", column: "contributions_id"
-  add_foreign_key "recipients", "users", column: "users_id"
 end
