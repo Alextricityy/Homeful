@@ -12,6 +12,7 @@ gem 'redis'
 
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
+gem 'simple_form'
 
 
 gem 'autoprefixer-rails'
