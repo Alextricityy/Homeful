@@ -1,0 +1,19 @@
+
+
+<div class="container-user">
+  <h1><%= @user.first_name.capitalize %>'s Profile</h1>
+    <div class="element">
+      <% if @user_photo %>
+        <%= image_path @user.photo, class: "avatar" %>
+      <% else %>
+        <%= image_tag 'logo.jpg', class: "avatar" %>
+      <% end %>
+    </div>
+    <div class="element">
+      <p> Name: <%= @user.first_name.capitalize%> <%=@user.last_name[0].upcase%>  </p>
+    </div>
+      <div class="element">
+      <p> Bio: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat beatae natus animi maxime sapiente voluptatum labore unde dolorum veniam rem, quae dolorem quod inventore non sint nihil, rerum ea dolores?</p>
+    </div>
+</div>
+
