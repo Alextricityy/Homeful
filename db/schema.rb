@@ -10,10 +10,67 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_28_081254) do
+ActiveRecord::Schema.define(version: 2018_05_29_104439) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "contributions", force: :cascade do |t|
+    t.integer "amount"
+    t.bigint "users_id"
+    t.text "message"
+    t.bigint "items_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["items_id"], name: "index_contributions_on_items_id"
+    t.index ["users_id"], name: "index_contributions_on_users_id"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.bigint "recipients_id"
+    t.string "title"
+    t.text "description"
+    t.string "category"
+    t.integer "cost"
+    t.integer "total_contributions"
+    t.boolean "purchased", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipients_id"], name: "index_items_on_recipients_id"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.bigint "recipients_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipients_id"], name: "index_locations_on_recipients_id"
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.integer "amount"
+    t.string "status"
+    t.bigint "contributions_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contributions_id"], name: "index_payments_on_contributions_id"
+  end
+
+  create_table "recipients", force: :cascade do |t|
+    t.bigint "users_id"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "gender"
+    t.string "dob"
+    t.text "bio"
+    t.string "phone_number"
+    t.string "photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["users_id"], name: "index_recipients_on_users_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,8 +85,24 @@ ActiveRecord::Schema.define(version: 2018_05_28_081254) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.date "dob"
+    t.boolean "volunteer", default: false
+    t.text "bio"
+    t.string "gender"
+    t.string "postcode"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "photo"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "contributions", "items", column: "items_id"
+  add_foreign_key "contributions", "users", column: "users_id"
+  add_foreign_key "items", "recipients", column: "recipients_id"
+  add_foreign_key "locations", "recipients", column: "recipients_id"
+  add_foreign_key "payments", "contributions", column: "contributions_id"
+  add_foreign_key "recipients", "users", column: "users_id"
 end
