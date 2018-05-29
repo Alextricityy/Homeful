@@ -1,19 +1,42 @@
 <div class="container">
-<h1><%= @recipient.first_name %></h1>
-<%= cl_image_tag @recipient.photo, height: 300, width: 400, crop: :fill %>
-<p><%= @recipient.bio %></p>
-<div class="row">
-<% @recipient.items.each do |item| %>
-<div class="col-md-4 col-sm-6 col-xs-12">
-<div class="item-card">
-  <h1><%= item.title %></h1>
-  <h3><%= item.category %></h3>
-  <p><%= item.description %></p>
-  <p><%= item.total_contributions %></p>
-  <p><%= item.cost %></p>
+  <h1><%= @recipient.first_name %></h1>
+  <%= cl_image_tag @recipient.photo, height: 300, width: 400, crop: :fill %>
+  <p><%= @recipient.bio %></p>
+  <div class="row">
+    <% @recipient.items.first(4).each do |item| %>
+      <div class="col-md-6 col-xs-12">
+        <div class="item-card">
+          <h1><%= item.title %></h1>
+          <h3>
+            <!-- cateogory logic -->
+            <%= item.category %>
+            <%  if item.category == "Animal" %>
+              <i class="fas fa-paw"></i>
+            <% elsif item.category == "Living" %>
+              <i class="fas fa-home"></i>
+            <% elsif item.category == "Food" %>
+              <i class="fas fa-utensils"></i>
+            <% elsif item.category == "Health" %>
+              <i class="fas fa-medkit"></i>
+            <% elsif item.category == "Education" %>
+              <i class="fas fa-book"></i>
+            <% elsif item.category == "Transport" %>
+              <i class="fas fa-bus"></i>
+            <% elsif item.category == "Leisure" %>
+              <i class="fas fa-futbol"></i>
+            <% else %>
+              <i class="fas fa-bomb"></i>
+            <% end %>
+            <!-- cateogory logic -->
+          </h3>
+          <p><%= item.description %></p>
+          <!-- <p><%#= item.contributions %></p> -->
+          <p><%= item.total_contributions %></p>
+          <p><%= item.cost %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to "new item test", new_recipient_item_path(@recipient) %>
 </div>
-</div>
-  <% end %>
-</div>
-<%= link_to "new item test", new_recipient_item_path(@recipient) %>
-</div>
+

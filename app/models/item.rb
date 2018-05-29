@@ -3,6 +3,6 @@ class Item < ApplicationRecord
   has_many :contributions
   validates :title, presence: true
   validates :description, presence: true
-  validates :category, presence: true
+  validates :category, presence: true, inclusion: { in: ["Living", "Food", "Health", "Animal", "Education", "Transport", "Leisure"]}
   validates :cost, presence: true
 end
