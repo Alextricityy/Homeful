@@ -1,0 +1,26 @@
+.performance-container {
+  width: 200px;
+  background-color: rgb(220,220,220);
+  display: flex;
+  align-items: center;
+}
+
+.performance-rate {
+  margin-left: 10px;
+}
+
+.performance-bar {
+  height: 25px;
+}
+
+.performance-bar-green {
+  background-color: green;
+}
+
+.performance-bar-red {
+  background-color: red;
+}
+
+.performance-bar-orange {
+  background-color: orange;
+}
