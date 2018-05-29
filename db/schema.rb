@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_29_141012) do
+ActiveRecord::Schema.define(version: 2018_05_29_143420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,8 +68,8 @@ ActiveRecord::Schema.define(version: 2018_05_29_141012) do
     t.string "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id_id"
-    t.index ["user_id_id"], name: "index_recipients_on_user_id_id"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_recipients_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
