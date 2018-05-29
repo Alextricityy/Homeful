@@ -1,8 +1,20 @@
 <div class="container">
   <div class="row">
+    <div class="col-xs-12 col-sm-3">
+      <div class="map-homeful">
+        <div
+          id="map"
+          style="width:90%;
+          height: 300px;"
+          data-markers="<%= @markers.to_json %>"
+        ></div>
+      </div>
+    </div>
+  </div>
+  <div class = "row">
     <div class="col-xs-12">
       <% Recipient.all.each do |recipient|%>
-      <%link_to recipient %>
+      <%=link_to recipient do%>
       <div class="col-xs-12 col-sm-3">
         <div class = "card">
          <div class="card-photo" style="background-image: url('<%= recipient.photo %>');">
@@ -15,6 +27,7 @@
         </div>
       </div>
     </div>
+    <%end%>
     <%end%>
   </div>
 </div>
