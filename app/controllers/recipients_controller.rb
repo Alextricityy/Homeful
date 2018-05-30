@@ -2,15 +2,25 @@ class RecipientsController < ApplicationController
   before_action :set_recipient, except: [:new, :index, :create]
 
   def index
-    @recipients = Recipient.all
-  end
+    @recipients = Recipient.all.select {|recipient| recipient.locations.count > 0}
+    @markers = @recipients.map do |recipient|
+     recipient.locations.map do |location|
+      {
+        lat: location.latitude,
+        lng: location.longitude,
+        infoWindow: { content: render_to_string(partial: "shared/info_window", locals: { recipient: recipient }) } }
 
-  def new
-    @recipient = Recipient.new
+    end
   end
+  @markers = @markers.first
+end
 
-  def create
-    @recipient = Recipient.new(recipient_params)
+def new
+  @recipient = Recipient.new
+end
+
+def create
+  @recipient = Recipient.new(recipient_params)
     # authorize @recipient
     @recipient.user = current_user
     if @recipient.save
