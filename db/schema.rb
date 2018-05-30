@@ -10,18 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_29_141012) do
+
+ActiveRecord::Schema.define(version: 2018_05_30_134740) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "contributions", force: :cascade do |t|
-    t.integer "amount"
     t.text "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.bigint "item_id"
+    t.string "item_sku"
+    t.integer "amount_cents", default: 0, null: false
+    t.jsonb "payment"
     t.index ["item_id"], name: "index_contributions_on_item_id"
     t.index ["user_id"], name: "index_contributions_on_user_id"
   end
@@ -30,12 +34,12 @@ ActiveRecord::Schema.define(version: 2018_05_29_141012) do
     t.string "title"
     t.text "description"
     t.string "category"
-    t.integer "cost"
-    t.integer "total_contributions"
     t.boolean "purchased", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "recipient_id"
+    t.integer "price_cents", default: 0, null: false
+    t.integer "total_contributions", default: 0
     t.index ["recipient_id"], name: "index_items_on_recipient_id"
   end
 
