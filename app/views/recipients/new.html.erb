@@ -1,16 +1,18 @@
 <div class="container">
+  <div class="col-xs-6 col-xs-offset-3">
+    <h2> Add a New Person in Need </h2>
 <%= simple_form_for @recipient do |f| %>
-<div class="col-xs-6 col-xs-offset-2">
+
 <%= f.input :first_name %>
 <%= f.input :last_name %>
-<%= f.input :bio %>
+<%= f.input :bio, hint: ("100 characters minimum"), input_html: {minlength:100} %>
 <%= f.input :dob %>
 <%= f.input :phone_number %>
 <%= f.input :photo %>
 <%= f.input :photo_cache, as: :hidden %>
 <%= f.input :gender, collection: ["Female", "Male"] %>
 <%= f.fields_for @location do |fields| %>
-   <%= fields.input :address %>
+   <%= fields.input :address, label: "Primary Location" %>
   <% end %>
 <%= f.submit %>
 <% end %>
