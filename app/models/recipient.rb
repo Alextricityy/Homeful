@@ -8,6 +8,6 @@ class Recipient < ApplicationRecord
   validates :first_name, presence:true
   validates :gender, presence:true , inclusion: { in: %w(Male Female)}
   validates :dob, presence:true
-  validates :bio, presence:true
+  validates :bio, presence:true, length: { minimum: 100 }
   validates :photo, presence:true
 end

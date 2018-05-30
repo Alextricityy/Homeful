@@ -34,7 +34,6 @@ def create
       # authorize @recipient
       redirect_to recipient_path(@recipient)
     else
-      raise
       render "new"
     end
   end
@@ -59,8 +58,14 @@ def create
   end
 
   def show
-    # authorize @recipient
-    # @items = @recipient.items
+    @markers = []
+    @recipient.locations.each do |location|
+      hash = {
+        lat: location.latitude,
+        lng: location.longitude
+      }
+      @markers << hash
+    end
   end
 
   private
