@@ -1,28 +1,34 @@
 <div class="container-show">
   <div class="wrapper">
     <div class="container">
-      <div class="text-box">
-       <!--  <div class="row">
-          <div class="col-xs-8 col-xs-offset-2"> -->
-            <h1> <%= @user.first_name.capitalize%> <%=@user.last_name[0].upcase%>  </h1>
-            <div class="profile-avatar">
-                <% if @user.photo %>
-                  <%= cl_image_tag @user.photo, height: 150, width: 200, crop: :fill%></div>
-                <% else %>
-                  <%= image_tag 'logo.jpg' %>
-                <% end %>
-            </div>
-            <p> <%= @user.bio%></p>
 
+         <div class="profile-avatar">
+            <% if @user.photo %>
+              <%= cl_image_tag @user.photo%>
+            <% else %>
+              <%= image_tag 'logo.jpg' %>
+            <% end %>
+          </div>
 
-
-         <!--  </div>
-        </div> -->
+            <div class="avatar-text"> <%= @user.first_name.capitalize%> <%=@user.last_name[0].upcase%>.  </div>
+            <div class="text-box">
+              <p>Date Of Birth: <%= @user.dob %></p>
+              <p>Email: <%= @user.email %></p>
+              <p>Bio: <%= @user.bio%></p>
       </div>
-     </div>
-   </div>
+    </div>
 
-  <h2> <%= @user.first_name.capitalize %> is responsible for the following recipients:</h2>
+    <div class="profile-items">
+      <%= link_to 'edit profile', edit_user_path %>
+      <%= link_to 'logout', destroy_user_session_path %>
+      delete profile
+
+    </div>
+  </div>
+</div>
+
+
+  <h3> <%= @user.first_name.capitalize %> is responsible for the following recipients:</h3>
 
   <div class="container-index">
     <div class="row">
@@ -31,14 +37,14 @@
           <div class="col-xs-12 col-sm-4">
             <div class="card">
               <%= link_to recipient, class: "card-link" do%>
-                <% if @recipient.photo %>
+                <% if recipient.photo %>
                   <% photo_url = cl_image_path recipient.photo %>
                 <% else %>
                   <% photo_url = "url('https://goo.gl/images/GPguPA')" %>
                 <% end %>
                 <div class="card-photo" style="background-image: url('<%= photo_url %>');"></div>
                 <div class="card-name">
-                  <h3><%= @recipient.name.capitalize %></h3>
+                  <h3><%= recipient.first_name.capitalize %></h3>
                 </div>
                 <div class="card-info">
                   <p><%=h truncate(recipient.bio, length: 200) %></p>
