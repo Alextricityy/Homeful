@@ -3,8 +3,8 @@
 <div class="col-xs-6 col-xs-offset-2">
 <%= f.input :title %>
 <%= f.input :description %>
-<%= f.input :category %>
-<%= f.input :cost %>
+<%= f.input :category, collection: ["Living", "Food", "Health", "Animal", "Education", "Transport", "Leisure"]%>
+<%= f.input :price_cents, label: "Price in Pounds" %>
 <%= f.submit %>
 </div>
 

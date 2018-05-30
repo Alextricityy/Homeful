@@ -60,6 +60,7 @@ def create
 
   def show
     # authorize @recipient
+    # @items = @recipient.items
   end
 
   private

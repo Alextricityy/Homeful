@@ -7,8 +7,20 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
 }
 
+.blue-link {
+  background-color: #0D7377;
+  padding: 15px;
+  border-radius: 6px;
+
+}
+.blue-link2{
+  background-color: #0D7377;
+  padding: 15px;
+  border-radius: 6px;
+}
 /* Logo */
 .navbar-wagon-brand img {
   height: 50px;
@@ -25,9 +37,9 @@
 .navbar-wagon-right {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  // width: 600px;
-  margin-right: 300px;
+  justify-content: flex-end;
+  width: 900px;
+  // margin-right: 300px;
 }
 
 /* Basic navbar item */
@@ -38,8 +50,9 @@
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: #616668;
+    color: white;
   font-size: 14px;
+
 }
 .navbar-wagon-link:hover {
   color: #0D7377;
@@ -80,7 +93,7 @@
   color: #0D7377 !important;
   font-size:18px;
   a{
-    color: black !important;
+    // color: black !important;
     font-family: sans-serif;
     opacity:0.8;
     text-decoration:none;
