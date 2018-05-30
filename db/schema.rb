@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2018_05_30_134740) do
+ActiveRecord::Schema.define(version: 2018_05_30_141548) do
 
 
   # These are extensions that must be enabled in order to support this database
@@ -50,6 +49,7 @@ ActiveRecord::Schema.define(version: 2018_05_30_134740) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "recipient_id"
+    t.boolean "primary"
     t.index ["recipient_id"], name: "index_locations_on_recipient_id"
   end
 
