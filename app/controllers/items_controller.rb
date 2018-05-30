@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.recipient_id = params[:recipient_id].to_i
+    @item.price_cents = @item.price_cents * 100
     if @item.save
       redirect_to recipient_path(@recipient)
     else
@@ -37,7 +38,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:title, :description, :category, :cost)
+    params.require(:item).permit(:title, :description, :category, :price_cents)
   end
 
   def set_item

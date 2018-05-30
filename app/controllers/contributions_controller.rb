@@ -10,13 +10,17 @@ class ContributionsController < ApplicationController
   def create
     @contribution = Contribution.new(contribution_params)
     @contribution.amount_cents = @contribution.amount_cents * 100
+    @recipient = Recipient.find(params[:recipient_id])
+
     # authorize @contribution
       # order  = Order.create!(teddy_sku: teddy.sku, amount: teddy.price, state: 'pending', user: current_user)
 
     @contribution.user = current_user
     @contribution.item = @item
     if @contribution.save
-      redirect_to recipient_item_contribution_path(@contribution)
+      @item.total_contributions += @contribution.amount_cents
+      @item.save
+      redirect_to recipient_item_contribution_path(@recipient, @item, @contribution)
     else
       render "new"
     end
@@ -49,7 +53,7 @@ class ContributionsController < ApplicationController
   private
 
   def set_contribution
-    @contribution = contribution.find(params[:id])
+    @contribution = Contribution.find(params[:id])
   end
 
   def contribution_params

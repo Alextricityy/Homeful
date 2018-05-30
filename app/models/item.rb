@@ -5,5 +5,5 @@ class Item < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true
   validates :category, presence: true, inclusion: { in: ["Living", "Food", "Health", "Animal", "Education", "Transport", "Leisure"]}
-  validates :cost, presence: true
+  validates :price_cents, presence: true
 end
