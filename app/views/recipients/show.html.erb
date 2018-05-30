@@ -31,18 +31,19 @@
           </h3>
           <p><%= item.description.capitalize %></p>
           <!-- <p><%#= item.contributions %></p> -->
-          <% if item.total_contributions && item.cost %>
+          <% if item.total_contributions && item.price %>
+          <p><%= item.total_contributions %> raised out of <%= humanized_money_with_symbol(item.price) %></p>
             <div class="performance-container">
-              <% value = ( item.total_contributions.to_f / item.cost.to_f ) * 200 %>
+              <% value = ( item.total_contributions.to_f / item.price.to_f ) * 200 %>
                <% color = value >= 75 ? "green" : value < 75 && value >= 40 ? "orange" : "red" %>
               <%= progress_bar(color, value) %>
             </div>
           <% end %>
-          <p>$<%= item.cost/1000 %></p>
+          <%= link_to "Make a Contribution", new_recipient_item_contribution_path(@recipient, item) %>
         </div>
       </div>
     <% end %>
   </div>
-  <%= link_to "new item test", new_recipient_item_path(@recipient) %>
+  <%= link_to "Add A New Item For #{@recipient.first_name.capitalize}", new_recipient_item_path(@recipient) %>
 </div>
 

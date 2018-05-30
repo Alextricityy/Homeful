@@ -1,0 +1,5 @@
+<%= simple_form_for [@recipient, @item, @contribution] do |f| %>
+<%= f.input :amount_cents %>
+<%= f.input :message %>
+<%= f.submit %>
+<% end %>
