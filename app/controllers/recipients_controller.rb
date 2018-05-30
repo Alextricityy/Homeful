@@ -27,6 +27,7 @@ def create
   @recipient = Recipient.new(recipient_params)
   @recipient.user = current_user
   @location = Location.new(address: params[:recipient][:location][:address])
+  @location.primary = true
   @location.save
   @recipient.locations << @location
     if @recipient.save
