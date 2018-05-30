@@ -9,8 +9,11 @@
 <%= f.input :photo %>
 <%= f.input :photo_cache, as: :hidden %>
 <%= f.input :gender, collection: ["Female", "Male"] %>
+<%= f.fields_for @location do |fields| %>
+   <%= fields.input :address %>
+  <% end %>
 <%= f.submit %>
+<% end %>
 </div>
 
-<% end %>
 </div>

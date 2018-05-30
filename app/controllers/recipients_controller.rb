@@ -3,29 +3,37 @@ class RecipientsController < ApplicationController
 
   def index
     @recipients = Recipient.all.select {|recipient| recipient.locations.count > 0}
-    @markers = @recipients.map do |recipient|
-     recipient.locations.map do |location|
-      {
+    @markers = []
+    @recipients.each do |recipient|
+     recipient.locations.each do |location|
+      hash = {
         lat: location.latitude,
         lng: location.longitude,
-        infoWindow: { content: render_to_string(partial: "shared/info_window", locals: { recipient: recipient }) } }
-
+        infoWindow: { content: render_to_string(partial: "shared/info_window", locals: { recipient: recipient }) }
+      }
+      @markers << hash
     end
   end
-  @markers = @markers.first
+  # @markers = @markers.first
+  # raise
 end
 
 def new
   @recipient = Recipient.new
+  @location = Location.new
 end
 
 def create
   @recipient = Recipient.new(recipient_params)
-    # authorize @recipient
-    @recipient.user = current_user
+  @recipient.user = current_user
+  @location = Location.new(address: params[:recipient][:location][:address])
+  @location.save
+  @recipient.locations << @location
     if @recipient.save
+      # authorize @recipient
       redirect_to recipient_path(@recipient)
     else
+      raise
       render "new"
     end
   end
@@ -62,4 +70,9 @@ def create
   def recipient_params
     params.require(:recipient).permit(:first_name, :last_name, :gender, :dob, :bio, :phone_number, :photo)
   end
+
+  # def location_params
+  #   params.require(:recipient).permit(:locations_attributes)
+  # end
+
 end
