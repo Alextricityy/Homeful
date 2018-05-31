@@ -42,6 +42,8 @@ class RecipientsController < ApplicationController
   def show
     # authorize @recipient
     # @items = @recipient.items
+    @contribution = Contribution.new
+
   end
 
   private

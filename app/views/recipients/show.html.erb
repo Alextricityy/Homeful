@@ -39,7 +39,11 @@
               <%= progress_bar(color, value) %>
             </div>
           <% end %>
-          <%= link_to "Make a Contribution", new_recipient_item_contribution_path(@recipient, item) %>
+          <%= simple_form_for [@recipient, item, @contribution] do |f| %>
+          <%= f.input :amount_cents, label: "Amount In Pounds" %>
+          <%= f.submit label: "Make a Contribution" %>
+          <% end %>
+          <%#= link_to "Make a Contribution", new_recipient_item_contribution_path(@recipient, item) %>
         </div>
       </div>
     <% end %>
