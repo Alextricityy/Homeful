@@ -55,6 +55,18 @@
   position: relative;
 }
 .button{
-      border-radius: 6px;
-      background-color: white;
+  padding: 10px;
+  border-color: #bb4f4f;
+  text-decoration: none;
+  border: 1px white solid;
+  border-radius: 2px;
+  color: white;
+  font-weight: lighter;
+  transition: .3s;
+}
+
+.button:hover {
+  text-decoration: none;
+  background-color: white;
+  color: black;
 }
