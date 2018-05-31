@@ -10,7 +10,7 @@
 <%= f.input :phone_number %>
 <%= f.input :photo %>
 <%= f.input :photo_cache, as: :hidden %>
-<%= f.input :gender, collection: ["Female", "Male"] %>
+<%= f.input :gender, collection: ["Female", "Male", "Other"] %>
 <%= f.fields_for @location do |fields| %>
    <%= fields.input :address, label: "Primary Location" %>
   <% end %>

@@ -146,8 +146,10 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
   const markers = JSON.parse(mapElement.dataset.markers);
   let particularMarker = markers[0]
   // let collection = markers.rest;
-  map.addMarker(particularMarker, { fillColor: 'blue' });
+  // map.addMarker(particularMarker, { fillColor: 'blue' });
   // map.addMarkers(collection);
+  map.addMarkers(markers);
+  console.log(markers.length)
   if (markers.length === 0) {
     map.setZoom(2);
   } else if (markers.length === 1) {

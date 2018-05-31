@@ -9,8 +9,18 @@ class UsersController < ApplicationController
 
   def show
 
-    # @recipients = @user.recipients
-    # raise
+    @recipients = @user.recipients
+    locations = []
+    @recipients.each do |recipient|
+      locations << recipient.locations
+    end
+    @markers = locations.map do |location|
+      {
+        lat: location[0].latitude,
+        lng: location[0].longitude#,
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }
+    end
   end
 
   def edit
