@@ -35,8 +35,8 @@ location2 = Location.create!(recipient: tim, address: "E2 9DY")
 location3 = Location.create!(recipient: tim, address: "E2 3DY")
 puts "creating items"
 
-Item.create!(recipient: tim, title: "sleeping bag", category: "household", price_cents: "5000")
-Item.create!(recipient: gio, title: "panini", category: "education", price_cents: "500")
+Item.create!(recipient: tim, title: "sleeping bag", category: "Living", price_cents: "5000", description: "warm and fluffy")
+Item.create!(recipient: gio, title: "panini", category: "Leisure", price_cents: "500", description: "it's.... food?")
 
 puts "all done, go team!"
 
