@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :recipients do
     resources :locations
     resources :items do
-      resources :contributions, only: [:create, :new, :show] do
+      resources :contributions, only: [:create, :new, :show, :update] do
          resources :payments, only: [:new, :create]
       end
     end
