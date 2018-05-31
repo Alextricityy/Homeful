@@ -1,6 +1,6 @@
 <div class="container">
+  <div class="col-xs-6 col-xs-offset-3">
 <%= simple_form_for [@recipient, @item] do |f| %>
-<div class="col-xs-6 col-xs-offset-2">
 <%= f.input :title %>
 <%= f.input :description %>
 <%= f.input :category, collection: ["Living", "Food", "Health", "Animal", "Education", "Transport", "Leisure"]%>
