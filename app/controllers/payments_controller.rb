@@ -39,11 +39,11 @@ private
   end
 
   def set_recipient
-    @recipient = Recipient.find(@contribution.item.recipient_id)
+    @recipient = Recipient.find(params[:recipient_id])
   end
 
   def set_item
-    @item = Item.find(@contribution.item_id)
+    @item = Item.find(params[:item_id])
   end
 
 end

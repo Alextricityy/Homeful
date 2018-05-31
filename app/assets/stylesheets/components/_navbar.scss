@@ -7,11 +7,19 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  z-index: 10000;
 }
+
+.navbar-wagon-white {
+  background-color: white;
+  color: black;
+  z-index: -1; position:relative;
+}
+
 .navbar-home {
-  position: fixed;
+  position: absolute;
   box-shadow: none;
+  width: 100%;
 }
 .blue-link {
   // background-color: #dee0e0;
@@ -64,7 +72,7 @@
 
 /* Navbar link */
 .navbar-wagon-link {
-    // color: white;
+    color: white;
   font-size: 14px;
 
 }
@@ -134,7 +142,7 @@
   font-size: 14px;
 }
 .search-input{
-  height:25px !important;
+  // height:25px !important;
 }
 
 #search-form{
@@ -192,3 +200,5 @@ border-radius: 6px;
       opacity: 1; /* Firefox */
   }
 }
+
+

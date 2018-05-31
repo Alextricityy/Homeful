@@ -19,6 +19,8 @@ gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
 gem 'money-rails'
 gem 'stripe'
+gem 'pg_search'
+
 
 
 gem 'autoprefixer-rails'
