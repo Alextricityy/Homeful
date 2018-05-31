@@ -59,17 +59,15 @@ def create
 
   def show
     @markers = []
-    @primary = []
     @recipient.locations.each do |location|
       hash = {
         lat: location.latitude,
         lng: location.longitude
       }
-      #if location.primary == true
-      #  @primary << hash
-      #else
+      if location.primary == true
+      hash[:type] = "primary"
+     end
         @markers << hash
-      #end
     end
   end
 
