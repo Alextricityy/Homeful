@@ -153,7 +153,7 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
           map: map,
           icon: {
             url: "http://www.clker.com/cliparts/R/g/O/v/U/h/google-maps-marker-for-residencelamontagne-hi.png",
-            scaledSize: new google.maps.Size(28, 42)
+            scaledSize: new google.maps.Size(27, 43)
           }
         });
         map.addMarker(marker1)  //'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
