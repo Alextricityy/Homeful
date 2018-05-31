@@ -1,1 +1,6 @@
-<h1>hello</h1>
+<h1>You've Paid <%= @contribution.amount_cents / 100.0 %></h1>
+<h3>Leave a message for <%= @recipient.first_name %></h3>
+<%= simple_form_for @contribution, url: recipient_item_contribution_path, method: :patch do |f|%>
+<%=  f.input :message%>
+<%= f.submit %>
+<% end %>

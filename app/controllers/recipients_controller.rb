@@ -2,6 +2,34 @@ class RecipientsController < ApplicationController
   before_action :set_recipient, except: [:new, :index, :create]
 
   def index
+     if params[:search].present? && params[:location].present?
+      search_recipients = Recipient.search_everything(params[:search])
+      recipients = Recipient.locations.first.near(params[:location], 20)
+      location_recipients = []
+      recipients.each do |u|
+        u.recipients.each do |d|
+          location_recipients << d
+        end
+      end
+      @recipients = search_recipients & location_recipients
+
+    elsif params[:location].present?
+      locations = Location.near(params[:location], 20)
+      location_recipients = []
+      locations.each do |u|
+        u.recipient.each do |d|
+          location_recipients << d
+        end
+      end
+      @recipients = location_recipients
+
+    elsif params[:search].present?
+      @recipients = Recipient.search_everything(params[:search])
+    else
+      @recipients = Recipient.all
+    end
+
+    # locations
     @recipients = Recipient.all.select {|recipient| recipient.locations.count > 0}
     @markers = []
     @recipients.each do |recipient|
@@ -58,19 +86,20 @@ def create
   end
 
   def show
+    @contribution = Contribution.new
+
     @markers = []
-    @primary = []
     @recipient.locations.each do |location|
       hash = {
         lat: location.latitude,
         lng: location.longitude
       }
-      #if location.primary == true
-      #  @primary << hash
-      #else
+      if location.primary == true
+      hash[:type] = "primary"
+     end
         @markers << hash
-      #end
     end
+
   end
 
   private
@@ -80,7 +109,7 @@ def create
   end
 
   def recipient_params
-    params.require(:recipient).permit(:first_name, :last_name, :gender, :dob, :bio, :phone_number, :photo)
+    params.require(:recipient).permit(:first_name, :last_name, :gender, :date_of_birth, :bio, :phone_number, :photo)
   end
 
   # def location_params
