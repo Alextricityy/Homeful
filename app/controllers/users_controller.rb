@@ -1,3 +1,4 @@
+
 class UsersController < ApplicationController
 
   before_action :set_user, except: [:index]
@@ -37,7 +38,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :bio, :email, :dob,  )
+    params.require(:user).permit(:first_name, :last_name, :bio, :email, :date_of_birth)
   end
 
 

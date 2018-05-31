@@ -49,15 +49,16 @@ class ContributionsController < ApplicationController
   #   # authorize @contribution
   # end
 
-  # def update
-  #   # authorize @contribution
-  #   @contribution.update(contribution_params)
-  #   if @contribution.save
-  #     redirect_to contribution_path
-  #   else
-  #     render "edit"
-  #   end
-  # end
+  def update
+    # authorize @contribution
+    @contribution = current_user.contributions.where(state: 'paid').find(params[:id])
+    @contribution.update(message:params["contribution"][:message])
+    if @contribution.save
+      redirect_to recipient_item_path(params["recipient_id"], params["item_id"])
+    else
+      render "show"
+    end
+  end
 
   # def destroy
   #   # authorize @contribution
@@ -67,6 +68,7 @@ class ContributionsController < ApplicationController
   def show
     # authorize @contribution
     @contribution = current_user.contributions.where(state: 'paid').find(params[:id])
+    @recipient = Recipient.find(params[:recipient_id])
   end
 
   private

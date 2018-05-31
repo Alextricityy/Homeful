@@ -1,1 +1,33 @@
 <h1>hello</h1>
+<h1><%= @item.title %></h1>
+<h3><%= @item.description %></h3>
+<h3><%= @item.category %>
+ <%  if @item.category == "Animal" %>
+ <i class="fas fa-paw"></i>
+ <% elsif @item.category == "Living" %>
+ <i class="fas fa-home"></i>
+ <% elsif @item.category == "Food" %>
+ <i class="fas fa-utensils"></i>
+ <% elsif @item.category == "Health" %>
+ <i class="fas fa-medkit"></i>
+ <% elsif @item.category == "Education" %>
+ <i class="fas fa-book"></i>
+ <% elsif @item.category == "Transport" %>
+ <i class="fas fa-bus"></i>
+ <% elsif @item.category == "Leisure" %>
+ <i class="fas fa-futbol"></i>
+ <% else %>
+ <i class="fas fa-bomb"></i>
+ <% end %></h3>
+ <h3><%= humanized_money_with_symbol(@item.total_contributions / 100.0) %> raised out of</h3>
+   <div class="performance-container">
+              <% value = ( @item.total_contributions.to_f / @item.price_cents.to_f ) * 200 %>
+               <% color = value >= 75 ? "green" : value < 75 && value >= 40 ? "orange" : "red" %>
+              <%= progress_bar(color, value) %>
+            </div>
+ <h3><%= humanized_money_with_symbol(@item.price_cents/100.0) %></h3>
+ <% @item.contributions.where(state: "paid").each do |contribution| %>
+  <h3><%= User.find(contribution.user_id).first_name.capitalize %> Paid <%= humanized_money_with_symbol(contribution.amount_cents / 100.0) %></h3>
+  <h3><%= contribution.message %></h3>
+<% end %>
+<%= link_to  "Go Back", recipient_path(@recipient) %>
