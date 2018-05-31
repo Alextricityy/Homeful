@@ -1,0 +1,16 @@
+
+// Specific CSS for your home-page
+.slick-slider {
+  z-index: 10;
+}
+.slick-next:before{
+    content: '→';
+    background: transparent !important;
+    color: black !important;
+}
+.slick-prev:before {
+    content: '→';
+    background: transparent !important;
+    color: black !important;
+    font-size: 23px;
+}

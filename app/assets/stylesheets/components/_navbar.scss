@@ -12,6 +12,7 @@
 .navbar-home {
   position: fixed;
   box-shadow: none;
+  width: 100%;
 }
 .blue-link {
   // background-color: #dee0e0;
@@ -134,7 +135,7 @@
   font-size: 14px;
 }
 .search-input{
-  height:25px !important;
+  // height:25px !important;
 }
 
 #search-form{
