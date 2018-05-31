@@ -58,6 +58,8 @@ def create
   end
 
   def show
+    @contribution = Contribution.new
+
     @markers = []
     @recipient.locations.each do |location|
       hash = {
@@ -69,6 +71,7 @@ def create
      end
         @markers << hash
     end
+
   end
 
   private
