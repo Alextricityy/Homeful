@@ -12,16 +12,16 @@
 
             <div class="avatar-text"> <%= @user.first_name.capitalize%> <%=@user.last_name[0].upcase%>.  </div>
             <div class="text-box">
-              <p>Date Of Birth: <%= @user.dob %></p>
+              <p>Date Of Birth: <%= @user.date_of_birth %></p>
               <p>Email: <%= @user.email %></p>
               <p>Bio: <%= @user.bio%></p>
       </div>
     </div>
 
     <div class="profile-items">
-      <%= link_to 'edit profile', edit_user_path %>
+      <%= link_to 'edit profile', edit_user_registration_path %>
       <%= link_to 'logout', destroy_user_session_path %>
-      delete profile
+      <%= link_to 'delete profile', user_registration_path, method: :delete%>
 
     </div>
   </div>

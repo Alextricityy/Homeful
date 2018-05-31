@@ -1,6 +1,9 @@
 import GMaps from 'gmaps/gmaps.js';
+import { autocomplete } from '../components/autocomplete';
 
 const mapElement = document.getElementById('map');
+
+
 
 
 const style= [
@@ -144,7 +147,26 @@ const style= [
 if (mapElement) { // don't try to build a map if there's no div#map to inject in
   const map = new GMaps({ el: '#map', lat: 0, lng: 0 });
   const markers = JSON.parse(mapElement.dataset.markers);
-  map.addMarkers(markers);
+  //let particularMarker = markers[0]
+  // let collection = markers.rest;
+  markers.forEach(function(marker) {
+     if (marker.type === "primary") {
+        var marker1 = new google.maps.Marker({
+          position: {lat: marker.lat, lng: marker.lng},
+          map: map,
+          icon: {
+            url: "http://www.clker.com/cliparts/R/g/O/v/U/h/google-maps-marker-for-residencelamontagne-hi.png",
+            scaledSize: new google.maps.Size(27, 43)
+          }
+        });
+        map.addMarker(marker1)  //'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+      } else {
+        map.addMarker(marker);
+      }
+  });
+
+
+  // map.addMarkers(collection);
   if (markers.length === 0) {
     map.setZoom(2);
   } else if (markers.length === 1) {
@@ -165,3 +187,5 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
 
   map.setStyle('map_style')
 }
+
+autocomplete();

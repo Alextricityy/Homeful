@@ -6,16 +6,16 @@ class RecipientsController < ApplicationController
     @markers = []
     @recipients.each do |recipient|
      recipient.locations.each do |location|
-      hash = {
-        lat: location.latitude,
-        lng: location.longitude,
-        infoWindow: { content: render_to_string(partial: "shared/info_window", locals: { recipient: recipient }) }
-      }
-      @markers << hash
+      if location.primary == true
+        hash = {
+          lat: location.latitude,
+          lng: location.longitude,
+          infoWindow: { content: render_to_string(partial: "shared/info_window", locals: { recipient: recipient }) }
+        }
+        @markers << hash
+      end
     end
   end
-  # @markers = @markers.first
-  # raise
 end
 
 def new
@@ -30,7 +30,7 @@ def create
   @location.primary = true
   @location.save
   @recipient.locations << @location
-    if @recipient.save
+  if @recipient.save
       # authorize @recipient
       redirect_to recipient_path(@recipient)
     else
@@ -58,14 +58,20 @@ def create
   end
 
   def show
+    @contribution = Contribution.new
+
     @markers = []
     @recipient.locations.each do |location|
       hash = {
         lat: location.latitude,
         lng: location.longitude
       }
-      @markers << hash
+      if location.primary == true
+      hash[:type] = "primary"
+     end
+        @markers << hash
     end
+
   end
 
   private
