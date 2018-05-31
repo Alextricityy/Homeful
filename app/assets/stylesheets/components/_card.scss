@@ -1,10 +1,13 @@
+
 .card {
   position: relative;
   margin: 20px 0;
   box-shadow: 0.3px 0.7px 0.3px 3px #ffffff;
  // width:  93% !important;
  padding: 10px;
+  overflow: hidden;
 }
+
 
 .card-photo {
   height: 200px;
@@ -14,6 +17,7 @@
 
 .card-name {
   padding: 10px;
+
   // height: 80px;
   // font-size: 32px;
   font-style: thin;
@@ -21,26 +25,56 @@
   color: black;
   background: #e2eaec;
 }
-
 .card-name p {
   font-size: 15px;
   color: gray;
   font-style: thin;
-}
-
-
 .card-name h3 {
   padding-bottom:20px;
 }
-
-.item-card{
-  position: relative;
-  margin: 20px 0;
-  box-shadow: 0.3px 0.7px 0.3px 3px #ffffff;
- // width:  93% !important;
- padding: 10px;
+.recipient-name{
+  // display: flex;
+  // position: absolute;
+  font-size: 14px;
 }
-.item-card-name{
-  font-style:thin;
-  background: #e2eaec;
+.recipient-price{
+  // display:flex;
+  // position: absolute;
+  font-size: 12px;
+  margin-top: 5px;
+  color:#827c7c;
+}
+
+}
+
+.card-bio {
+  height: 130px;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 14px;
+  color:black;
+  font-weight:lighter ;
+  padding: 8px;
+}
+
+.card:hover {
+  margin: 20px 0;
+  box-shadow: 1px 8px 20px grey;
+}
+
+.card-date{
+  height: 25px;
+ padding: 10px;
+  display: flex;
+  color: gray;
+  font-style: bold;
+  font-size: 11px;
+}
+
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  }
+.slick-dots {
+  margin-bottom: 16px !important;
 }
