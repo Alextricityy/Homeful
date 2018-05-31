@@ -2,12 +2,12 @@ import "slick-carousel";
 
 
 $(document).ready(function(){
-  $('.cards-slick').slick({
+  $('.slick-hello').slick({
     dots: true,
     arrows: true,
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 3
   });
-$(".slick-dots").css({ postion: ''})
+// $(".slick-dots").css({ postion: ''})
 });

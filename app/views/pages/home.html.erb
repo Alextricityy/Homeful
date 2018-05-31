@@ -15,12 +15,10 @@
 
 
 
-<a name="Recipient"></a>
 <div class= "container">
-  <div class="cards-slick">
-
-    <% @recipients.first(6).each do |recipient| %>
-      <div class="col-xs-12 col-sm-4">
+  <div class="slick-hello">
+      <% 5.times do %>
+      <% @recipients.first(6).each do |recipient| %>
         <div class="card">
           <%= link_to recipient_path(recipient), class: "card-link" do %>
             <% if recipient.photo %>
@@ -40,11 +38,10 @@
             </div>
           <% end %>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+      <% end %>
   </div>
 </div>
-
 
 <div class="text-center">
 <a href="/recipient" class="button">

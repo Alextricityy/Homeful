@@ -5,7 +5,7 @@
   box-shadow: 0.3px 0.7px 0.3px 3px #ffffff;
  // width:  93% !important;
  padding: 10px;
-
+  overflow: hidden;
 }
 
 
@@ -75,3 +75,6 @@
   display: flex;
   align-items: center;
   }
+.slick-dots {
+  margin-bottom: 16px !important;
+}
