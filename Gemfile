@@ -9,6 +9,8 @@ gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '5.2.0'
 gem 'redis'
+gem 'geocoder'
+gem 'google_places'
 
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'

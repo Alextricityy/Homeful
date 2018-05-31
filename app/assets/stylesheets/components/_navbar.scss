@@ -7,11 +7,33 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
 
+}
+.navbar-home {
+  position: fixed;
+  box-shadow: none;
+}
+.blue-link {
+  // background-color: #dee0e0;
+
+         background-color: #a4aba9;
+    padding: 15px;
+    border-radius: 6px;
+    color: white;
+        text-decoration: none;
+    // text-decoration: underline;
+}
+.blue-link2{
+  background-color: #74dac6;
+  padding: 15px;
+  border-radius: 6px;
+  color: white;
+  text-decoration: underline;
+}
 /* Logo */
 .navbar-wagon-brand img {
   height: 50px;
+  // padding:0 !important;
 }
 
 /* User Avatar */
@@ -25,9 +47,13 @@
 .navbar-wagon-right {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  // width: 600px;
-  margin-right: 300px;
+  justify-content: flex-end;
+  width: 900px;
+  // margin-right: 300px;
+}
+.navbar-wagon-left {
+  height: 64px !important;
+      margin-right: 20px;
 }
 
 /* Basic navbar item */
@@ -38,8 +64,9 @@
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: #616668;
+    // color: white;
   font-size: 14px;
+
 }
 .navbar-wagon-link:hover {
   color: #0D7377;
@@ -80,7 +107,7 @@
   color: #0D7377 !important;
   font-size:18px;
   a{
-    color: black !important;
+    // color: black !important;
     font-family: sans-serif;
     opacity:0.8;
     text-decoration:none;
@@ -104,22 +131,64 @@
 
 .search-button {
   height: 25px;
-  font-size: 12px;
+  font-size: 14px;
 }
 .search-input{
   height:25px !important;
 }
 
 #search-form{
-  height:25px !important;
+height: 35px !important;
   margin-top: 1px;
-  width: 130px;
+      margin-right: 4px;
+  // width: 130px;
 }
 .btn-outline-success{
   border-color: #0D7377 !important;
     margin-top: 1px !important;
 
+
 }
 .btn-outline-success:hover{
   background-color: #0D7377 !important;
+}
+
+#search-form {
+  font-size: 13px;
+}
+.searchbtn {
+  font-size: 13px !important;
+      height: 36px;
+
+      margin-left: 9px;
+border-radius: 6px;
+    // padding: 2px !important;
+}
+
+
+.imagelogo{
+          height: 53px;
+}
+.navbar-brand{
+  padding:0 !important;
+  margin-top: 6px;
+}
+
+
+.navbar-home{
+  .search-input {
+    color: white;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid;
+  }
+
+  .search-input:focus {
+    outline: none;
+  }
+
+  .search-input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: white;
+      opacity: 1; /* Firefox */
+  }
 }

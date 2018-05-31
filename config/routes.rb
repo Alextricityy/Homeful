@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-  get 'location/create'
-  get 'location/edit'
-  get 'location/update'
   devise_for :users
   root to: 'pages#home'
+  resources :users, only: [:show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :recipients do
     resources :locations
