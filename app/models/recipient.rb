@@ -6,7 +6,7 @@ class Recipient < ApplicationRecord
   mount_uploader :photo, PhotoUploader
 
   validates :first_name, presence:true
-  validates :gender, presence:true , inclusion: { in: %w(Male Female)}
+  validates :gender, presence:true , inclusion: { in: %w(Male Female Other)}
   validates :dob, presence:true
   validates :bio, presence:true, length: { minimum: 100 }
   validates :photo, presence:true
