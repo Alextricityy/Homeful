@@ -61,7 +61,7 @@
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  margin-bottom: 8px;
+  padding-bottom: 15px;
 }
 .icons {
   position: absolute;
@@ -71,14 +71,14 @@
 
 .icons i {
   margin: 0 2px;
-  padding-right: 5px;
-  padding-left: 5px;
-  padding-bottom: 5px;
-  font-size: 18px;
+  padding-right: 2px;
+  padding-left: 2px;
+  padding-bottom: 2px;
+  font-size: 16px;
   color: white;
   background-color: #1B264F !important ;
-  height: 40px;
-  line-height: 30px;
+  height: 30px;
+  line-height: 20px;
   text-align: center;
   background: white;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
@@ -87,6 +87,10 @@
 
 .requests {
   margin-bottom: 0px;
+}
+
+.requests-content {
+  font-size: 16px;
 }
 
 .card {
