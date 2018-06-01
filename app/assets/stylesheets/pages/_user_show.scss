@@ -1,21 +1,53 @@
-
 .container-show {
-
   display: flex;
-  align-items: center;
-  margin-top: 8%;
+  // align-items: center;
+  height: 800px;
+  width: 100%;
 }
-.wrapper {
+// .wrapper {
 
-  height: 600px;
+//   height: 600px;
+//   width: 50%;
+//   background-color: #e6e6e6;
+//   position: relative;
+//   // display: flex;
+//   border-radius: 1%;
+//      -moz-box-shadow:    inset 0 0 10px #000000;
+//    -webkit-box-shadow: inset 0 0 10px #000000;
+//    box-shadow:         inset 0 0 10px #000000;;
+//   margin-left: 35px;
+
+
+// }
+
+// .fake-map-container {
+//   // flex: 0 0 450px;
+//   width: 40%;
+//   height: 100vh;
+//   position: sticky !important; /* !important to override Gmaps inline CSS */
+//   top: 0 !important;
+//   background-color: blue;
+// }
+
+.profile-container {
   width: 80%;
-  align-items: center;
+}
+
+.profile-card {
+  height: 400px;
+  width: 95%;
   background-color: white;
-  margin: auto;
+  // #e6e6e6
   position: relative;
   // display: flex;
-
+  border-radius: 1%;
+     -moz-box-shadow:    inset 0 0 10px #000000;
+   -webkit-box-shadow: inset 0 0 10px #000000;
+   box-shadow:         inset 0 0 10px #000000;;
+  margin-left: 35px;
+  margin-top: 35px;
 }
+
 
 .profile-avatar {
   img {
@@ -23,42 +55,60 @@
     height: 150px;
     border-radius: 50%;
     position: absolute;
-    top: 95px;
-    left: 80px;
+    top: 30px;
+    left: 31px;
+    box-shadow: 0 5px 5px -3px black;
   }
 
-   }
+}
 
 .text-box {
   background-color: white;
   height: auto;
-  width: 80%;
+  width: 70%;
   margin: auto;
   margin-top: 150px;
   padding-top: 20px;
   padding-left: 50px;
-  border-style: solid;
-  border-width: 1px;
-  border-color: black;
+  // border-style: solid;
+  // border-width: 1px;
+  // border-color: black;
+  // box-shadow: 0 5px 5px -3px black;
+  position: absolute;
+  top: 33px;
+  left: 204px;
+  padding-right: 15px;
 }
 
 .avatar-text {
   position: absolute;
-  top: 225px;
-  left: 113px;
+  top: 93px;
+  left: 250px;
   font-family: Robotica;
+  font-size: 32px;
+
 
 }
 
 .profile-items {
   position: absolute;
-  top: 550px;
+  top: 70px;
   right: 57px;
   font-family: Robotica;
   font-size: 12px;
   a {
     color: grey;
   }
+}
 
+.user-cards {
+  position: absolute;
+  top: 400px;
+}
+
+.map-profile {
+  position: sticky !important;
+  width: 100%;
+  top: 0 !important;
 }
 
