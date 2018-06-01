@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 2018_05_31_135947) do
   end
 
   create_table "recipients", force: :cascade do |t|
+    t.bigint "user_id"
     t.string "first_name"
     t.string "last_name"
     t.string "gender"
@@ -72,7 +73,6 @@ ActiveRecord::Schema.define(version: 2018_05_31_135947) do
     t.string "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
     t.index ["user_id"], name: "index_recipients_on_user_id"
   end
 
@@ -103,4 +103,5 @@ ActiveRecord::Schema.define(version: 2018_05_31_135947) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "recipients", "users"
 end

@@ -28,7 +28,7 @@
             <% end %>
             <div class="card-photo" style="background-image: url('<%= photo_url %>');"></div>
             <div class="card-name">
-              <div class='recipient-name'><%= recipient.first_name.capitalize %> <%= recipient.last_name.capitalize %></div>
+              <div class='recipient-name'><%= recipient.first_name.capitalize %> <%= recipient.last_name&.capitalize %></div>
             </div>
             <div class="card-bio">
              <p><%= truncate(recipient.bio, length: 200) %></p>

@@ -149,9 +149,9 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
   const markers = JSON.parse(mapElement.dataset.markers);
   //let particularMarker = markers[0]
   // let collection = markers.rest;
-<<<<<<< HEAD
-  // map.addMarker(particularMarker, { fillColor: 'blue' });
-=======
+// <<<<<<< HEAD
+//   // map.addMarker(particularMarker, { fillColor: 'blue' });
+// =======
   markers.forEach(function(marker) {
      if (marker.type === "primary") {
         var marker1 = new google.maps.Marker({
@@ -169,7 +169,7 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
   });
 
 
->>>>>>> 5064d8be0a6644d5cb8dc9c8c42b0ca398de2ec3
+// >>>>>>> 5064d8be0a6644d5cb8dc9c8c42b0ca398de2ec3
   // map.addMarkers(collection);
   map.addMarkers(markers);
   console.log(markers.length)
