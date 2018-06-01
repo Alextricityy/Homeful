@@ -19,7 +19,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-
+    @contribution = Contribution.new
   end
 
   def edit

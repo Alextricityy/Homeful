@@ -1,8 +1,16 @@
 <div class="container">
+  <div class="row">
+  <div class="col-md-6 col-xs-12">
   <h1><%= @recipient.first_name %></h1>
   <%= cl_image_tag @recipient.photo, height: 300, width: 400, crop: :fill %>
   <p><%= @recipient.bio %></p>
+  </div>
+  <div class="col-md-6 col-xs-12">
+    <!-- contribution messages -->
+  </div>
+  </div>
   <div class="row">
+    <h2>Items i need</h2>
     <% @recipient.items.each do |item| %>
       <div class="col-md-6 col-xs-12">
         <div class="item-card">
@@ -39,11 +47,13 @@
               <%= progress_bar(color, value) %>
             </div>
           <% end %>
+          <div class="donation-small-input">
           <%= simple_form_for [@recipient, item, @contribution] do |f| %>
-          <%= f.input :amount_cents, label: "Amount In Pounds" %>
-          <%= f.submit label: "Make a Contribution" %>
+          <%= f.input :amount_cents, label: "Donation amount", class:"form-control donation-small-input" %>
+          <%= f.submit value: "Donate" %>
           <% end %>
-          <%#= link_to "Make a Contribution", new_recipient_item_contribution_path(@recipient, item) %>
+          <%#= link_to "Donate", new_recipient_item_contribution_path(@recipient, item) %>
+          </div>
         </div>
       </div>
     <% end %>
