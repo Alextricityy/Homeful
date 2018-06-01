@@ -1,11 +1,101 @@
 
+.index {
+  font-family: 'Raleway', Arial, sans-serif;
+  position: relative;
+  float: left;
+  overflow: hidden;
+  margin: 10px 1%;
+  width: 100%;
+  background: #000000;
+  color: #333;
+  text-align: left;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  margin-top:10px;
+}
+
+.index:hover {
+  margin: 10px 0;
+  box-shadow: 1px 8px 20px gray;
+}
+
+.index * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.35s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+  transition: all 0.35s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+}
+.index.img {
+  max-width: 100%;
+  vertical-align: top;
+}
+.caption {
+  position: relative;
+  background-color: white;
+  padding: 10px 20px 10px;
+  width: 100%;
+}
+
+.caption h3 {
+  padding-left: 20px;
+  position: absolute;
+  bottom: 100%;
+  text-transform: uppercase;
+  border-radius: 0 5px 0 0;
+  margin: 0;
+  left: 0;
+  font-weight:90;
+  color: white;
+  background-color: #1B264F;
+  min-width: 150px;
+  font-size: 24px;
+}
+
+.caption p {
+  font-size: 0.8em;
+  font-weight: 500;
+  text-align: left;
+  margin: 0;
+  line-height: 1.6em;
+  height: 20vh;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  margin-bottom: 8px;
+}
+.icons {
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+}
+
+.icons i {
+  margin: 0 2px;
+  padding-right: 5px;
+  padding-left: 5px;
+  padding-bottom: 5px;
+  font-size: 18px;
+  color: white;
+  background-color: #1B264F !important ;
+  height: 40px;
+  line-height: 30px;
+  text-align: center;
+  background: white;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+  border-radius: 5px 5px 0 0;
+}
+
+.requests {
+  margin-bottom: 0px;
+}
+
 .card {
   position: relative;
   margin: 20px 0;
-  box-shadow: 0.3px 0.7px 0.3px 3px #ffffff;
+  //box-shadow: 0.3px 0.7px 0.3px 3px #ffffff;
  // width:  93% !important;
  padding: 10px;
-  overflow: hidden;
+ overflow: hidden;
 }
 
 
@@ -29,16 +119,17 @@
   font-style: thin;
   font-family: 'Heebo', sans-serif;
   color: black;
-  background: #e2eaec;
+  background: white;
+
 }
 .card-name p {
   font-size: 15px;
   color: gray;
   font-style: thin;
-.card-name h3 {
-  padding-bottom:20px;
-}
-.recipient-name{
+  .card-name h3 {
+    padding-bottom:20px;
+  }
+  .recipient-name{
   // display: flex;
   // position: absolute;
   font-size: 14px;
@@ -69,7 +160,7 @@
 
 .card-date{
   height: 25px;
- padding: 10px;
+  padding: 10px;
   display: flex;
   color: gray;
   font-style: bold;
@@ -80,7 +171,7 @@
 .footer-links {
   display: flex;
   align-items: center;
-  }
+}
 .slick-dots {
   margin-bottom: 16px !important;
 }
