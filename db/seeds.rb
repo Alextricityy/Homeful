@@ -31,7 +31,7 @@ gio = Recipient.create!(user: melvin, first_name: "Gio", gender: "Male", date_of
 
 puts "creating locations"
 location1 = Location.create!(recipient: tim, address: "E2 8DY", primary: true)
-location2 = Location.create!(recipient: tim, address: "E2 9DY")
+location2 = Location.create!(recipient: gio, address: "E2 9DY")
 location3 = Location.create!(recipient: tim, address: "E2 3DY")
 puts "creating items"
 

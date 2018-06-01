@@ -1,72 +1,73 @@
-<div class="container-show">
-  <div class="profile-container">
-
-    <div class="profile-card">
-      <div class="avatar-text"> <%= @user.first_name.capitalize%> <%=@user.last_name[0].upcase%>.</div>
-      <div class="profile-avatar">
-        <% if @user.photo %>
-          <%= cl_image_tag @user.photo%>
-        <% else %>
-          <%= image_tag 'logo.jpg' %>
-        <% end %>
-      </div>
-      <div class="text-box">
-        <p>Date Of Birth: <%= @user.date_of_birth %></p>
-        <p>Email: <%= @user.email %></p>
-        <p>Bio: <%= @user.bio%></p>
-      </div>
-      <% if @user == current_user %>
-        <div class="profile-items">
-          <%= link_to 'edit profile', edit_user_registration_path %>
-          <%= link_to 'logout', destroy_user_session_path, method: :delete %>
-          <%= link_to 'delete profile', user_registration_path, method: :delete%>
-        </div>
+<div class="profile-show-container">
+  <div class="profile-content">
+    <div class="profile-header">
+      <% if @user.photo %>
+        <%= cl_image_tag @user.photo%>
+      <% else %>
+        <%= image_tag 'dae_noavatar_full.png' %>
       <% end %>
-      <div class="user-cards";>
 
-        <h3> <%= @user.first_name.capitalize %> is responsible for the following recipients:</h3>
+      <div class="profile-elements">
+        <div class="flex-between">
+          <h4><%= @user.first_name.capitalize%> <%=@user.last_name[0].upcase%></h4>
+          <% if @user == current_user %>
 
-        <div class="container-index">
-          <div class="row">
-            <% if @user.recipients.count > 0 %>
-              <% @user.recipients.each do |recipient| %>
-                <div class="col-xs-12 col-sm-4">
-                  <div class="card">
-                    <%= link_to recipient, class: "card-link" do%>
-                      <% if recipient.photo %>
-                        <% photo_url = cl_image_path recipient.photo %>
-                      <% else %>
-                        <% photo_url = "url('https://goo.gl/images/GPguPA')" %>
-                      <% end %>
-                      <div class="card-photo" style="background-image: url('<%= photo_url %>');"></div>
-                      <div class="card-name">
-                        <h3><%= recipient.first_name.capitalize %></h3>
-                      </div>
-                      <div class="card-info">
-                        <p><%=h truncate(recipient.bio, length: 200) %></p>
-                      </div>
-                      <div class="card-date">
-                        <p>Added on: <%= Date.today %></p>
-                      </div>
-                    </div>
-                  </div>
-                  <% end %>
-                <% end %>
-            <% else %>
-              <p>No recipients are currently assigned to <%= @user.first_name.capitalize %></p>
-            <%end%>
-          </div>
+            <div class="profile-items">
+              <%= link_to 'edit profile', edit_user_registration_path %>
+              <%= link_to 'logout', destroy_user_session_path, method: :delete %>
+              <%= link_to 'delete profile', user_registration_path, method: :delete%>
+            </div>
+          <% else %>
+            <p>Send <%= @user.first_name %> an email.</p>
+          <% end %>
         </div>
-
-</div>
-
-
+        <p><%= @user.bio%></p>
+      </div>
+    </div>
+    <div class="profile-cards">
+      <div class="row">
+        <% if @user.recipients.count > 0 %>
+          <% @user.recipients.each do |recipient| %>
+            <div class="col-xs-12 col-sm-4">
+              <div class="card">
+                <%= link_to recipient, class: "card-link" do%>
+                  <% if recipient.photo %>
+                    <% photo_url = cl_image_path recipient.photo %>
+                  <% else %>
+                    <% photo_url = "url('https://goo.gl/images/GPguPA')" %>
+                  <% end %>
+                  <div class="card-photo" style="background-image: url('<%= photo_url %>');"></div>
+                  <div class="card-name">
+                    <h3><%= recipient.first_name.capitalize %></h3>
+                  </div>
+                  <div class="card-info">
+                    <p><%=h truncate(recipient.bio, length: 200) %></p>
+                  </div>
+                  <div class="card-date">
+                    <p>Added on: <%= Date.today %></p>
+                  </div>
+                </div>
+              </div>
+              <% end %>
+            <% end %>
+        <% else %>
+          <p style="margin-left: 50px; font-style: italic; font-size: 16px"> No recipients are currently assigned to <%= @user.first_name.capitalize %></p>
+        <%end%>
+      </div>
     </div>
   </div>
+  <div class="map-profile" id="map"
 
-        <div style=" flex: 0 0 450px;height: 100vh;position: sticky !important;top: 0 !important;" id="map" data-markers="<%= @markers.to_json %>"
-        ></div>
+  data-markers="<%= @markers.to_json %>">
 
+  </div>
 </div>
 
-</div>
+
+
+
+
+
+
+
+

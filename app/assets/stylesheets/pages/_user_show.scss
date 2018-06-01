@@ -1,114 +1,181 @@
-.container-show {
+.profile-show-container {
   display: flex;
-  // align-items: center;
-  height: 800px;
-  width: 100%;
-}
-// .wrapper {
-
-//   height: 600px;
-//   width: 50%;
-//   background-color: #e6e6e6;
-//   position: relative;
-//   // display: flex;
-//   border-radius: 1%;
-//      -moz-box-shadow:    inset 0 0 10px #000000;
-//    -webkit-box-shadow: inset 0 0 10px #000000;
-//    box-shadow:         inset 0 0 10px #000000;;
-//   margin-left: 35px;
-
-
-// }
-
-// .fake-map-container {
-//   // flex: 0 0 450px;
-//   width: 40%;
-//   height: 100vh;
-//   position: sticky !important; /* !important to override Gmaps inline CSS */
-//   top: 0 !important;
-//   background-color: blue;
-// }
-
-.profile-container {
-  width: 80%;
-}
-
-.profile-card {
-  height: 400px;
-  width: 95%;
-  background-color: white;
-  // #e6e6e6
-  position: relative;
-  // display: flex;
-  border-radius: 1%;
-     -moz-box-shadow:    inset 0 0 10px #000000;
-   -webkit-box-shadow: inset 0 0 10px #000000;
-   box-shadow:         inset 0 0 10px #000000;;
-  margin-left: 35px;
-  margin-top: 35px;
-}
-
-
-.profile-avatar {
-  img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    position: absolute;
-    top: 30px;
-    left: 31px;
-    box-shadow: 0 5px 5px -3px black;
-  }
-
-}
-
-.text-box {
-  background-color: white;
-  height: auto;
-  width: 70%;
-  margin: auto;
-  margin-top: 150px;
-  padding-top: 20px;
-  padding-left: 50px;
-  // border-style: solid;
-  // border-width: 1px;
-  // border-color: black;
-  // box-shadow: 0 5px 5px -3px black;
-  position: absolute;
-  top: 33px;
-  left: 204px;
-  padding-right: 15px;
-}
-
-.avatar-text {
-  position: absolute;
-  top: 93px;
-  left: 250px;
-  font-family: Robotica;
-  font-size: 32px;
-
-
-}
-
-.profile-items {
-  position: absolute;
-  top: 70px;
-  right: 57px;
-  font-family: Robotica;
-  font-size: 12px;
-  a {
-    color: grey;
-  }
-}
-
-.user-cards {
-  position: absolute;
-  top: 400px;
 }
 
 .map-profile {
+  flex: 0 0 450px;
+  height: 100vh;
   position: sticky !important;
-  width: 100%;
   top: 0 !important;
 }
+
+
+.profile-content {
+  flex: 1 1 auto;
+}
+
+.profile-header {
+  padding: 16px;
+  display: flex;
+  background-color: #e6e6e6;
+  img {
+    width: 100px;
+    border-radius: 50%;
+    margin-right: 16px;
+  }
+  h4 {
+    font-size: 42px;
+  }
+  p {
+    font-size: 20px;
+    color: rgba(0,0,0,0.7);
+    font-weight: lighter;
+    font-style: italic;
+  }
+}
+.profile-elements {
+  width: 100%;
+  a {
+    color: grey;
+    font-size: 12px;
+
+  }
+  p {
+    color: grey;
+    font-size: 12px;
+  }
+}
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+// .container-show {
+//   display: flex;
+//   // align-items: center;
+//   height: 800px;
+//   width: 100%;
+// }
+// // .wrapper {
+
+// //   height: 600px;
+// //   width: 50%;
+// //   background-color: #e6e6e6;
+// //   position: relative;
+// //   // display: flex;
+// //   border-radius: 1%;
+// //      -moz-box-shadow:    inset 0 0 10px #000000;
+// //    -webkit-box-shadow: inset 0 0 10px #000000;
+// //    box-shadow:         inset 0 0 10px #000000;;
+// //   margin-left: 35px;
+
+
+// // }
+
+// // .fake-map-container {
+// //   // flex: 0 0 450px;
+// //   width: 40%;
+// //   height: 100vh;
+// //   position: sticky !important; /* !important to override Gmaps inline CSS */
+// //   top: 0 !important;
+// //   background-color: blue;
+// // }
+
+// .profile-container {
+//   width: 80%;
+// }
+
+// .profile-card {
+//   width: 100%;
+//   background-color: #e6e6e6;
+//   // #e6e6e6
+//   position: relative;
+//   // display: flex;
+//   height: 100%;
+
+//   // p {
+//   //    background-color: #e6e6e6;
+//   // width: 70%;
+//   // margin: auto;
+//   // margin-top: 150px;
+//   // padding-top: 20px;
+//   // padding-left: 50px;
+//   // // border-style: solid;
+//   // // border-width: 1px;
+//   // // border-color: black;
+//   // // box-shadow: 0 5px 5px -3px black;
+//   // position: absolute;
+//   // top: -59px;
+//   // left: 317px;
+//   // padding-right: 15px;
+//   // color: #4d4d4d;
+//   // }
+//   }
+
+
+// .profile-avatar {
+//   img {
+//     width: 150px;
+//     height: 150px;
+//     border-radius: 50%;
+//     position: absolute;
+//     top: 30px;
+//     left: 31px;
+//     box-shadow: 0 5px 5px -3px black;
+//   }
+
+// }
+
+// .text-box {
+//   background-color: #e6e6e6;
+//   width: 70%;
+//   margin: auto;
+//   margin-top: 150px;
+//   padding-top: 20px;
+//   padding-left: 50px;
+//   // border-style: solid;
+//   // border-width: 1px;
+//   // border-color: black;
+//   // box-shadow: 0 5px 5px -3px black;
+//   position: absolute;
+//   top: -59px;
+//   left: 317px;
+//   padding-right: 15px;
+//   color: #4d4d4d;
+//   font-style: italic;
+// }
+
+// .avatar-text {
+//   position: absolute;
+//   top: 58px;
+//   left: 250px;
+//   font-family: Robotica;
+//   font-size: 26px;
+//   color: #4d4d4d;
+
+
+// }
+
+// .profile-items {
+//   position: absolute;
+//   top: 19px;
+//   right: 36px;
+//   font-family: Robotica;
+//   font-size: 12px;
+//   color: grey;
+//   a {
+//     color: grey;
+//   }
+// }
+
+// .user-cards {
+//   margin-left: 40px;
+// }
+
+// .map-profile {
+//   position: sticky !important;
+//   width: 100%;
+//   top: 0 !important;
+
+// }
 
