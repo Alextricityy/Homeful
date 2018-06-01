@@ -1,12 +1,19 @@
 <div class="container">
   <div class="row">
   <div class="col-md-6 col-xs-12">
-  <h1><%= @recipient.first_name %></h1>
+  <h1><%= @recipient.first_name.capitalize %></h1>
   <%= cl_image_tag @recipient.photo, height: 300, width: 400, crop: :fill %>
   <p><%= @recipient.bio %></p>
   </div>
   <div class="col-md-6 col-xs-12">
     <!-- contribution messages -->
+    <h1>Recent Donations</h1>
+    <% @recipient.items.each do |item| %>
+    <% item.contributions.each do |contribution| %>
+    <h4><%= contribution.user.first_name.capitalize %> donated <%= humanized_money_with_symbol(contribution.amount_cents / 100) %> for <%= @recipient.first_name.capitalize %>'s <%= contribution.item.title.capitalize %></h4>
+    <h5><%= contribution.message.capitalize %></h5>
+    <% end %>
+    <% end %>
   </div>
   </div>
   <div class="row">
