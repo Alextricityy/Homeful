@@ -168,15 +168,15 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
 
 
   // map.addMarkers(collection);
-  map.addMarkers(markers);
-  console.log(markers.length)
+  //map.addMarkers(markers);
+  //console.log(markers.length)
   if (markers.length === 0) {
     map.setZoom(2);
   } else if (markers.length === 1) {
     map.setCenter(markers[0].lat, markers[0].lng);
     map.setZoom(14);
   } else if (markers.lat) {
-    map.addMarker(markers)
+   // map.addMarker(markers)
     map.setCenter(markers.lat, markers.lng);
     map.setZoom(14)
   } else {
