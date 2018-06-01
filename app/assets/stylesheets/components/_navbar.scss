@@ -23,20 +23,18 @@
 }
 .blue-link {
   // background-color: #dee0e0;
-
-         background-color: #a4aba9;
-    padding: 15px;
-    border-radius: 6px;
-    color: white;
-        text-decoration: none;
-    // text-decoration: underline;
+  background-color: #a4aba9;
+  padding: 15px;
+  border-radius: 6px;
+  color: white;
+  text-decoration: none;
 }
+
 .blue-link2{
   background-color: #74dac6;
   padding: 15px;
   border-radius: 6px;
   color: white;
-  text-decoration: underline;
 }
 /* Logo */
 .navbar-wagon-brand img {
@@ -122,7 +120,7 @@
   }
   a:hover{
     color: #0D7377 !important;
-    text-decoration:none;
+    text-decoration: none !important;
     // bottom:10px;
     // font-size: 19px;
     padding:0;
@@ -199,6 +197,13 @@ border-radius: 6px;
       color: white;
       opacity: 1; /* Firefox */
   }
+  .navbar-wagon-item navbar-wagon-link{
+    background: #5db9a7;
+    padding: 10px;
+    border-radius: 7px;
+
+    color: white;
+}
 }
 
 
