@@ -6,6 +6,7 @@
     "bootstrap": "3",
     "gmaps": "^0.4.24",
     "jquery": "^3.3.1",
+    "slick": "^1.12.2",
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
