@@ -20,13 +20,18 @@
      <% else %>
      <i class="fas fa-bomb"></i>
      <% end %></h3>
-     <h3><%= humanized_money_with_symbol(@item.total_contributions / 100.0) %> raised out of</h3>
+     <h3><%= humanized_money_with_symbol(@item.total_contributions / 100.0) %> raised out of <%= humanized_money_with_symbol(@item.price_cents/100.0) %></h3>
      <div class="performance-container">
       <% value = ( @item.total_contributions.to_f / @item.price_cents.to_f ) * 200 %>
       <% color = value >= 75 ? "green" : value < 75 && value >= 40 ? "orange" : "red" %>
       <%= progress_bar(color, value) %>
     </div>
-    <h3><%= humanized_money_with_symbol(@item.price_cents/100.0) %></h3>
+    <div class="donation-small-input">
+          <%= simple_form_for [@recipient, @item, @contribution] do |f| %>
+            <%= f.input :amount_cents, label: "Donation amount", class:"form-control" %>
+            <%= f.submit value: "Make a donation" %>
+           <% end %>
+        </div>
 
   </div>
   <div class="col-md-6 col-xs-12">
@@ -43,11 +48,12 @@
     <h3>Other items wanted by <%= @recipient.first_name %></h3>
   </div>
   <div class="row">
-    <% @recipient.items.each do |item| %>
+    <% @recipient.items.where.not(id: @item.id).each do |item| %>
+    <%= link_to recipient_item_path(@recipient, item) do %>
     <div class="col-md-4 col-sm-6 col-xs-12">
       <div class="item-card">
-        <h1 class="item-card-name"><%= item.title.capitalize %></h1>
-        <h3>
+        <h3 class="item-card-name"><%= item.title.capitalize %></h3>
+        <h4>
           <!-- cateogory logic -->
           <%= item.category %>
           <%  if item.category == "Animal" %>
@@ -68,9 +74,10 @@
           <i class="fas fa-bomb"></i>
           <% end %>
           <!-- cateogory logic -->
-        </h3>
+        </h4>
         <p><%= item.description.capitalize %></p>
         <!-- <p><%#= item.contributions %></p> -->
+        <% end %>
         <% if item.total_contributions && item.price_cents %>
         <p><%= humanized_money_with_symbol(item.total_contributions/100) %> raised out of <%= humanized_money_with_symbol(item.price_cents/100) %></p>
         <div class="performance-container">
@@ -81,12 +88,14 @@
         <% end %>
         <!-- item contributions bar -->
       </div>
-       <%= simple_form_for [@recipient, item, @contribution] do |f| %>
-          <%= f.input :amount_cents, label: "Donation amount", class:"form-control" %>
-          <%= f.submit value: "Make a donation" %>
-          <% end %>
+        <div class="donation-small-input">
+          <%= simple_form_for [@recipient, item, @contribution] do |f| %>
+            <%= f.input :amount_cents, label: "Donation amount", class:"form-control" %>
+            <%= f.submit value: "Make a donation" %>
+           <% end %>
+        </div>
           <%#= link_to "Make a Contribution", new_recipient_item_contribution_path(@recipient, item) %>
-      <% end %>
     </div>
+      <% end %>
   </div>
 </div>

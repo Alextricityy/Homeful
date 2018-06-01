@@ -1,6 +1,6 @@
 <div class="container">
   <div class="col-md-8 col-md-offset-2">
-<h2>Thank you for your <%= humanized_money_with_symbol(@contribution.amount_cents / 100.0) %> this will truly help towards <%= @recipient.first_name.capitalize %>'s goal of getting there <%= @contribution.item.title.capitalize %></h2>
+<h2>Thank you for your <%= humanized_money_with_symbol(@contribution.amount_cents / 100.0) %> this will truly help towards <%= @recipient.first_name.capitalize %>'s goal of getting their <%= @contribution.item.title.capitalize %></h2>
 </div>
   <div class="col-md-6 col-md-offset-3">
 <h4>Leave a message for <%= @recipient.first_name %></h4>
