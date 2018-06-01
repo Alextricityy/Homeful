@@ -1,0 +1,125 @@
+<% if user_signed_in? %>
+  <div class="navbar-wagon <%= "navbar-home" if params[:action] == "home" %>">
+    <div class="navbar-wagon-left">
+      <%= link_to root_path do %>
+      <%= image_tag "logo.jpg", alt: "logo", class: "navbar-brand"%>
+      <%  end %>
+      <div class="navbar-wagon-item hidden-md hidden-lg">
+        <div class="dropdown">
+          <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu alex">
+            <li><%= link_to 'Home', root_path %></li>
+            <li><%= link_to 'Search' %></li>
+            <li> <%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="navbar-wagon-right">
+
+     <div class="navbar-wagon-item navbar-wagon-link alex">
+      <%= link_to recipients_path do%>
+      <i class="fas fa-heart"></i>
+      Who Are We Helping?
+      <%end%>
+    </div>
+
+    <div class="navbar-wagon-item navbar-wagon-link alex">
+      <%= link_to new_recipient_path do %>
+      <i class="fa fa-user"></i>
+        Add Someone In Need
+      <%end%>
+     </div>
+
+
+
+    <div class="navbar-wagon-item navbar-wagon-link alex">
+      <i class="fas fa-sign-out-alt"></i>
+      <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+    </div>
+
+
+
+    <%= form_tag recipients_path, :method => 'get' do %>
+    <div class="flex-form search-input" id="search-form">
+      <%= text_field_tag :search, params[:search], :class => "form-inline search-input", label: false, id:"search-form", placeholder: "search term"%>
+      <%= text_field_tag :location, params[:location], :class => "form-inline search-input", label: false, id:"search-form", placeholder: "Location" %>
+      <%= submit_tag 'Search', class:"btn btn-outline-success search-button", :name => nil %>
+    </div>
+    <% end %>
+  </div>
+
+
+<!-- Dropdown appearing on mobile only -->
+
+</div>
+
+<% else %>
+
+<div class="navbar-wagon <%= "navbar-home" if params[:action] == "home" %>">
+  <div class="navbar-wagon-left">
+    <%= link_to root_path do %>
+    <%= image_tag "logo.png", alt: "logo", class: "navbar-brand imagelogo"%>
+    <%  end %>
+    <div class="navbar-wagon-item hidden-md hidden-lg">
+      <div class="dropdown">
+        <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu alex">
+          <li><%= link_to 'Home', root_path %></li>
+          <li><%= link_to 'Search' %></li>
+          <li> <%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+    <%= form_tag recipients_path, :method => 'get' do %>
+      <div class="flex-form search-input" id="search-form">
+        <%= text_field_tag :search, params[:search], :class => "form-inline search-input", label: false, id:"search-form", placeholder: "search term"%>
+        <%= text_field_tag :location, params[:location], :class => "form-inline search-input", label: false, id:"search-form", placeholder: "Location" %>
+        <%= submit_tag 'Search', class:"btn btn-outline-success searchbtn", :name => nil %>
+      </div>
+    <% end %>
+
+  <div class="navbar-wagon-right">
+    <div class="navbar-wagon-item navbar-wagon-link">
+      <%= link_to 'LOG IN', new_user_session_path, class: "navbar-wagon-link blue-link" %>
+    </div>
+    <div class="navbar-wagon-item navbar-wagon-link">
+      <%= link_to 'GET STARTED', new_user_registration_path, class: "navbar-wagon-link blue-link2" %>
+    </div>
+</div>
+
+
+
+<!-- Dropdown appearing on mobile only -->
+<div class="navbar-wagon-item hidden-md hidden-lg">
+  <div class="dropdown">
+    <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+    <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+      <li> <%= link_to 'Login', new_user_session_path %></li>
+      <li><%= link_to 'Sign-Up', new_user_registration_path %></li>
+      <li><%= link_to 'Home', root_path %></li>
+      <li><%= link_to 'Search' %></li>>
+    </ul>
+  </div>
+</div>
+</div>
+</div>
+
+
+
+
+
+<% end %>
+
+
+
+
+
+
+
+
