@@ -150,8 +150,6 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
   //let particularMarker = markers[0]
   // let collection = markers.rest;
 
-  // map.addMarker(particularMarker, { fillColor: 'blue' });
-
   markers.forEach(function(marker) {
      if (marker.type === "primary") {
         var marker1 = new google.maps.Marker({
@@ -167,6 +165,7 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
         map.addMarker(marker);
       }
   });
+
 
   // map.addMarkers(collection);
   map.addMarkers(markers);

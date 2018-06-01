@@ -8,12 +8,12 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <% if user_signed_in? %>
-
      <%= form_tag recipients_path, :method => 'get' do %>
           <%= text_field_tag :search, params[:search], :class => "search-input", label: false, id:"search-form", placeholder: "search term"%>
           <%= text_field_tag :location, params[:location], :class => "search-input", label: false, id:"search-form", placeholder: "Location" %>
           <%= submit_tag 'Search', class: "hidden", :name => nil %>
       <% end %>
+
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -40,7 +40,7 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Get started", new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
   </div>
 

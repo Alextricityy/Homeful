@@ -98,6 +98,13 @@
  overflow: hidden;
 }
 
+.card-link {
+  text-decoration: none !important;
+}
+
+.slick-prev:before, .slick-next:before {
+  color: grey !important;
+}
 
 .cards a {
   text-decoration: none;
@@ -109,10 +116,12 @@
   height: 200px;
   background-size: cover;
   background-position: center;
+  border-radius: 3px;
 }
 
 .card-name {
   padding: 10px;
+  border-radius: 3px;
 
   // height: 80px;
   // font-size: 32px;
@@ -156,6 +165,7 @@
 .card:hover {
   margin: 20px 0;
   box-shadow: 1px 8px 20px grey;
+  text-decoration: none !important ;
 }
 
 .card-date{
