@@ -28,7 +28,9 @@ puts "creating recipients"
 
 tim = Recipient.create!(user: ben, first_name: "Tim", gender: "Male", date_of_birth: "14/02/1986", bio: "Tim is down on his luck. He just needs a helping hand. He is quite comfortable living in his cardboard box, but the winters are cold! He also has a cute dog that keeps him company.", remote_photo_url: "https://i1.wp.com/freewayphotography.com/wp-content/uploads/2018/02/Headshot-Photographer-Tampa-04.jpg?resize=500%2C500&ssl=1")
 gio = Recipient.create!(user: melvin, first_name: "Gio", gender: "Male", date_of_birth: "10/12/1983", bio: "Gio was fired from his job after yelling at a dog for eating his panini. Please help him get back on his feet.", remote_photo_url: "http://kylenelson.com/wp-content/uploads/2017/03/Jaycob-Headshot-1-2.jpg")
-
+jose = Recipient.create!(user: melvin, first_name: "Jose", gender: "Male", date_of_birth: "10/01/1983", bio: "Jose cannot speak english very well and needs a place to stay when the winters are cold.", remote_photo_url: "https://www.google.co.uk/search?q=homeless+person&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjjy7Sc1rLbAhWBNcAKHewTBHsQ_AUICigB&biw=1231&bih=642#imgrc=oFUlTENmoeRmmM")
+mike = Recipient.create!(user: hedi, first_name: "Mike", gender: "Male", date_of_birth: "15/04/1983", bio: "Mike lives under a bridge in central London and takes care of his two older dogs who are his best friends.", remote_photo_url: "https://www.google.co.uk/search?q=homeless+person&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjjy7Sc1rLbAhWBNcAKHewTBHsQ_AUICigB&biw=1231&bih=642#imgrc=Peb1XYKv6A-jGM")
+john = Recipient.create!(user: ben, first_name: "John", gender: "Male", date_of_birth: "12/11/1982", bio: "John is trying to get out of situation by having several small jobs which unfortunetly do not pay enough for a appartment.", remote_photo_url: "https://www.google.co.uk/search?q=homeless+person&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjjy7Sc1rLbAhWBNcAKHewTBHsQ_AUICigB&biw=1231&bih=642#imgrc=lPtALQO4DOvahM:")
 puts "creating locations"
 location1 = Location.create!(recipient: tim, address: "E2 8DY", primary: true)
 location2 = Location.create!(recipient: tim, address: "E2 9DY")
@@ -37,7 +39,8 @@ puts "creating items"
 
 Item.create!(recipient: tim, title: "sleeping bag", category: "Living", price_cents: "5000", description: "warm and fluffy")
 Item.create!(recipient: gio, title: "panini", category: "Leisure", price_cents: "500", description: "it's.... food?")
-
+Item.create!(recipient: jose, title: "dog food", category: "Food", price_cents: "200", description: "food for a hungry dog?")
+Item.create!(recipient: mike, title: "medicine for dog", category: "Medicine", price_cents: "500", description: "older dog needs medicine")
+Item.create!(recipient: john, title: "tent", category: "Leisure", price_cents: "500", description: "need shelter from the cold nights in London")
 puts "all done, go team!"
-
 
