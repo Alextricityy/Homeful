@@ -1,57 +1,43 @@
-<div class="container">
-  <h1><%= @recipient.first_name %></h1>
-  <%= cl_image_tag @recipient.photo, height: 300, width: 400, crop: :fill %>
-  <p><%= @recipient.bio %></p>
-  <div class="row">
-    <% @recipient.items.each do |item| %>
-      <div class="col-md-6 col-xs-12">
-        <div class="item-card">
-          <h1 class="item-card-name"><%= item.title.capitalize %></h1>
-          <h3>
-            <!-- cateogory logic -->
-            <%= item.category %>
-            <%  if item.category == "Animal" %>
-              <i class="fas fa-paw"></i>
-            <% elsif item.category == "Living" %>
-              <i class="fas fa-home"></i>
-            <% elsif item.category == "Food" %>
-              <i class="fas fa-utensils"></i>
-            <% elsif item.category == "Health" %>
-              <i class="fas fa-medkit"></i>
-            <% elsif item.category == "Education" %>
-              <i class="fas fa-book"></i>
-            <% elsif item.category == "Transport" %>
-              <i class="fas fa-bus"></i>
-            <% elsif item.category == "Leisure" %>
-              <i class="fas fa-futbol"></i>
-            <% else %>
-              <i class="fas fa-bomb"></i>
-            <% end %>
-            <!-- cateogory logic -->
-          </h3>
-          <p><%= item.description.capitalize %></p>
-          <!-- <p><%#= item.contributions %></p> -->
-          <% if item.total_contributions && item.price_cents %>
-          <p><%= humanized_money_with_symbol(item.total_contributions/100) %> raised out of <%= humanized_money_with_symbol(item.price_cents/100) %></p>
-            <div class="performance-container">
-              <% value = ( item.total_contributions.to_f / item.price_cents.to_f ) * 200 %>
-               <% color = value >= 75 ? "green" : value < 75 && value >= 40 ? "orange" : "red" %>
-              <%= progress_bar(color, value) %>
-            </div>
-          <% end %>
-          <%= simple_form_for [@recipient, item, @contribution] do |f| %>
-          <%= f.input :amount_cents, label: "Amount In Pounds" %>
-          <%= f.submit label: "Make a Contribution" %>
-          <% end %>
-          <%#= link_to "Make a Contribution", new_recipient_item_contribution_path(@recipient, item) %>
+<div class="profile-show-container">
+  <div class="profile-content">
+    <div class="profile-header">
+      <% if @recipient.photo %>
+        <%= cl_image_tag @recipient.photo%>
+      <% else %>
+        <%= image_tag 'dae_noavatar_full.png' %>
+      <% end %>
+
+      <div class="profile-elements">
+        <div class="flex-between">
+          <h4><%= @recipient.first_name.capitalize%></h4>
         </div>
+        <p><%= @recipient.bio%></p>
       </div>
-    <% end %>
+    </div>
+    <div class="profile-cards"
+&      <div class="row">
+        <% if @recipient.items.count > 0 %>
+          <% @recipient.items.each do |recipient| %>
+            <div class="col-xs-12 col-sm-4">
+
+
+            <% end %>
+        <% else %>
+          <p style="margin-left: 50px; font-style: italic; font-size: 16px"> There are currently no items for <%= @recipient.first_name.capitalize %></p>
+        <%end%>
+      </div>
+    </div>
   </div>
-  <%= link_to "Add A New Item For #{@recipient.first_name.capitalize}", new_recipient_item_path(@recipient) %>
+  <div class="map-profile" id="map"
+   data-markers="<%= @markers.to_json %>">
+  </div>
 </div>
-<div class="map-homeful">
-        <div id="map" data-markers="<%= @markers.to_json %>"
-        ></div>
-      </div>
+
+
+
+
+
+
+
+
 
