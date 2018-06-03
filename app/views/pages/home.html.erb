@@ -13,8 +13,55 @@
   </div>
 </div>
 
-<div class="container">
+
+  <h1 class="text-center hiw">How it Works</h1>
+  <ul class="timeline">
+  <!-- Item 1 -->
+  <li>
+    <div class="direction-r">
+      <div class="flag-wrapper">
+        <span class="hexa"></span>
+        <span class="time-wrapper"><span class="time">Accounts Created with Volunteers</span></span>
+      </div>
+      <div class="desc">Our volunteers work with those in need to set up accounts on the site and add appropriate items they need.</div>
+    </div>
+  </li>
+
+  <li>
+    <div class="direction-l">
+      <div class="flag-wrapper">
+        <span class="hexa"></span>
+        <span class="time-wrapper"><span class="time">Find Those in Need</span></span>
+      </div>
+      <div class="desc">Users sign up with free accounts to see those in need within a specific area and learn more about them on their profile pages.</div>
+    </div>
+  </li>
+
+  <li>
+    <div class="direction-r">
+      <div class="flag-wrapper">
+        <span class="hexa"></span>
+        <span class="time-wrapper"><span class="time">Contribute towards items</span></span>
+      </div>
+      <div class="desc">Users make donations to help with the purhcase of specific items for the person in need they have selected.</div>
+    </div>
+  </li>
+
+<li>
+    <div class="direction-l">
+      <div class="flag-wrapper">
+        <span class="hexa"></span>
+        <span class="time-wrapper"><span class="time">Volunteers Deliver Items</span></span>
+      </div>
+      <div class="desc">Once the total amount needed is reached, we purchase the item on the person in need's behalf, delivered to them personally by one of our volunteers.</div>
+    </div>
+  </li>
+</ul>
+
+
+<div class="container recent">
   <div class="row">
+     <h2 class="text-center">Recent Additions</h2>
     <% @recipients.first(3).each do |recipient| %>
     <%=link_to recipient do%>
     <div class="col-md-4 col-sm-6 col-xs-12">
@@ -65,33 +112,4 @@
 </div>
 </div>
 
-
-<div class="container">
-  <a name="more"></a>
-  <h1 class="text-center hiw-title">How it Works</h1>
-  <hr style="width:250px; margin-bottom:30px; border-top: 1px solid #cccaca; ">
-  <div class="row">
-    <div class="col-xs-12 col-sm-3 text-center">
-      <%= image_tag "one.png", class: "hiw-image" %>
-      <p class="hiw-card-top"><strong>Create a</strong> <em>free</em> <strong>profile</strong></p>
-      <p class="hiw-card-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis at dolorum expedita vero eos sint, soluta explicabo fugiat ut. .</p>
-    </div>
-    <div class="col-xs-12 col-sm-3 text-center">
-      <%= image_tag "two.png", class: "hiw-image" %>
-      <p class="hiw-card-top"><strong>Help your local homeless</strong></p>
-      <p class="hiw-card-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima voluptatem quia reprehenderit perspiciatis, quasi dignissimos, culpa minus natus illum nihil .</p>
-    </div>
-    <div class="col-xs-12 col-sm-3 text-center">
-      <%= image_tag "three.png", class: "hiw-image" %>
-      <p class="hiw-card-top"><strong>Help fund</strong></p>
-      <p class="hiw-card-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo totam nemo repellat perferendis veniam cupiditate laborum, omnis molestias, laboriosam .</p>
-    </div>
-    <div class="col-xs-12 col-sm-3 text-center">
-      <%= image_tag "four.png", class: "hiw-image" %>
-      <p class="hiw-card-top"><strong>Reach the goal </strong></p>
-      <p class="hiw-card-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores at esse vel hic, tempora facere, ratione nihil quod error possimus, impedit alias commodi </p>
-    </div>
-  </div>
-
-</div>
 
