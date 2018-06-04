@@ -35,13 +35,15 @@
 
   </div>
   <div class="col-md-6 col-xs-12">
-    <h1>All contributions for <%= @recipient.first_name %></h1>
-    <% @item.contributions.where(state: "paid").each do |contribution| %>
-    <h3 class="payment"><%= User.find(contribution.user_id).first_name.capitalize %> paid <%= humanized_money_with_symbol(contribution.amount_cents / 100.0) %></h3>
-    <h3 class="message"><%= contribution.message %></h3>
-    <% end %>
-    <%= link_to  "Go Back", recipient_path(@recipient) %>
+    <h3 id="contributions-title" >Previous contributions</h3>
+    <% @item.contributions.each do |contribution| %>
+    <div class = "comment">
+    <p class = "donation-giver"><%= User.find(contribution.user_id).first_name.capitalize %> donated <strong><%= humanized_money_with_symbol(contribution.amount_cents / 100.0) %> </strong></p>
+    <p class = "donation-time"><%= contribution.created_at.strftime("%b %d, %Y")  %>
+    <p class = "donation-message"><em>"<%= contribution.message%>Hope this helps, Gandalf. You're the best"<em></p>
   </div>
+    <% end %>
+    </div>
   <div class="col-md-12 col-xs-12">
     <br>
     <br>
