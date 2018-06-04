@@ -1,6 +1,8 @@
 html {
     position: relative;
     min-height: 100%;
+    scroll-behavior:smooth;
+
 }
 
 
@@ -19,12 +21,13 @@ body {
   right: 0;
   left: 0;
   bottom: 0;
-  width: 100%;
   // padding-top: 50px;;
   overflow: hidden;
   margin-top: 30px;
   // position:relative;
-  width:100%;
+  width:40%;
+  margin:auto;
+  color:black;
 }
 
 .footer-links h3 {
@@ -34,18 +37,26 @@ body {
 .footer-links {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  // justify-content: flex-end;
 }
 .footer-links a {
-  color: #0D7377;
+  // color: #0D7377;
   // opacity: 0.15;
   text-decoration: none;
   font-size: 24px;
   padding: 0px 10px;
+  margin:auto;
 }
 .footer-links a:hover {
   opacity: 1;
 }
 .footer .fa-heart {
-  color: #0D7377;
+  // color: #0D7377;
+}
+.footer-box{
+  display:flex;
+  justify-content:space-around;
+}
+.margin-auto{
+  margin:auto;
 }

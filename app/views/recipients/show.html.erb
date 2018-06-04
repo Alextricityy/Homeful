@@ -3,13 +3,14 @@
     <div class="col-md-6 col-xs-12">
       <h1><%= @recipient.first_name.capitalize %></h1>
       <%= cl_image_tag @recipient.photo, height: 300, width: 400, crop: :fill %>
-      <p><%= @recipient.bio %></p>
+      <p class="recipient-bio"><%= @recipient.bio %></p>
     </div>
     <div class="col-md-6 col-xs-12">
       <!-- contribution messages -->
       <h3 id="contributions-title" >Previous contributions</h3>
       <% @recipient.items.each do |item| %>
       <% item.contributions.each do |contribution| %>
+
       <div class = "comment">
         <p class = "donation-giver"><%= User.find(contribution.user_id).first_name.capitalize %> donated <strong><%= humanized_money_with_symbol(contribution.amount_cents / 100.0) %> </strong></p>
         <p class = "donation-time"><%= contribution.created_at.strftime("%b %d, %Y")  %>
