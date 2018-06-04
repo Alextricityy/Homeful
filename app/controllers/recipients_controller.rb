@@ -86,6 +86,7 @@ def create
   end
 
   def show
+    @user = @recipient.user
     @contribution = Contribution.new
 
     @markers = []
