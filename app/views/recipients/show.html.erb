@@ -95,13 +95,18 @@
 
 
 
+
  <%= link_to "Add A New Item For #{@recipient.first_name.capitalize}", new_recipient_item_path(@recipient) %>
 
 
 <div class="map-homeful">
-  <div id="map" data-markers="<%= @markers.to_json %>"
-    ></div>
-  </div>
+  <div id="map" data-markers="<%= @markers.to_json %>">
+</div>
+    <div id="legend">
+      <%=image_tag("Legend.png") %>
+    </div>
+    </div>
+
 
 
 
