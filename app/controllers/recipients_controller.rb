@@ -4,12 +4,10 @@ class RecipientsController < ApplicationController
   def index
      if params[:search].present? && params[:location].present?
       search_recipients = Recipient.search_everything(params[:search])
-      recipients = Recipient.locations.first.near(params[:location], 20)
+      locations = Location.near(params[:location], 20)
       location_recipients = []
-      recipients.each do |u|
-        u.recipients.each do |d|
-          location_recipients << d
-        end
+      locations.each do |u|
+        location_recipients <<  u.recipient
       end
       @recipients = search_recipients & location_recipients
 
@@ -17,9 +15,7 @@ class RecipientsController < ApplicationController
       locations = Location.near(params[:location], 20)
       location_recipients = []
       locations.each do |u|
-        u.recipient.each do |d|
-          location_recipients << d
-        end
+        location_recipients <<  u.recipient
       end
       @recipients = location_recipients
 
@@ -30,7 +26,7 @@ class RecipientsController < ApplicationController
     end
 
     # locations
-    @recipients = Recipient.all.select {|recipient| recipient.locations.count > 0}
+    # @recipients = Recipient.all.select {|recipient| recipient.locations.count > 0}
     @markers = []
     @recipients.each do |recipient|
      recipient.locations.each do |location|

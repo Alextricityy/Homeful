@@ -13,7 +13,7 @@ class Recipient < ApplicationRecord
    include PgSearch
    # pg_search_scope :search, :against => :name
    pg_search_scope :search_everything,
-    against: [ :first_name, :location, :bio ],
+    against: [ :first_name],
     using: {
       tsearch: { prefix: true }
     }

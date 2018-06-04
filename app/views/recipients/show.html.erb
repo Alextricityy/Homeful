@@ -1,5 +1,4 @@
 
-
 <div class="recipients-flex">
   <div class="recipient-content">
     <div class="recipient-header">
@@ -50,6 +49,7 @@
                 <% end %>
                 <% if item.total_contributions && item.price_cents %>
                 <p><%= humanized_money_with_symbol(item.total_contributions/100) %> raised out of <%= humanized_money_with_symbol(item.price_cents/100) %></p>
+
             <div class="performance-container">
               <% value = ( item.total_contributions.to_f / item.price_cents.to_f ) * 200 %>
               <% color = value >= 75 ? "green" : value < 75 && value >= 40 ? "orange" : "red" %>
@@ -58,30 +58,39 @@
             <% end %>
             <div class="donation-small-input">
               <%= simple_form_for [@recipient, item, @contribution] do |f| %>
-              <%= f.input :amount_cents, label: "Donation amount", class:"form-control donation-small-input" %>
+
+              <%= f.input :amount_cents, label: "Donation amount", class:"form-control donation-small-input", input_html: { value: 1} %>
+
               <%= f.submit value: "Donate" %>
               <% end %>
               <%#= link_to "Donate", new_recipient_item_contribution_path(@recipient, item) %>
             </div>
           </div>
         </div>
+
       <% end %>
     </div>
   <!-- </div> -->
-  <div class="donations">
-    <h1>Recent Donations</h1>
-    <% @recipient.items.each do |item| %>
-    <% item.contributions.each do |contribution| %>
-    <h4><%= contribution.user.first_name.capitalize %> donated <%= humanized_money_with_symbol(contribution.amount_cents / 100) %> for <%= @recipient.first_name.capitalize %>'s <%= contribution.item.title.capitalize %></h4>
-    <h5><%= contribution.message %></h5>
-    <% end %>
-    <% end %>
-  </div>
-</div>
-</div>
-
-
-
+   <div class="col-md-6 col-xs-12">
+      <!-- contribution messages -->
+      <h3 id="contributions-title" >Previous contributions</h3>
+      <% @recipient.items.each do |item| %>
+      <% item.contributions.each do |contribution| %>
+      <%if contribution == @recipient.items.last.contributions.last %>
+      <div class = "comment">
+        <%else%>
+        <div class = "comment line">
+          <%end%>
+          <p class = "donation-giver"><%= User.find(contribution.user_id).first_name.capitalize %> donated <strong><%= humanized_money_with_symbol(contribution.amount_cents / 100.0) %> </strong></p>
+          <p class = "donation-time"><%= contribution.created_at.strftime("%b %d, %Y")  %>
+            <% unless contribution.message.nil? %>
+            <p class = "donation-message"><em>"<%= contribution.message%>"</em></p>
+            <%end%>
+          </div>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
 
 
 
@@ -93,5 +102,6 @@
   <div id="map" data-markers="<%= @markers.to_json %>"
     ></div>
   </div>
+
 
 
