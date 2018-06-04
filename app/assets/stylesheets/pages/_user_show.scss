@@ -1,114 +1,59 @@
-.container-show {
+.profile-show-container {
   display: flex;
-  // align-items: center;
-  height: 800px;
-  width: 100%;
 }
-// .wrapper {
-
-//   height: 600px;
-//   width: 50%;
-//   background-color: #e6e6e6;
-//   position: relative;
-//   // display: flex;
-//   border-radius: 1%;
-//      -moz-box-shadow:    inset 0 0 10px #000000;
-//    -webkit-box-shadow: inset 0 0 10px #000000;
-//    box-shadow:         inset 0 0 10px #000000;;
-//   margin-left: 35px;
-
-
-// }
-
-// .fake-map-container {
-//   // flex: 0 0 450px;
-//   width: 40%;
-//   height: 100vh;
-//   position: sticky !important; /* !important to override Gmaps inline CSS */
-//   top: 0 !important;
-//   background-color: blue;
-// }
-
-.profile-container {
-  width: 80%;
+.map-profile {
+  flex: 0 0 450px;
+  height: 100vh;
+  position: sticky !important;
+  top: 0 !important;
 }
-
-.profile-card {
-  height: 400px;
-  width: 95%;
-  background-color: white;
-  // #e6e6e6
-  position: relative;
-  // display: flex;
-  border-radius: 1%;
-     -moz-box-shadow:    inset 0 0 10px #000000;
-   -webkit-box-shadow: inset 0 0 10px #000000;
-   box-shadow:         inset 0 0 10px #000000;;
-  margin-left: 35px;
-  margin-top: 35px;
+.profile-content {
+  flex: 1 1 auto;
 }
-
-
-.profile-avatar {
+.profile-header {
+  padding: 16px;
+  display: flex;
+  background-color: #e6e6e6;
   img {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
-    position: absolute;
-    top: 30px;
-    left: 31px;
-    box-shadow: 0 5px 5px -3px black;
+    margin-right: 16px;
   }
-
+  h4 {
+    font-size: 42px;
+  }
+  p {
+    font-size: 20px;
+    color: rgba(0,0,0,0.7);
+    font-weight: lighter;
+    font-style: italic;
+  }
 }
-
-.text-box {
-  background-color: white;
-  height: auto;
-  width: 70%;
-  margin: auto;
-  margin-top: 150px;
-  padding-top: 20px;
-  padding-left: 50px;
-  // border-style: solid;
-  // border-width: 1px;
-  // border-color: black;
-  // box-shadow: 0 5px 5px -3px black;
-  position: absolute;
-  top: 33px;
-  left: 204px;
-  padding-right: 15px;
-}
-
-.avatar-text {
-  position: absolute;
-  top: 93px;
-  left: 250px;
-  font-family: Robotica;
-  font-size: 32px;
-
-
+.profile-elements {
+  width: 100%;
+  a {
+    color: grey;
+    font-size: 12px;
+  }
+  p {
+    color: grey;
+    font-size: 12px;
+  }
 }
 
 .profile-items {
-  position: absolute;
-  top: 70px;
-  right: 57px;
-  font-family: Robotica;
-  font-size: 12px;
   a {
     color: grey;
+    font-size: 12px;
+  }
+  p {
+    color: grey;
+    font-size: 12px;
+
   }
 }
-
-.user-cards {
-  position: absolute;
-  top: 400px;
+.flex-between {
+  display: flex;
+  justify-content: space-between;
 }
-
-.map-profile {
-  position: sticky !important;
-  width: 100%;
-  top: 0 !important;
-}
-
