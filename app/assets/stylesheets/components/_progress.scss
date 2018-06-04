@@ -3,6 +3,7 @@
   background-color: rgb(220,220,220);
   display: flex;
   align-items: center;
+  border-radius: 5px;
 }
 
 .performance-rate {
@@ -15,12 +16,17 @@
 
 .performance-bar-green {
   background-color: green;
+  border-radius:5px 0px 0px 5px;
+
 }
 
 .performance-bar-red {
   background-color: red;
+  border-radius:5px 0px 0px 5px;
+
 }
 
 .performance-bar-orange {
   background-color: orange;
+  border-radius:5px 0px 0px 5px;
 }
