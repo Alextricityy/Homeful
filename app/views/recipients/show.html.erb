@@ -10,73 +10,76 @@
       <h3 id="contributions-title" >Previous contributions</h3>
       <% @recipient.items.each do |item| %>
       <% item.contributions.each do |contribution| %>
-
+      <%if contribution == @recipient.items.last.contributions.last %>
       <div class = "comment">
-        <p class = "donation-giver"><%= User.find(contribution.user_id).first_name.capitalize %> donated <strong><%= humanized_money_with_symbol(contribution.amount_cents / 100.0) %> </strong></p>
-        <p class = "donation-time"><%= contribution.created_at.strftime("%b %d, %Y")  %>
-          <% unless contribution.message.nil? %>
-          <p class = "donation-message"><em>"<%= contribution.message%>"</em></p>
+        <%else%>
+        <div class = "comment line">
           <%end%>
-        </div>
-        <% end %>
-        <% end %>
-      </div>
-    </div>
-    <div class="row">
-      <h2>Items I need</h2>
-      <% @recipient.items.each do |item| %>
-      <div class="col-md-6 col-xs-12">
-        <div class="item-card">
-          <%= link_to recipient_item_path(@recipient, item) do %>
-          <h1 class="item-card-name"><%= item.title.capitalize %></h1>
-          <h3>
-            <!-- cateogory logic -->
-            <%= item.category %>
-            <%  if item.category == "Animal" %>
-            <i class="fas fa-paw"></i>
-            <% elsif item.category == "Living" %>
-            <i class="fas fa-home"></i>
-            <% elsif item.category == "Food" %>
-            <i class="fas fa-utensils"></i>
-            <% elsif item.category == "Health" %>
-            <i class="fas fa-medkit"></i>
-            <% elsif item.category == "Education" %>
-            <i class="fas fa-book"></i>
-            <% elsif item.category == "Transport" %>
-            <i class="fas fa-bus"></i>
-            <% elsif item.category == "Leisure" %>
-            <i class="fas fa-futbol"></i>
-            <% else %>
-            <i class="fas fa-bomb"></i>
-            <% end %>
-            <!-- cateogory logic -->
-          </h3>
-          <p><%= item.description.capitalize %></p>
-          <!-- <p><%#= item.contributions %></p> -->
-          <% end %>
-          <% if item.total_contributions && item.price_cents %>
-          <p><%= humanized_money_with_symbol(item.total_contributions/100) %> raised out of <%= humanized_money_with_symbol(item.price_cents/100) %></p>
-          <div class="performance-container">
-            <% value = ( item.total_contributions.to_f / item.price_cents.to_f ) * 200 %>
-            <% color = value >= 75 ? "green" : value < 75 && value >= 40 ? "orange" : "red" %>
-            <%= progress_bar(color, value) %>
+          <p class = "donation-giver"><%= User.find(contribution.user_id).first_name.capitalize %> donated <strong><%= humanized_money_with_symbol(contribution.amount_cents / 100.0) %> </strong></p>
+          <p class = "donation-time"><%= contribution.created_at.strftime("%b %d, %Y")  %>
+            <% unless contribution.message.nil? %>
+            <p class = "donation-message"><em>"<%= contribution.message%>"</em></p>
+            <%end%>
           </div>
           <% end %>
-          <div class="donation-small-input">
-            <%= simple_form_for [@recipient, item, @contribution] do |f| %>
-            <%= f.input :amount_cents, label: "Donation amount", class:"form-control donation-small-input", input_html: { value: 1} %>
-            <%= f.submit value: "Donate" %>
-            <% end %>
-            <%#= link_to "Donate", new_recipient_item_contribution_path(@recipient, item) %>
-          </div>
+          <% end %>
         </div>
       </div>
-      <% end %>
+      <div class="row">
+        <h2>Items I need</h2>
+        <% @recipient.items.each do |item| %>
+        <div class="col-md-6 col-xs-12">
+          <div class="item-card">
+            <%= link_to recipient_item_path(@recipient, item) do %>
+            <h1 class="item-card-name"><%= item.title.capitalize %></h1>
+            <h3>
+              <!-- cateogory logic -->
+              <%= item.category %>
+              <%  if item.category == "Animal" %>
+              <i class="fas fa-paw"></i>
+              <% elsif item.category == "Living" %>
+              <i class="fas fa-home"></i>
+              <% elsif item.category == "Food" %>
+              <i class="fas fa-utensils"></i>
+              <% elsif item.category == "Health" %>
+              <i class="fas fa-medkit"></i>
+              <% elsif item.category == "Education" %>
+              <i class="fas fa-book"></i>
+              <% elsif item.category == "Transport" %>
+              <i class="fas fa-bus"></i>
+              <% elsif item.category == "Leisure" %>
+              <i class="fas fa-futbol"></i>
+              <% else %>
+              <i class="fas fa-bomb"></i>
+              <% end %>
+              <!-- cateogory logic -->
+            </h3>
+            <p><%= item.description.capitalize %></p>
+            <!-- <p><%#= item.contributions %></p> -->
+            <% end %>
+            <% if item.total_contributions && item.price_cents %>
+            <p><%= humanized_money_with_symbol(item.total_contributions/100) %> raised out of <%= humanized_money_with_symbol(item.price_cents/100) %></p>
+            <div class="performance-container">
+              <% value = ( item.total_contributions.to_f / item.price_cents.to_f ) * 200 %>
+              <% color = value >= 75 ? "green" : value < 75 && value >= 40 ? "orange" : "red" %>
+              <%= progress_bar(color, value) %>
+            </div>
+            <% end %>
+            <div class="donation-small-input">
+              <%= simple_form_for [@recipient, item, @contribution] do |f| %>
+              <%= f.input :amount_cents, label: "Donation amount", class:"form-control donation-small-input", input_html: { value: 1} %>
+              <%= f.submit value: "Donate" %>
+              <% end %>
+              <%#= link_to "Donate", new_recipient_item_contribution_path(@recipient, item) %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <%= link_to "Add A New Item For #{@recipient.first_name.capitalize}", new_recipient_item_path(@recipient) %>
     </div>
-    <%= link_to "Add A New Item For #{@recipient.first_name.capitalize}", new_recipient_item_path(@recipient) %>
-  </div>
-  <div class="map-homeful">
-    <div id="map" data-markers="<%= @markers.to_json %>"
-      ></div>
-    </div>
+    <div class="map-homeful">
+      <div id="map" data-markers="<%= @markers.to_json %>"
+        ></div>
+      </div>
 

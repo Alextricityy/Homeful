@@ -4,11 +4,23 @@
   letter-spacing: 1.2;
   box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
   margin-bottom: 25px;
+  border-radius: 5px;
+}
+
+.line::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    width: 2px;
+    background: #28c2ba;
+    height: 35px;
+    z-index: -1;
 }
 
 .donation-giver {
   font-size: 22px;
   margin-bottom: 3px;
+
 }
 
 .donation-time {
@@ -21,4 +33,6 @@
   padding-top: 20px;
   padding-left: 30px;
 }
+
+
 

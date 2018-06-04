@@ -37,7 +37,11 @@
     <div class="col-md-6 col-xs-12">
       <h3 id="contributions-title" >Previous contributions</h3>
       <% @item.contributions.each do |contribution| %>
+      <%if contribution == @item.contributions.last %>
       <div class = "comment">
+        <%else%>
+        <div class = "comment line">
+          <%end%>
         <p class = "donation-giver"><%= User.find(contribution.user_id).first_name.capitalize %> donated <strong><%= humanized_money_with_symbol(contribution.amount_cents / 100.0) %> </strong></p>
         <p class = "donation-time"><%= contribution.created_at.strftime("%b %d, %Y")  %>
           <% unless contribution.message.nil? %>
