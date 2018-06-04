@@ -36,6 +36,9 @@
     </div>
     <div class="col-md-6 col-xs-12">
       <h3 id="contributions-title" >Previous contributions</h3>
+        <% if @item.contributions.count == 0 %>
+      <p class = "no-donations"> No Donations So Far. Let's Change that! </p>
+      <%else%>
       <% @item.contributions.each do |contribution| %>
       <%if contribution == @item.contributions.last %>
       <div class = "comment">
@@ -49,6 +52,7 @@
           <%end%>
         </div>
         <% end %>
+        <%end%>
       </div>
       <div class="col-md-12 col-xs-12">
         <br>
