@@ -28,7 +28,7 @@
     </div>
     <div class="donation-small-input">
           <%= simple_form_for [@recipient, @item, @contribution] do |f| %>
-            <%= f.input :amount_cents, label: "Donation amount", class:"form-control" %>
+            <%= f.input :amount_cents, label: "Donation amount", class:"form-control", input_html: { value: 1} %>
             <%= f.submit value: "Make a donation" %>
            <% end %>
         </div>
