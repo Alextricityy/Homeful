@@ -3,7 +3,7 @@
     <div class="col-md-6 col-xs-12">
       <h1><%= @recipient.first_name.capitalize %></h1>
       <%= cl_image_tag @recipient.photo, height: 300, width: 400, crop: :fill %>
-      <p><%= @recipient.bio %></p>
+      <p class="recipient-bio"><%= @recipient.bio %></p>
     </div>
     <div class="col-md-6 col-xs-12">
       <!-- contribution messages -->
@@ -45,7 +45,7 @@
           <% end %>
           <!-- cateogory logic -->
         </h3>
-        <p><%= item.description.capitalize %></p>
+        <p class="item-card-bio"><%= item.description.capitalize %></p>
         <!-- <p><%#= item.contributions %></p> -->
         <% end %>
         <% if item.total_contributions && item.price_cents %>

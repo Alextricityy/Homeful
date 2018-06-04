@@ -1,0 +1,25 @@
+.recipient-bio{
+  padding-right: 30px;
+  padding-top: 16px;
+}
+.item-card{
+  position: relative;
+  margin: 5px 0;
+  //box-shadow: 0.3px 0.7px 0.3px 3px #ffffff;
+ // width:  93% !important;
+ padding: 10px;
+ overflow: hidden;
+  text-decoration:none;
+  color:black;
+  a{
+    color:black;
+
+  }
+  a:hover{
+    text-decoration:none;
+    color:green;
+  }
+  border: solid 1px black;
+  border-radius: 10px;
+  box-shadow:5px 10px #888888;
+}
