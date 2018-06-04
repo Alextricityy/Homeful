@@ -1,0 +1,111 @@
+.loginform {
+  text-align: center;
+  font-size: 19px;
+  h2 {
+    width: 515px;
+  }
+}
+
+.fb-login{
+background-color: #3d3dd4;
+color: white;
+font-weight: bold;
+padding: 14px;
+font-size: 18px;
+border-radius: 6px;
+margin: 15px auto;
+}
+.goo-login{
+border-color: black;
+border-radius: 6px;
+// margin-bottom: 8px;
+// margin-top: 12px;
+margin: 10px auto;
+// color: white;
+font-size: 20px;
+border: 1px black;
+font-weight: bold;
+border: 1.4px solid #9e8f8f;
+color: gray;
+font-size: 18px;
+padding: 14px;
+}
+
+.sign-in-line {
+  display: flex;
+  justify-content: space-around;
+  z-index: 20;
+  color: gray;
+  align-items: center;
+      margin-bottom: 7px;
+  hr {
+    border: 0.7px solid #d0c7c7;
+    width: 230px;
+  }
+}
+
+.sign-in-form {
+  display: flex;
+  justify-content: space-around;
+  .form-inputs {
+    width: 515px;
+  }
+}
+
+  .remember-me{
+    font-weight: lighter;
+    display: flex;
+    .remember-me-text {
+      font-size: 17px;
+      padding: 2px;
+    }
+  }
+
+
+    // font-size: 17px;
+    // /* padding: 2px; */
+    // font-weight: lighter;
+    // margin-left: 8px;
+    // margin-right: 376px;
+
+.facebook-google{
+display: flex;
+  justify-content: space-around;
+}
+.form-check-label{
+    font-weight: 300;
+    margin-left: 14px;
+    font-size: 16px;
+}
+.btn {
+     width: 515px;
+    padding: 13px;
+    background-color: #74DAC6;
+    color: white;
+        margin-bottom: 16px;
+}
+.last-line{
+  color: gray;
+}
+
+.last-line-form {
+  hr {
+    border: 0.4px solid #d0c7c7;
+  }
+}
+
+.testest{
+  color: gray;
+  font-size: 14px;
+}
+
+#sign-up{
+  font-weight: bold;
+      color: #f71818;
+}
+
+#noaccount {
+  display: inline-block;
+  font-size: 14px;
+  color: orange;
+}
