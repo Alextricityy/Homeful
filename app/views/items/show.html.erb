@@ -40,7 +40,7 @@
     <div class = "comment">
     <p class = "donation-giver"><%= User.find(contribution.user_id).first_name.capitalize %> donated <strong><%= humanized_money_with_symbol(contribution.amount_cents / 100.0) %> </strong></p>
     <p class = "donation-time"><%= contribution.created_at.strftime("%b %d, %Y")  %>
-    <p class = "donation-message"><em>"<%= contribution.message%>Hope this helps, Gandalf. You're the best"<em></p>
+    <p class = "donation-message"><em>"<%= contribution.message%>"<em></p>
   </div>
     <% end %>
     </div>
