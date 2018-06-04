@@ -17,6 +17,8 @@ class LocationsController < ApplicationController
   end
 
   def edit
+    @location = Location.find(params[:id])
+    redirect_to root_path if current_user != @location.recipient.user
   end
 
   def update
