@@ -45,11 +45,9 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to "Get started", "#", data: {toggle: "modal", target: "#exampleModal"}, class: "navbar-wagon-item navbar-wagon-link"%>
             <a href="/recipients" class="navbar-wagon-item navbar-wagon-link">Help someone</a>
             <a href="/about" class="navbar-wagon-item navbar-wagon-link">How it works</a>
-
-      <%= link_to "Login", new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Login", "#", data: {toggle: "modal", target: "#exampleModal"}, class: "navbar-wagon-item navbar-wagon-link"%>
       <%= link_to "Sign up", new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
   </div>
