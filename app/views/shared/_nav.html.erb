@@ -14,7 +14,7 @@
             <a href="" class="navbar-wagon-item navbar-wagon-link">How it works</a>
 
      <%= form_tag recipients_path, :method => 'get' do %>
-          <%= text_field_tag :search, params[:search], :class => "search-input", label: false, id:"search-form", placeholder: "search term"%>
+          <%= text_field_tag :search, params[:search], :class => "search-input", label: false, id:"search-form", placeholder: "Recipient"%>
           <%= text_field_tag :location, params[:location], :class => "search-input", label: false, id:"search-form", placeholder: "Location" %>
           <%= submit_tag 'Search', class: "hidden", :name => nil %>
       <% end %>
@@ -23,16 +23,13 @@
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <p class="dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown"><%= current_user.email %><span class="caret"></span>
+</p>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+
             <li>
-              <%= link_to recipients_path do %>
-                <i class="fa fa-heart"></i> People we help
-              <% end %>
-            </li>
-            <li>
-              <%= link_to new_recipient_path do %>
-                <i class="fa fa-user"></i> Add someone in need
+              <%= link_to user_path(current_user) do %>
+                <i class="fa fa-user"></i> My profile
               <% end %>
             </li>
             <li>
