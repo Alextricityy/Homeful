@@ -9,7 +9,7 @@
 </div>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
- <p id="noaccount">Don’t have an account?</p><%=link_to "Sign up", new_user_registration_path, id: "sign-up" %><br />
+ <p id="noaccount">Don’t have an account?  </p><%=link_to "Sign up", new_user_registration_path, id: "sign-up" %><br />
 <% end -%>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
