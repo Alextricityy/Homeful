@@ -7,19 +7,108 @@
   justify-content: space-around;
 
 }
-
-.home-btn{
-  background-color: $dark-purple;
-  border-radius: 10px;
+.main-btn{
+  background-color: $dark-grey;
+  // border-radius: 10px;
   // border:  1px solid white;
-  box-shadow: 1px 2px $dark-grey;
+  // box-shadow: 1px 2px $dark-grey;
   text-decoration: none;
   color:white;
   padding:20px;
-  opacity: 0.8;
-  &:hover{
-    text-decoration:none;
-    opacity:1;
-    color:white;
-  }
+  // opacity: 0.8;
+  // background:white;
+  border-radius:5px;
+  border: 1px solid white;
+  box-shadow:1px 2px gray;
+  // color:#fff;
+  border:none;
+  position:relative;
+  height:60px;
+  font-size:1.6em;
+  padding:8px;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+  // width:150px;
+&:hover{
+  background:$dark-grey;
+  color:white;
+  text-decoration:none;
 }
+&:before,&:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: $light-purple;
+  transition:400ms ease all;
+}
+&:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+&:hover:before,&:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+}
+.secondary-btn{
+  // background-color: $dark-purple;
+  border-radius: 5px;
+  // border:  1px solid white;
+  box-shadow: 1px 2px $dark-grey;
+  padding-top: 20px;
+  text-decoration: none;
+  color:white;
+  padding:20px;
+  border: 2px solid white;
+  // opacity: 0.8;
+  // background:$light-purple;
+  background:transparent;
+  // color:#fff;
+  // border:none;
+  position:relative;
+  height:60px;
+  font-size:1.6em;
+  padding:8px;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+  // width:150px;
+&:hover{
+  background:$dark-grey;
+  color:$light-purple;
+  text-decoration:none;
+  border-radius:5px;
+}
+&:before,&:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: $light-purple;
+  transition:400ms ease all;
+  border-radius: 5px;
+}
+&:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+  border-radius:5px;
+}
+&:hover:before,&:hover:after{
+  width:100%;
+  transition:800ms ease all;
+  border-radius:5px;
+}
+
+}
+
+
