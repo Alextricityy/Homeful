@@ -27,7 +27,7 @@
            <% end %>
         </h3>
     <h4 class="text-center">Reason for needing: <%= @item.description.capitalize %></h3>
-    <h3 class="text-center">Total raised with your donation: <%= humanized_money_with_symbol(@item.total_contributions / 100) %> out of <%= humanized_money_with_symbol(@item.price_cents / 100) %></h3>
+    <h3 class="text-center">Total raised so far: <%= humanized_money_with_symbol(@item.total_contributions / 100) %> out of <%= humanized_money_with_symbol(@item.price_cents / 100) %></h3>
 
   </article>
   <div class="flexbut">
@@ -43,7 +43,7 @@
 <% end %>
 </div>
 <div class="col-md-6 col-md-offset-3">
-  <h3><%= @recipient.first_name.capitalize %>'s volunteer <%= @recipient.user.first_name %> will deliver this <%= @item.title %> to them</h3>
+  <h3><%= @recipient.first_name.capitalize %>'s volunteer <%= @recipient.user.first_name.capitalize %> will deliver this <%= @item.title %> to them</h3>
 
 </div>
 </div>
