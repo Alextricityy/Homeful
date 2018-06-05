@@ -11,6 +11,7 @@
   text-align: left;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
   margin-top:10px;
+  transition: all 0.3s ease;
 }
 
 .index:hover {
@@ -61,7 +62,7 @@
   left: 0;
   font-weight:90;
   color: white;
-  background-color: #1B264F;
+  background-color: $light-purple;
   min-width: 150px;
   font-size: 24px;
 }
