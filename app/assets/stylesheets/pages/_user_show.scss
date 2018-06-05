@@ -9,12 +9,18 @@
 .user-actions {
   flex: 0 0 50%;
   margin-left: 40px;
+  img {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin: 30px;
+  }
 }
 
 
 h3.user-name {
-  color: white;
-  margin-left: 40px;
+  color: $white;
+  margin-left: 80px;
   margin-top: 36px;
 
 }

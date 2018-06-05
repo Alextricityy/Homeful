@@ -3,7 +3,7 @@
       <h3 class="user-name"><%= @user.first_name.capitalize %></h3>
       <% if  @user != current_user %>
           <%= mail_to @user.email do %>
-            <div class="profile-button">
+            <div class="profile-button" style="margin-left: 45px">
               <p>Email Me</p>
             </div>
           <% end %>
