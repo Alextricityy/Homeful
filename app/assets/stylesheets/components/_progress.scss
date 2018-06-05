@@ -1,11 +1,12 @@
 .performance-container {
-  width: 275px;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
   background-color: rgb(220,220,220);
   display: flex;
   align-items: center;
   border-radius: 5px;
   margin-bottom: 15px;
-  margin-left: 15px;
 }
 
 .performance-rate {
@@ -44,3 +45,8 @@ width: 195px;
 margin-left: 15px;
 }
 
+.donate-form {
+  margin-left: auto;
+  margin-right: auto;
+  width:93%
+}
