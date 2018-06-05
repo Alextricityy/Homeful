@@ -1,64 +1,48 @@
-<div class="user-profile-banner" style="background-image: url(<%= image_path('user-profile-banner.jpg') %>)">
-  <div class="container-user-profile">
+<div class="user-profile-banner" style="background-image: url(<%= image_path('profile-background.jpg') %>)">
     <div class="user-actions">
       <h3 class="user-name"><%= @user.first_name.capitalize %></h3>
+      <% if  @user != current_user %>
+          <%= mail_to @user.email do %>
+            <div class="profile-button">
+              <p>Email Me</p>
+            </div>
+          <% end %>
+      <% else %>
+          <%= link_to edit_user_registration_path do %>
+            <div class="profile-button">
+              <p>edit profile</p>
+            </div>
+          <% end %>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+          <div class="profile-button">
+            <p>sign out</p>
+          </div>
+          <% end %>
+         <%= link_to destroy_user_session_path, method: :delete do %>
+          <div class="profile-button">
+            <p>delete profile</p>
+          </div>
+        <% end %>
+          <% if !@user.volunteer %>
+            <%= link_to new_recipient_path do %>
+              <div class="profile-button2">
+                <p>Become a volunteer!</p>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
     </div>
+
     <div class="user-bio">
       <% if @user.bio %>
         <div class="card-user-profile">
           <p><%= @user.bio %></p>
-          <p>yo yoyoyoyo yo yoyoyoyo yo yoyoyoyo yo yoyoyoyo yo yoyoyoyo yo yoyoyoyo yo yoyoyoyo yo yoyoyoyo yo yoyoyoyo </p>
         </div>
       <% end %>
     </div>
-  </div>
 </div>
 
-  <% if @user == current_user %>
-    <%= link_to 'edit profile', edit_user_registration_path %>
-    <%= link_to 'logout', destroy_user_session_path, method: :delete %>
-    <%= link_to 'delete profile', user_registration_path, method: :delete%>
-    <% if @user.volunteer %>
-      <p>Thank you for being a volunteer with us! </p>
-    <% else %>
-      <a href="#">Become a volunteer</a>
-    <% end %>
-  <% else %>
-    send an email
-  <% end %>
-
-  <%= @user.bio %>
-
-
-
-
-<div class="profile-show-container">
-  <div class="profile-content">
-    <div class="profile-header">
-      <% if @user.photo %>
-        <%= cl_image_tag @user.photo%>
-      <% else %>
-        <%= image_tag 'user.png' %>
-      <% end %>
-
-      <div class="profile-elements">
-        <div class="flex-between">
-          <h4><%= @user.first_name.capitalize%> <%=@user.last_name%></h4>
-          <% if @user == current_user %>
-
-            <div class="profile-items">
-              <%= link_to 'edit profile', edit_user_registration_path %>
-              <%= link_to 'logout', destroy_user_session_path, method: :delete %>
-              <%= link_to 'delete profile', user_registration_path, method: :delete%>
-            </div>
-          <% else %>
-            <p>Send <%= @user.first_name %> an email.</p>
-          <% end %>
-        </div>
-        <p><%= @user.bio%></p>
-      </div>
-    </div>
-
+<!-- recipient cards -->
     <div class="container recent">
       <% if @user.recipients.count > 0 %>
         <div class="row">
@@ -114,9 +98,11 @@
   </div>
 </div>
 
+<!-- map with recipients -->
+
   <% if @user.recipients.count > 0 %>
     <div class="map-profile" id="map" data-markers="<%= @markers.to_json %>">
     </div>
   <% end %>
-</div>
+  </div>
 </div>

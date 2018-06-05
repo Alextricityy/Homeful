@@ -2,20 +2,25 @@
 
 .user-profile-banner {
   background-size: cover;
-  height: 200px;
+  min-height: 200px;
   display: flex;
 }
 
 .user-actions {
-  flex: 0 0 50%
+  flex: 0 0 50%;
+  margin-left: 40px;
 }
 
-.container-user-profile{
-  margin: 50px;
+
+h3.user-name {
+  color: white;
+  margin-left: 40px;
+  margin-top: 36px;
+
 }
 
 .card-user-profile {
-  background-color: white;
+  background-color: $white;
   border-radius: 4px;
   padding: 20px;
   box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
@@ -24,6 +29,68 @@
 
 .user-bio {
   flex: 0 0 50%;
+}
+
+
+.profile-button {
+    background-color: $light-purple;
+    border: none;
+    color: $white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    font-style: $body-font;
+    p {
+      margin-bottom: 0px;
+    }
+
+}
+
+.profile-button:hover {
+ box-shadow: 3px 3px 5px rgba(0,0,0,0.2);
+ transform: scale(1.1);
+
+}
+
+.linky {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+  background: black;
+  opacity: 0;
+}
+
+.profile-button2 {
+    background-color: $yellow;
+    border: none;
+    color: $white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    font-style: $body-font;
+
+    p {
+        margin-bottom: 0px;
+    }
+
+}
+
+.profile-button2:hover {
+ box-shadow: 3px 3px 5px rgba(0,0,0,0.2);
+
+ transform: scale(1.1);
+
 }
 
 // Previous code
