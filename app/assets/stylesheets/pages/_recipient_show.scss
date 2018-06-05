@@ -1,12 +1,26 @@
 
 .recipients-flex {
-    display: flex;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
 
 }
 
 .recipient-content {
   flex: 1 1 auto;
   background-color: #d8d4d4;
+
+}
+.recipient-name {
+  h3 {
+  color: $white !important;
+  font-size: 50px;
+  font-family: $headers-font;
+  text-align: left;
+}
+  margin-left: 80px;
+  margin-top: 15px;
 
 }
 
