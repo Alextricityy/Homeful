@@ -1,5 +1,5 @@
 meta_product_name: "Homeful"
 meta_title: "Homeful - Help those in need in your area"
 meta_description: "Learn more about people in need in your area and contribute to items they need."
-meta_image: "homeful.jpg"                       # should exist in `app/assets/images/`
+meta_image: "user-profile-banner.jpg"                       # should exist in `app/assets/images/`
 

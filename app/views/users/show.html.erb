@@ -1,64 +1,108 @@
-<div class="profile-show-container">
-  <div class="profile-content">
-    <div class="profile-header">
-      <% if @user.photo %>
-        <%= cl_image_tag @user.photo%>
-      <% else %>
-        <%= image_tag 'user.png' %>
-      <% end %>
-
-      <div class="profile-elements">
-        <div class="flex-between">
-          <h4><%= @user.first_name.capitalize%> <%=@user.last_name%></h4>
-          <% if @user == current_user %>
-
-            <div class="profile-items">
-              <%= link_to 'edit profile', edit_user_registration_path %>
-              <%= link_to 'logout', destroy_user_session_path, method: :delete %>
-              <%= link_to 'delete profile', user_registration_path, method: :delete%>
+<div class="user-profile-banner" style="background-image: url(<%= image_path('profile-background.jpg') %>)">
+    <div class="user-actions">
+      <h3 class="user-name"><%= @user.first_name.capitalize %></h3>
+      <% if  @user != current_user %>
+          <%= mail_to @user.email do %>
+            <div class="profile-button">
+              <p>Email Me</p>
             </div>
-          <% else %>
-            <p>Send <%= @user.first_name %> an email.</p>
           <% end %>
-        </div>
-        <p><%= @user.bio%></p>
-      </div>
+      <% else %>
+          <%= link_to edit_user_registration_path do %>
+            <div class="profile-button">
+              <p>edit profile</p>
+            </div>
+          <% end %>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+          <div class="profile-button">
+            <p>sign out</p>
+          </div>
+          <% end %>
+         <%= link_to destroy_user_session_path, method: :delete do %>
+          <div class="profile-button">
+            <p>delete profile</p>
+          </div>
+        <% end %>
+          <% if !@user.volunteer %>
+            <%= link_to new_recipient_path do %>
+              <div class="profile-button2">
+                <p>Become a volunteer!</p>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
     </div>
-    <div class="profile-cards">
-      <div class="row">
-        <% if @user.recipients.count > 0 %>
-          <% @user.recipients.each do |recipient| %>
-            <div class="col-xs-12 col-sm-4">
-              <div class="card">
-                <%= link_to recipient, class: "card-link" do%>
-                  <% if recipient.photo %>
-                    <% photo_url = cl_image_path recipient.photo %>
-                  <% else %>
-                    <% photo_url = "url('https://goo.gl/images/GPguPA')" %>
-                  <% end %>
-                  <div class="card-photo" style="background-image: url('<%= photo_url %>');"></div>
-                  <div class="card-name">
-                    <h3><%= recipient.first_name.capitalize %></h3>
+
+    <div class="user-bio">
+      <% if @user.bio %>
+        <div class="card-user-profile">
+          <p><%= @user.bio %></p>
+        </div>
+      <% end %>
+    </div>
+</div>
+
+<!-- recipient cards -->
+    <div class="container recent">
+      <% if @user.recipients.count > 0 %>
+        <div class="row">
+          <h2 class="text-center">Recent Additions</h2>
+          <% @recipients.first(3).each do |recipient| %>
+            <%=link_to recipient do%>
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class = "index">
+                  <div class="card-photo" style="background-image: url('<%= recipient.photo %>');">
                   </div>
-                  <div class="card-info">
-                    <p><%=h truncate(recipient.bio, length: 200) %></p>
-                  </div>
-                  <div class="card-date">
-                    <p>Added on: <%= Date.today %></p>
+                <div class="caption">
+                  <h3>
+                    <%=recipient.first_name %>
+                  </h3>
+                  <p>
+                   <%=recipient.bio %>
+                  </p>
+                <div class = "requests">
+                  <div class = "requests-content">
+                    In Need Of:
                   </div>
                 </div>
+                  <div class = "icons">
+                    <% if recipient.items.count > 0 %>
+                      <% recipient.items.each do |item| %>
+                        <% if item.category == "Animal" %>
+                          <i class="fas fa-paw"></i>
+                        <% elsif item.category == "Living" %>
+                          <i class="fas fa-home"></i>
+                        <% elsif item.category == "Food" %>
+                          <i class="fas fa-utensils"></i>
+                        <% elsif item.category == "Health" %>
+                          <i class="fas fa-medkit"></i>
+                        <% elsif item.category == "Education" %>
+                          <i class="fas fa-book"></i>
+                        <% elsif item.category == "Transport" %>
+                          <i class="fas fa-bus"></i>
+                        <% elsif item.category == "Leisure" %>
+                          <i class="fas fa-futbol"></i>
+                        <% else %>
+                          <i class="fas fa-bomb"></i>
+                        <% end %>
+                    <% end %>
+                  </div>
+                  <% end %>
+                </div>
               </div>
-              <% end %>
-            <% end %>
-        <% else %>
-          <p style="margin-left: 50px; font-style: italic; font-size: 16px"> No recipients are currently assigned to <%= @user.first_name.capitalize %></p>
+            </div>
         <%end%>
-      </div>
+      <%end%>
     </div>
+      <% end %>
   </div>
-  <div class="map-profile" id="map"
+</div>
 
-  data-markers="<%= @markers.to_json %>">
+<!-- map with recipients -->
 
+  <% if @user.recipients.count > 0 %>
+    <div class="map-profile" id="map" data-markers="<%= @markers.to_json %>">
+    </div>
+  <% end %>
   </div>
 </div>
