@@ -7,12 +7,14 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
     <% if user_signed_in? %>
-      <a href="" class="navbar-wagon-item navbar-wagon-link">Help someone</a>
-      <a href="" class="navbar-wagon-item navbar-wagon-link">How it works</a>
+      <a href="" class="navbar-wagon-item navbar-wagon-link">Help someone</a><span class="myline">|</span>
+      <a href="" class="navbar-wagon-item navbar-wagon-link">How it works</a><span class="myline">|</span>
 
       <%= form_tag recipients_path, :method => 'get' do %>
         <%= text_field_tag :search, params[:search], :class => "search-input", label: false, id:"search-form", placeholder: "Recipient"%>
+        <span class="myline">|</span>
         <%= text_field_tag :location, params[:location], :class => "search-input", label: false, id:"search-form", placeholder: "Location" %>
+        <span class="myline">|</span>
         <%= submit_tag 'Search', class: "hidden", :name => nil %>
       <% end %>
 
@@ -38,10 +40,12 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
-      <a href="/recipients" class="navbar-wagon-item navbar-wagon-link">Help someone</a>
-      <a href="/about" class="navbar-wagon-item navbar-wagon-link">How it works</a>
+      <a href="/recipients" class="navbar-wagon-item navbar-wagon-link">Help someone</a><span class="myline">|</span>
+      <a href="/about" class="navbar-wagon-item navbar-wagon-link">How it works</a><span class="myline">|</span>
       <%= link_to "Login", "#", data: {toggle: "modal", target: "#exampleModal"}, class: "navbar-wagon-item navbar-wagon-link"%>
+      <span class="myline">|</span>
       <%= link_to "Sign up", new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <span class="myline">|</span>
     <% end %>
   </div>
 
