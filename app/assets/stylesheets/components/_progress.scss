@@ -1,9 +1,11 @@
 .performance-container {
-  width: 200px;
+  width: 85%;
   background-color: rgb(220,220,220);
   display: flex;
   align-items: center;
   border-radius: 5px;
+  margin-bottom: 15px;
+  margin-left: 15px;
 }
 
 .performance-rate {
@@ -11,7 +13,8 @@
 }
 
 .performance-bar {
-  height: 25px;
+  height: 15px;
+
 }
 
 .performance-bar-green {
@@ -30,3 +33,10 @@
   background-color: orange;
   border-radius:5px 0px 0px 5px;
 }
+
+#contribution_amount_cents {
+height: 30px;
+width: 195px;
+margin-left: 15px;
+}
+
