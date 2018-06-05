@@ -25,6 +25,8 @@ class PaymentsController < ApplicationController
   )
 
   @contribution.update(payment_info: charge.to_json, state: 'paid')
+  @item.total_contributions += @contribution.amount_cents
+  @item.save
   redirect_to recipient_item_contribution_path(@recipient, @item, @contribution)
 
   rescue Stripe::CardError => e

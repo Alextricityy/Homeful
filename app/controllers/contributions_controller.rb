@@ -37,8 +37,8 @@ class ContributionsController < ApplicationController
       #   flash[:alert] = e.message
       #   redirect_to new_order_payment_path(@contribution)
     if @contribution.save
-      @item.total_contributions += @contribution.amount_cents
-      @item.save
+      # @item.total_contributions += @contribution.amount_cents
+      # @item.save
       redirect_to new_recipient_item_contribution_payment_path(@recipient, @item, @contribution)
     else
       render "new"

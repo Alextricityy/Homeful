@@ -17,7 +17,9 @@ class RecipientsController < ApplicationController
       locations.each do |u|
         location_recipients <<  u.recipient
       end
-      @recipients = location_recipients
+      @recipients = location_recipients.uniq
+      # @recipients.uni
+      # raise
 
     elsif params[:search].present?
       @recipients = Recipient.search_everything(params[:search])
