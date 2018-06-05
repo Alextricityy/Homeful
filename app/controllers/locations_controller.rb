@@ -17,10 +17,12 @@ class LocationsController < ApplicationController
   end
 
   def edit
+    @location = Location.find(params[:id])
+    redirect_to root_path unless @location.recipient.user == current_user
   end
 
   def update
-    @location = Location.find(params[:location_id])
+    @location = Location.find(params[:id])
     @location.address = params[:address]
     @location.save
   end

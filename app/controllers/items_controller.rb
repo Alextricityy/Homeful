@@ -23,7 +23,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
-
+   if current_user != @item.recipient.user
+      redirect_to root_path
+    end
   end
 
   def update
@@ -33,6 +35,11 @@ class ItemsController < ApplicationController
     else
       render "edit"
     end
+  end
+
+  def delete
+    @item.destroy
+    redirect_to root_path
   end
 
   private

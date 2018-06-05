@@ -31,6 +31,12 @@
         <%= f.input :amount_cents, label: "Donation amount", class:"form-control", input_html: { value: 1} %>
         <%= f.submit value: "Make a donation" %>
         <% end %>
+          <% if current_user == @item.recipient.user %>
+            <div class="profile-items">
+              <%= link_to 'edit item', edit_recipient_item_path(@recipient, @item) %>
+              <%= link_to 'delete item', recipient_item_path(@item), method: :delete%>
+            </div>
+          <% end %>
       </div>
 
     </div>

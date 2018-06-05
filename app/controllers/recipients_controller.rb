@@ -63,6 +63,10 @@ def create
   end
 
   def edit
+    if current_user != @recipient.user
+      redirect_to root_path
+    end
+
     # authorize @recipient
   end
 
@@ -78,7 +82,8 @@ def create
 
   def destroy
     # authorize @recipient
-    @recipient.delete
+    @recipient.destroy
+    redirect_to recipients_path
   end
 
   def show

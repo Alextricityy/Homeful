@@ -1,2 +1,9 @@
-<h1>Location#edit</h1>
-<p>Find me in app/views/location/edit.html.erb</p>
+  <div class="container">
+  <div class="col-xs-6 col-xs-offset-3">
+<%= simple_form_for [@recipient, @location] do |f| %>
+<%= f.input :address %>
+<%= f.submit %>
+</div>
+
+<% end %>
+</div>
