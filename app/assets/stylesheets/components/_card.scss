@@ -213,6 +213,7 @@
   text-align: left;
   line-height: 1.6em;
   height:5vh;
+  overflow: visible;
 }
 
 #category-type{
@@ -221,11 +222,12 @@
 }
 
 #amount-raised {
-  margin-left: 40px;
-  margin-bottom: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 68%;
   padding-bottom: 0px;
+  margin-bottom: 0px;
   margin-top: 50px;
-
 }
 
 .existing-item {

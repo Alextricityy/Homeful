@@ -82,7 +82,7 @@
             </div>
             <% end %>
             <%if item.total_contributions < item.price_cents %>
-            <div class="form-inline">
+            <div class="form-inline donate-form">
               <%= simple_form_for [@recipient, item, @contribution] do |f| %>
 
               <%= f.input :amount_cents, label: false, class:"form-control donation-small-input", input_html: { value: 1}%>
