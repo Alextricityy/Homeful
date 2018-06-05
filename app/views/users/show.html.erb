@@ -9,7 +9,7 @@
 
       <div class="profile-elements">
         <div class="flex-between">
-          <h4><%= @user.first_name.capitalize%> <%=@user.last_name[0].upcase%></h4>
+          <h4><%= @user.first_name.capitalize%> <%=@user.last_name%></h4>
           <% if @user == current_user %>
 
             <div class="profile-items">
