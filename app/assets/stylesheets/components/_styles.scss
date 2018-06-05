@@ -1,3 +1,11 @@
-.our-blue{
-  color:#506E86;
+html {
+  position: relative;
+  min-height: 100%;
+  scroll-behavior:smooth;
+}
+
+
+body {
+  margin: 0 0 80px;
+  /* bottom = footer height */
 }

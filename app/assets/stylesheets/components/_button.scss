@@ -7,3 +7,19 @@
   justify-content: space-around;
 
 }
+
+.home-btn{
+  background-color: $dark-purple;
+  border-radius: 10px;
+  // border:  1px solid white;
+  box-shadow: 1px 2px $dark-grey;
+  text-decoration: none;
+  color:white;
+  padding:20px;
+  opacity: 0.8;
+  &:hover{
+    text-decoration:none;
+    opacity:1;
+    color:white;
+  }
+}
