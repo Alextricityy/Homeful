@@ -1,16 +1,18 @@
 // @import url("https://fonts.googleapis.com/css?family=Montserrat|Roboto+Slab:400,700");
 @import url('https://fonts.googleapis.com/css?family=Oswald|Source+Sans+Pro:700');
-@import url('https://fonts.googleapis.com/css?family=Muli:300');
+@import url('https://fonts.googleapis.com/css?family=Muli:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i');
 // Define fonts for body and headers
 $body-font: "Muli", "Helvetica", "sans-serif";
-$headers-font: "Source Sans Pro", "Helvetica", "sans-serif";
+$headers-font: "Source Sans Pro", "sans-serif";
 
-// .body {
-//   font-family: $body-font;
-// }
-// h1{
-//   font-family: $headers-font;
-// }
+body, p, h2, h3, h4, h5, h6 {
+  font-family: $body-font;
+}
+
+
+h1{
+  font-family: $headers-font;
+}
 // To use a font file (.woff) uncomment following lines
 // @font-face {
 //   font-family: "Font Name";
