@@ -66,7 +66,7 @@
 /* Basic navbar item */
 .navbar-wagon-item {
   cursor: pointer;
-  margin-right:16px;
+  // margin-right:16px;
   color: white;
   font-size: 16px;
 }
@@ -127,7 +127,7 @@
 #search-form{
   height: 35px !important;
   margin-top: 1px;
-  margin-right: 16px;
+  // margin-right: 16px;
   opacity:0.8;
   &:hover{
     opacity:1;
@@ -181,4 +181,10 @@
 
 #navbar-wagon-menu{
   padding-top: 12px;
+}
+.myline{
+  font-size: 16px;
+  color:white;
+  margin-left: 12px;
+  margin-right: 12px;
 }
