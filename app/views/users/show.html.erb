@@ -23,7 +23,7 @@
             <p>delete profile</p>
           </div>
         <% end %>
-          <% if !@user.volunteer %>
+          <% if @user.recipients.count < 1 %>
             <%= link_to new_recipient_path do %>
               <div class="profile-button2">
                 <p>Become a volunteer!</p>
