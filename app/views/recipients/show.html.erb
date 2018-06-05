@@ -63,7 +63,7 @@
               <% end %>
 
               <% if item.total_contributions && item.price_cents %>
-              <p id = "amount-raised"><%= humanized_money_with_symbol(item.total_contributions/100) %> raised out of <%= humanized_money_with_symbol(item.price_cents/100) %> | <%= ((item.total_contributions.to_f/ item.price_cents.to_f) * 100).to_i %>% raised  </p>
+              <p id = "amount-raised"><%= humanized_money_with_symbol(item.total_contributions/100) %> of <%= humanized_money_with_symbol(item.price_cents/100) %> raised | <%= ((item.total_contributions.to_f/ item.price_cents.to_f) * 100).to_i %>% raised  </p>
 
             </div>
 
