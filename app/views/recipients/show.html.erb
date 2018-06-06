@@ -4,7 +4,6 @@
 
     <div class="recipient-avatar">
       <%= cl_image_tag @recipient.photo, height: 300, width: 300, crop: :fill, class:"my-avatar" %>
-
     </div>
     <div class="recipient-elements">
 
@@ -152,32 +151,28 @@
           <div class = "comment line">
             <%end%>
             <p class = "donation-giver"><%= User.find(contribution.user_id).first_name.capitalize %> donated <strong><%= humanized_money_with_symbol(contribution.amount_cents / 100.0) %> </strong></p>
-            <p class = "donation-time"><%= contribution.created_at.strftime("%b %d, %Y")  %>
-              <% unless contribution.message.nil? %>
-              <p class = "donation-message"><em>"<%= contribution.message%>"</em></p>
-              <%end%>
-            </div>
-            <% end %>
+            <p class = "donation-time"><%= contribution.created_at.strftime("%b %d, %Y")  %></p>
+            <% unless contribution.message.nil? %>
+            <p class = "donation-message"><em>"<%= contribution.message%>"</em></p>
             <%end%>
           </div>
-        </div>
-
-      </div>
-
-
-
-
-
-      <br>
-      <br>
-      <div class="map-recipient">
-        <div id="map" data-markers="<%= @markers.to_json %>">
-        </div>
-        <div id="legend">
-          <%= image_tag("Legend.png") %>
+          <% end %>
+          <%end%>
         </div>
       </div>
 
+    </div>
+
+  </div>
+<!-- </div> -->
 
 
-
+  <br>
+  <br>
+  <div class="map-recipient">
+    <div id="map" data-markers="<%= @markers.to_json %>">
+    </div>
+    <div id="legend">
+      <%= image_tag("Legend.png") %>
+    </div>
+  </div>
