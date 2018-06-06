@@ -39,11 +39,13 @@
   border-radius:5px 0px 0px 5px;
 }
 
-#contribution_amount_cents {
-height: 30px;
-width: 195px;
-margin-left: 36px;
-}
+// it hasn't been used anywhere but was affecting the item show page
+
+// #contribution_amount_cents {
+// height: 30px;
+// width: 195px;
+// margin-left: 36px;
+// }
 
 .donate-form {
   margin-left: auto;

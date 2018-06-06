@@ -1,12 +1,13 @@
 .item-banner {
   display: flex;
   background-size: cover;
-  height: 600px;
+  height: 400px;
   width: 100%;
   justify-content: center;
   align-items: center;
   background-position: center center;
 }
+
 
 .item-banner-text {
   justify-content: center;
@@ -17,6 +18,10 @@
     font-family: $headers-font;
   }
   margin-bottom: 90px;
+}
+
+.banner-name {
+
 }
 
 .item-donation-text {
