@@ -2,8 +2,8 @@
 <div class="recipients-flex">
   <div class="recipient-content">
     <div class="recipient-header">
-     <%= cl_image_tag @recipient.photo, height: 300, width: 400, crop: :fill %>
-
+     <%= cl_image_tag @recipient.photo, height: 300, width: 300, crop: :fill, class:"avatar margin-auto" %>
+      <br>
      <div>
        <h1><%= @recipient.first_name.capitalize %></h1>
        <h2>Click here for <%= @recipient.first_name.capitalize %>'s <%= link_to 'volunteer', user_path(@user) %></h2>
