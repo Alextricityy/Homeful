@@ -1,14 +1,15 @@
 
 <div class="item-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.1)), url(<%= image_path('hands.jpg'); %>)">
+
   <div class="item-banner-text">
-    <p>One Donation May Not Change The World</p>
-    <p>But It Will Change The World For One Person</p>
+    <p>Make a Meaningful Donation to <%= @recipient.first_name %></p>
+    <p>Towards His <%= @item.title.capitalize %></p>
   </div>
 </div>
 
 <div class="item-donation-text">
   <h3>Thank you for considering making a donation!</h3>
-  <p>With your help, we can make a lasting change in the life of a person in need. Make a meaningful donation to <%= @recipient.first_name %>.</p>
+  <p>One donation may not change the world, but it will change the world for one person.</p>
 </div>
 
 <div class="item-on-show">
@@ -76,10 +77,16 @@
       <% end %>
       <% @recipient.items.where.not(id: @item.id).each do |item| %>
         <%= link_to recipient_item_path(@recipient, item) do %>
-          <div class="col-md-4 col-sm-6 col-xs-12">
-            <div class="item-card">
-              <h3 class="item-card-name"><%= item.title.capitalize %></h3>
-              <h4>
+          <div class="col-md-6 col-xs-12 cards">
+        <div class="index existing-item">
+          <%= link_to recipient_item_path(@recipient, item) do %>
+          <div class="caption">
+            <h2><%= item.title.capitalize %></h2>
+            <br>
+            <br>
+
+            <div id = "item-descriptions">
+              <p id = "category-type"> Category:
                 <!-- cateogory logic -->
                 <%= item.category %>
                 <%  if item.category == "Animal" %>
@@ -100,27 +107,51 @@
                 <i class="fas fa-bomb"></i>
                 <% end %>
                 <!-- cateogory logic -->
-              </h4>
-              <p><%= item.description.capitalize %></p>
-            <!-- <p><%#= item.contributions %></p> -->
+              </p>
+
+              <p id= "description"><%= item.description.capitalize %></p>
+              <!-- <p><%#= item.contributions %></p> -->
+              <br>
+              <br>
+              <% end %>
+
               <% if item.total_contributions && item.price_cents %>
-                <p><%= humanized_money_with_symbol(item.total_contributions/100) %> raised out of <%= humanized_money_with_symbol(item.price_cents/100) %></p>
-                <div class="performance-container">
-                  <% value = ( item.total_contributions.to_f / item.price_cents.to_f ) * 200 %>
-                  <% color = value >= 75 ? "green" : value < 75 && value >= 40 ? "orange" : "red" %>
-                  <%= progress_bar(color, value) %>
-                </div>
-              <% end %>
-          <!-- item contributions bar -->
+              <p id = "amount-raised"><%= humanized_money_with_symbol(item.total_contributions/100) %> of <%= humanized_money_with_symbol(item.price_cents/100) %><%= ((item.total_contributions.to_f/ item.price_cents.to_f) * 100).to_i %> %  raised</p>
+
             </div>
-            <div class="donation-small-input">
+
+            <div class="performance-container">
+              <% value = ( item.total_contributions.to_f / item.price_cents.to_f) * 275 %>
+              <% if value >= 275 %>
+              <% color = "green-complete"%>
+              <% elsif value >= 195 %>
+              <%color = "green" %>
+              <% elsif value < 195 && value >= 104 %>
+              <% color = "orange" %>
+              <% else %>
+              <%color = "red" %>
+              <%end%>
+              <%= progress_bar(color, value) %>
+            </div>
+            <% end %>
+            <%if item.total_contributions < item.price_cents %>
+            <div class="form-inline donate-form">
               <%= simple_form_for [@recipient, item, @contribution] do |f| %>
-                <%= f.input :amount_cents, label: "Donation amount", class:"form-control" %>
-                <%= f.submit value: "Make a donation" %>
-              <% end %>
+
+              <%= f.input :amount_cents, label: false, class:"form-control donation-small-input", input_html: { value: 1}, style:"margin-left:36px;"%>
+
+              <%= f.submit value: "Donate" , class:"tertiary-btn" %>
             </div>
-        <%#= link_to "Make a Contribution", new_recipient_item_contribution_path(@recipient, item) %>
+
+
+            <% end %>
+            <% else %>
+             <p id="success"> Item Funded! </p>
+            <% end %>
+            <%#= link_to "Donate", new_recipient_item_contribution_path(@recipient, item) %>
           </div>
+        </div>
+      </div>
         <% end %>
       <% end %>
     </div>
