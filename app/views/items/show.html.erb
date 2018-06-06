@@ -171,11 +171,12 @@
             <p class = "donation-time"><%= contribution.created_at.strftime("%b %d, %Y")  %>
               <% unless contribution.message.nil? %> </p>
                 <p class = "donation-message"><em>"<%= contribution.message%>"</em></p>
-              <%end%>
-          </div>
-      <% end %>
-    <%end%>
-   </div>
+                <%end%>
+            </div>
+        <% end %>
+      <%end%>
+     </div>
+  </div>
 </div>
 
 
