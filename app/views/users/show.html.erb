@@ -10,17 +10,17 @@
       <% else %>
           <%= link_to edit_user_registration_path do %>
             <div class="profile-button">
-              <p>edit profile</p>
+             <p>Edit <i class="fas fa-user-edit"></i></p>
             </div>
           <% end %>
-          <%= link_to destroy_user_session_path, method: :delete do %>
-          <div class="profile-button">
-            <p>sign out</p>
+        <%= link_to destroy_user_session_path, method: :delete do %>
+         <div class="profile-button">
+         <p>Delete <i class="far fa-trash-alt"></i></p>
           </div>
           <% end %>
-         <%= link_to destroy_user_session_path, method: :delete do %>
+           <%= link_to destroy_user_session_path, method: :delete do %>
           <div class="profile-button">
-            <p>delete profile</p>
+            <p>sign out <i class="fas fa-sign-out-alt"></i></p>
           </div>
         <% end %>
           <% if @user.recipients.count < 1 %>
