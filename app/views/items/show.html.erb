@@ -141,11 +141,11 @@
   </div>
   <div class="item-bottom-right">
     <h3 id="contributions-title" >Previous contributions</h3>
-    <% if @item.contributions.count == 0 %>
+    <% if @contributions.count == 0 %>
       <p class = "no-donations"> No Donations So Far. Let's Change that! </p>
     <%else%>
-      <% @item.contributions.each do |contribution| %>
-        <%if contribution == @item.contributions.last %>
+      <% @contributions.each do |contribution| %>
+        <%if contribution == @contributions.last %>
           <div class = "comment">
         <%else%>
           <div class = "comment line">
