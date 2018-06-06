@@ -54,7 +54,7 @@ class ContributionsController < ApplicationController
     @contribution = current_user.contributions.where(state: 'paid').find(params[:id])
     @contribution.update(message:params["contribution"][:message])
     if @contribution.save
-      redirect_to recipient_item_path(params["recipient_id"], params["item_id"])
+      redirect_to recipient_path(params["recipient_id"])
     else
       render "show"
     end

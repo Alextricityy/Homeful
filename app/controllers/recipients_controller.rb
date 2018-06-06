@@ -103,13 +103,14 @@ def create
      end
         @markers << hash
     end
-    
+
     @contributions = []
-    @user.contributions.each do |contribution|
+    @recipient.contributions.each do |contribution|
       if contribution.state == "paid"
         @contributions << contribution
       end
     @contributions
+
     end
 
   end
