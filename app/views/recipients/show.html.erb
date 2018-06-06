@@ -1,6 +1,8 @@
+
 <div class="recipients-flex" style=" background: linear-gradient(to right, #0f0c29, #302b63, #24243e);">
   <div class="recipient-avatar">
     <%= cl_image_tag @recipient.photo, height: 300, width: 400, crop: :fill %>
+
   </div>
   <div class="recipient-elements">
     <h3 style="color: white; margin-bottom: 90px"><%= @recipient.first_name.capitalize %></h3>
