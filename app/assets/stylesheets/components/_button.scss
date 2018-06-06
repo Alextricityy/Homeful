@@ -111,4 +111,58 @@
 
 }
 
-
+.tertiary-btn{
+    // background-color: $dark-purple;
+  border-radius: 5px;
+  // border:  1px solid white;
+  box-shadow: 1px 1px $dark-grey;
+  padding-top: 20px;
+  text-decoration: none;
+  color:white;
+  padding:20px;
+  // border: 2px solid white;
+  // opacity: 0.8;
+  // background:$light-purple;
+  background:#7bca79;
+  // color:#fff;
+  margin-top: 12px;
+  margin-left:94px;
+  // border:none;
+  position:relative;
+  // height:60px;
+  // font-size:1.6em;
+  padding:8px;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+  // width:150px;
+&:hover{
+  background:$light-purple;
+  color:white;
+  text-decoration:none;
+  border-radius:5px;
+}
+&:before,&:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: $light-purple;
+  transition:400ms ease all;
+  border-radius: 5px;
+}
+&:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+  border-radius:5px;
+}
+&:hover:before,&:hover:after{
+  width:100%;
+  transition:800ms ease all;
+  border-radius:5px;
+}
+}
