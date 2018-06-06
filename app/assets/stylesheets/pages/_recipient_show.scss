@@ -2,9 +2,13 @@
 .recipients-flex {
   display: flex;
   // justify-content: space-between;
-  // align-items: center;
+  align-items: center;
+  // text-align:center;
+}
 
-
+.sub-flexbox {
+  display: flex;
+  justify-content: space-around;
 }
 #moveleft{
   margin-left:80px;
@@ -35,6 +39,7 @@
   // height:80px;
   overflow: visible;
   color:black;
+  padding-left:30px;
 }
 .my-user-profile{
   margin-top: 20px;
@@ -42,7 +47,7 @@
 border-radius: 4px;
 padding: 20px;
 box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-margin: 50px 440px 20px 0px;
+margin: 50px 80px 20px 0px;
 width:1000px;
 }
 #less-margin{
@@ -247,4 +252,8 @@ h2 {
 }
 #move-me-left{
   margin-left:170px !important;
+}
+.less-width{
+  width:89%;
+  text-align:center;
 }

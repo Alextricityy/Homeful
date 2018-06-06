@@ -1,47 +1,50 @@
 
 <div class="recipients-flex" style=" background: linear-gradient(to right, #0f0c29, #302b63, #24243e);">
-  <div class="recipient-avatar">
-    <%= cl_image_tag @recipient.photo, height: 300, width: 300, crop: :fill, class:"my-avatar" %>
+  <div class="sub-flexbox">
 
-  </div>
-  <div class="recipient-elements">
+    <div class="recipient-avatar">
+      <%= cl_image_tag @recipient.photo, height: 300, width: 300, crop: :fill, class:"my-avatar" %>
 
-  </div>
-  <div id="moveleft">
-        <% if @recipient.bio %>
-          <div class="my-user-profile">
-    <h3 id="less-margin"><%= @recipient.first_name.capitalize %></h3>
+    </div>
+    <div class="recipient-elements">
 
-            <p id= "grey-text"><%= @recipient.bio %></p>
-            </div>
-            <% if  @recipient.user == current_user %>
-            <div class="our-buttons">
-            <%= link_to edit_recipient_path(@recipient) do %>
-              <div class="my-profile-button" id="small-text">
-                <p>Edit <i class="fas fa-user-edit"></i></p>
-              </div>
-            <% end %>
-            <%= link_to new_recipient_item_path(@recipient) do%>
-            <div class="my-profile-button2" id="small-text">
-              <p>Add Item <i class="fas fa-plus"></i></p>
-            </div>
-            <% end %>
-            <%= link_to recipient_path(@recipient), method: :delete do %>
-            <div class="my-profile-button2" id="small-text">
-              <p>Delete <i class="far fa-trash-alt"></i></p>
-            </div>
-            </div>
-          <% end %>
-          <% else %>
-             <%= link_to user_path(@recipient.user) do %>
-              <div class="my-profile-button" id="small-text">
-                <p>View Volunteer</p>
-              </div>
-            <% end %>
-        <% end %>
+    </div>
+    <div id="moveleft">
+      <% if @recipient.bio %>
+      <div class="my-user-profile">
+        <h3 id="less-margin"><%= @recipient.first_name.capitalize %></h3>
 
-        <% end %>
+        <p id= "grey-text"><%= @recipient.bio %></p>
       </div>
+      <% if  @recipient.user == current_user %>
+      <div class="our-buttons">
+        <%= link_to edit_recipient_path(@recipient) do %>
+        <div class="my-profile-button" id="small-text">
+          <p>Edit <i class="fas fa-user-edit"></i></p>
+        </div>
+        <% end %>
+        <%= link_to new_recipient_item_path(@recipient) do%>
+        <div class="my-profile-button2" id="small-text">
+          <p>Add Item <i class="fas fa-plus"></i></p>
+        </div>
+        <% end %>
+        <%= link_to recipient_path(@recipient), method: :delete do %>
+        <div class="my-profile-button2" id="small-text">
+          <p>Delete <i class="far fa-trash-alt"></i></p>
+        </div>
+      </div>
+      <% end %>
+      <% else %>
+      <%= link_to user_path(@recipient.user) do %>
+      <div class="my-profile-button" id="small-text">
+        <p>View Volunteer</p>
+      </div>
+      <% end %>
+      <% end %>
+
+      <% end %>
+    </div>
+  </div>
 </div>
 
 
@@ -49,117 +52,117 @@
 
 
 <div class="my-container">
-<div class="recipients-flex">
-  <!-- <div class="item-cards"> -->
-    <div class="items">
-      <h4 id= "requested-items", style="margin-left: 13px; color: #636060;">Items requested by <%= @recipient.first_name %>: </h4>
+  <div class="recipients-flex">
+    <!-- <div class="item-cards"> -->
+      <div class="items">
+        <h4 id= "requested-items", style="margin-left: 13px; color: #636060;">Items requested by <%= @recipient.first_name %>: </h4>
 
-      <% @recipient.items.each do |item| %>
-      <div class="col-md-6 col-xs-12 cards">
-        <div class="index existing-item">
-          <%= link_to recipient_item_path(@recipient, item) do %>
-          <div class="my-caption">
-            <h2><%= item.title.capitalize %></h2>
-            <br>
-            <br>
+        <% @recipient.items.each do |item| %>
+        <div class="col-md-6 col-xs-12 cards">
+          <div class="index existing-item less-width">
+            <%= link_to recipient_item_path(@recipient, item) do %>
+            <div class="my-caption">
+              <h2><%= item.title.capitalize %></h2>
+              <br>
+              <br>
 
-            <div id = "my-item-descriptions">
-              <p id = "category-type"> Category:
-                <!-- cateogory logic -->
-                <%= item.category %>
-                <%  if item.category == "Animal" %>
-                <i class="fas fa-paw"></i>
-                <% elsif item.category == "Living" %>
-                <i class="fas fa-home"></i>
-                <% elsif item.category == "Food" %>
-                <i class="fas fa-utensils"></i>
-                <% elsif item.category == "Health" %>
-                <i class="fas fa-medkit"></i>
-                <% elsif item.category == "Education" %>
-                <i class="fas fa-book"></i>
-                <% elsif item.category == "Transport" %>
-                <i class="fas fa-bus"></i>
-                <% elsif item.category == "Leisure" %>
-                <i class="fas fa-futbol"></i>
-                <% else %>
-                <i class="fas fa-bomb"></i>
+              <div id = "my-item-descriptions">
+                <p id = "category-type"> Category:
+                  <!-- cateogory logic -->
+                  <%= item.category %>
+                  <%  if item.category == "Animal" %>
+                  <i class="fas fa-paw"></i>
+                  <% elsif item.category == "Living" %>
+                  <i class="fas fa-home"></i>
+                  <% elsif item.category == "Food" %>
+                  <i class="fas fa-utensils"></i>
+                  <% elsif item.category == "Health" %>
+                  <i class="fas fa-medkit"></i>
+                  <% elsif item.category == "Education" %>
+                  <i class="fas fa-book"></i>
+                  <% elsif item.category == "Transport" %>
+                  <i class="fas fa-bus"></i>
+                  <% elsif item.category == "Leisure" %>
+                  <i class="fas fa-futbol"></i>
+                  <% else %>
+                  <i class="fas fa-bomb"></i>
+                  <% end %>
+                  <!-- cateogory logic -->
+                </p>
+
+                <p id= "description"><%= item.description.capitalize %></p>
+                <!-- <p><%#= item.contributions %></p> -->
+                <br>
+                <br>
                 <% end %>
-                <!-- cateogory logic -->
-              </p>
-
-              <p id= "description"><%= item.description.capitalize %></p>
-              <!-- <p><%#= item.contributions %></p> -->
-              <br>
-              <br>
-              <% end %>
+              </div>
 
               <% if item.total_contributions && item.price_cents %>
               <p class="text-center"><%= humanized_money_with_symbol(item.total_contributions/100) %> of <%= humanized_money_with_symbol(item.price_cents/100) %> | <%= ((item.total_contributions.to_f/ item.price_cents.to_f) * 100).to_i %> %  raised</p>
 
-            </div>
 
-            <div class="my-performance-container">
-              <% value = ( item.total_contributions.to_f / item.price_cents.to_f) * 275 %>
-              <% if value >= 275 %>
-              <% color = "green-complete"%>
-              <% elsif value >= 195 %>
-              <%color = "green" %>
-              <% elsif value < 195 && value >= 104 %>
-              <% color = "orange" %>
-              <% else %>
-              <%color = "red" %>
-              <%end%>
-              <%= progress_bar(color, value) %>
-            </div>
-            <% end %>
-            <%if item.total_contributions < item.price_cents %>
-            <div class="form-inline donate-form">
-              <%= simple_form_for [@recipient, item, @contribution] do |f| %>
+              <div class="my-performance-container">
+                <% value = ( item.total_contributions.to_f / item.price_cents.to_f) * 275 %>
+                <% if value >= 275 %>
+                <% color = "green-complete"%>
+                <% elsif value >= 195 %>
+                <%color = "green" %>
+                <% elsif value < 195 && value >= 104 %>
+                <% color = "orange" %>
+                <% else %>
+                <%color = "red" %>
+                <%end%>
+                <%= progress_bar(color, value) %>
+              </div>
+              <% end %>
+              <%if item.total_contributions < item.price_cents %>
+              <div class="form-inline donate-form">
+                <%= simple_form_for [@recipient, item, @contribution] do |f| %>
 
-              <%= f.input :amount_cents, label: false, class:"form-control donation-small-input", input_html: { value: 1}, style:"margin-left:200px;", id:"move-me-left"%>
+                <%= f.input :amount_cents, label: false, class:"form-control donation-small-input", input_html: { value: 1} %>
                 <br>
-              <%= f.submit value: "Donate" , class:"tertiary-btn", id:"move-me-left" %>
+                <%= f.submit value: "Donate" , class:"tertiary-btn" %>
+              </div>
+
+
+              <% end %>
+              <% else %>
+              <p id="success"> Item Funded! </p>
+              <% end %>
+              <%#= link_to "Donate", new_recipient_item_contribution_path(@recipient, item) %>
             </div>
-
-
-            <% end %>
-            <% else %>
-             <p id="success"> Item Funded! </p>
-            <% end %>
-            <%#= link_to "Donate", new_recipient_item_contribution_path(@recipient, item) %>
           </div>
         </div>
+
+
+        <% end %>
       </div>
-
-
-      <% end %>
-    </div>
-    <!-- </div> -->
-    <div class="col-md-5 col-xs-12" id="donations-title">
-      <!-- contribution messages -->
-      <h3 id="contributions-title" >Previous donations</h3>
-      <% if @contributions.count == 0 %>
-      <p> No Donations So Far. Let's Change that! </p>
-      <%else%>
-
-      <% @contributions.first(5).each do |contribution| %>
-      <%if contribution == @contributions.find(5) %>
-      <div class = "comment">
+      <!-- </div> -->
+      <div class="col-md-5 col-xs-12" id="donations-title">
+        <!-- contribution messages -->
+        <h3 id="contributions-title" >Previous donations</h3>
+        <% if @contributions.count == 0 %>
+        <p> No Donations So Far. Let's Change that! </p>
         <%else%>
-        <div class = "comment line">
-          <%end%>
-          <p class = "donation-giver"><%= User.find(contribution.user_id).first_name.capitalize %> donated <strong><%= humanized_money_with_symbol(contribution.amount_cents / 100.0) %> </strong></p>
-          <p class = "donation-time"><%= contribution.created_at.strftime("%b %d, %Y")  %>
-            <% unless contribution.message.nil? %>
-            <p class = "donation-message"><em>"<%= contribution.message%>"</em></p>
+
+        <% @contributions.first(5).each do |contribution| %>
+        <%if contribution == @contributions.find(5) %>
+        <div class = "comment">
+          <%else%>
+          <div class = "comment line">
+            <%end%>
+            <p class = "donation-giver"><%= User.find(contribution.user_id).first_name.capitalize %> donated <strong><%= humanized_money_with_symbol(contribution.amount_cents / 100.0) %> </strong></p>
+            <p class = "donation-time"><%= contribution.created_at.strftime("%b %d, %Y")  %>
+              <% unless contribution.message.nil? %>
+              <p class = "donation-message"><em>"<%= contribution.message%>"</em></p>
+              <%end%>
+            </div>
+            <% end %>
             <%end%>
           </div>
-          <% end %>
-          <%end%>
         </div>
-      </div>
 
-</div>
+      </div>
 
 
 
