@@ -3,7 +3,7 @@
       <h3 class="user-name"><%= @user.first_name.capitalize %></h3>
       <% if  @user != current_user %>
           <%= mail_to @user.email do %>
-            <div class="profile-button">
+            <div class="profile-button" style="margin-left: 45px">
               <p>Email Me</p>
             </div>
           <% end %>
@@ -23,7 +23,7 @@
             <p>delete profile</p>
           </div>
         <% end %>
-          <% if !@user.volunteer %>
+          <% if @user.recipients.count < 1 %>
             <%= link_to new_recipient_path do %>
               <div class="profile-button2">
                 <p>Become a volunteer!</p>
@@ -43,59 +43,66 @@
 </div>
 
 <!-- recipient cards -->
-    <div class="container recent">
-      <% if @user.recipients.count > 0 %>
-        <div class="row">
-          <h2 class="text-center">Recent Additions</h2>
-          <% @recipients.first(3).each do |recipient| %>
-            <%=link_to recipient do%>
-              <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class = "index">
-                  <div class="card-photo" style="background-image: url('<%= recipient.photo %>');">
-                  </div>
-                <div class="caption">
-                  <h3>
-                    <%=recipient.first_name %>
-                  </h3>
-                  <p>
-                   <%=recipient.bio %>
-                  </p>
-                <div class = "requests">
-                  <div class = "requests-content">
-                    In Need Of:
-                  </div>
-                </div>
-                  <div class = "icons">
-                    <% if recipient.items.count > 0 %>
-                      <% recipient.items.each do |item| %>
-                        <% if item.category == "Animal" %>
-                          <i class="fas fa-paw"></i>
-                        <% elsif item.category == "Living" %>
-                          <i class="fas fa-home"></i>
-                        <% elsif item.category == "Food" %>
-                          <i class="fas fa-utensils"></i>
-                        <% elsif item.category == "Health" %>
-                          <i class="fas fa-medkit"></i>
-                        <% elsif item.category == "Education" %>
-                          <i class="fas fa-book"></i>
-                        <% elsif item.category == "Transport" %>
-                          <i class="fas fa-bus"></i>
-                        <% elsif item.category == "Leisure" %>
-                          <i class="fas fa-futbol"></i>
-                        <% else %>
-                          <i class="fas fa-bomb"></i>
-                        <% end %>
-                    <% end %>
-                  </div>
-                  <% end %>
-                </div>
-              </div>
+    <div class = "row">
+      <div class="col-xs-12 cards">
+        <% @user.recipients.each do |recipient|%>
+        <%=link_to recipient do%>
+        <div class="col-xs-12 col-sm-3">
+          <div class = "index">
+           <div class="card-photo" style="background-image: url('<%= recipient.photo %>');">
+           </div>
+           <div class="caption">
+            <h3>
+              <%=recipient.first_name %>
+            </h3>
+            <p>
+             <%=recipient.bio %>
+           </p>
+
+
+           <div class = "requests">
+             <div class = "requests-content">
+              In Need Of:
             </div>
-        <%end%>
-      <%end%>
-    </div>
-      <% end %>
-  </div>
+          </div>
+          <div class = "icons">
+
+           <% if recipient.items.count > 0 %>
+
+           <% recipient.items.each do |item| %>
+
+           <%  if item.category == "Animal" %>
+           <i class="fas fa-paw"></i>
+           <% elsif item.category == "Living" %>
+           <i class="fas fa-home"></i>
+           <% elsif item.category == "Food" %>
+           <i class="fas fa-utensils"></i>
+           <% elsif item.category == "Health" %>
+           <i class="fas fa-medkit"></i>
+           <% elsif item.category == "Education" %>
+           <i class="fas fa-book"></i>
+           <% elsif item.category == "Transport" %>
+           <i class="fas fa-bus"></i>
+           <% elsif item.category == "Leisure" %>
+           <i class="fas fa-futbol"></i>
+           <% else %>
+           <i class="fas fa-bomb"></i>
+
+           <% end %>
+           <% end %>
+           </div>
+
+           <% end %>
+
+</div>
+       </div>
+     </div>
+     <%end%>
+     <%end%>
+
+
+   </div>
+ </div>
 </div>
 
 <!-- map with recipients -->

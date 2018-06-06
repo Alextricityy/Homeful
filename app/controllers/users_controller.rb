@@ -11,18 +11,20 @@ class UsersController < ApplicationController
   def show
 
     @recipients = @user.recipients
-    locations = []
+    #locations = []
+    @markers = []
     @recipients.each do |recipient|
-      locations << recipient.locations
+       recipient.locations.each do |location|
+        if location.primary
+         @markers << {
+            lat: location.latitude,
+            lng: location.longitude,
+            infoWindow: { content: render_to_string(partial: "shared/info_window", locals: { recipient: recipient }) }
+          }
+        end
+      end
     end
-    @markers = locations.map do |location|
-      {
-        lat: location[0].latitude,
-        lng: location[0].longitude#,
-        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
-      }
-    end
-  end
+ end
 
   def edit
    if current_user != @user
