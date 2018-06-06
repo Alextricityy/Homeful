@@ -1,5 +1,5 @@
 #map {
-  height: 60vh;
+  height: 100vh !important;
   margin-top: 0px;
   padding-top: 0px;
 
@@ -13,6 +13,7 @@
 
 .map-homeful {
   position: fixed;
+  height: 100vh;
   width: 33%;
   top: 50px;
   right: 10px;
