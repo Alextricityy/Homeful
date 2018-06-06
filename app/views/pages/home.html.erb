@@ -65,7 +65,8 @@
 </div>
 <div class="container recent">
   <div class="row">
-   <h2 class="text-center">Recent Additions</h2>
+   <h2 class="text-center"><span class="hiw ra">Recent Additions</span></h2>
+
    <% @recipients.first(3).each do |recipient| %>
    <%=link_to recipient do%>
    <div class="col-md-4 col-sm-6 col-xs-12">
