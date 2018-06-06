@@ -1,35 +1,45 @@
 
 <div class="recipients-flex" style=" background: linear-gradient(to right, #0f0c29, #302b63, #24243e);">
   <div class="recipient-avatar">
-    <%= cl_image_tag @recipient.photo, height: 300, width: 400, crop: :fill %>
+    <%= cl_image_tag @recipient.photo, height: 225, width: 225, crop: :fill, class:"my-avatar" %>
 
   </div>
   <div class="recipient-elements">
-    <h3 style="color: white; margin-bottom: 90px"><%= @recipient.first_name.capitalize %></h3>
-           <% if  @recipient.user == current_user %>
+
+  </div>
+  <div>
+        <% if @recipient.bio %>
+          <div class="my-user-profile">
+    <h3 id="less-margin"><%= @recipient.first_name.capitalize %></h3>
+
+            <p id= "grey-text"><%= @recipient.bio %></p>
+            </div>
+            <% if  @recipient.user == current_user %>
+            <div class="our-buttons">
             <%= link_to edit_recipient_path(@recipient) do %>
-              <div class="profile-button">
-                <p>edit this profile</p>
+              <div class="my-profile-button" id="small-text">
+                <p>Edit <i class="fas fa-user-edit"></i></p>
               </div>
             <% end %>
+            <%= link_to new_recipient_item_path(@recipient) do%>
+            <div class="my-profile-button2" id="small-text">
+              <p>Add Item <i class="fas fa-plus"></i></p>
+            </div>
+            <% end %>
             <%= link_to recipient_path(@recipient), method: :delete do %>
-            <div class="profile-button">
-              <p>delete this profile</p>
+            <div class="my-profile-button2" id="small-text">
+              <p>Delete <i class="far fa-trash-alt"></i></p>
+            </div>
             </div>
           <% end %>
           <% else %>
              <%= link_to user_path(@recipient.user) do %>
-              <div class="profile-button">
+              <div class="my-profile-button" id="small-text">
                 <p>View Volunteer</p>
               </div>
             <% end %>
         <% end %>
-  </div>
-  <div class="user-bio">
-        <% if @recipient.bio %>
-          <div class="card-user-profile">
-            <p><%= @recipient.bio %></p>
-          </div>
+
         <% end %>
       </div>
 </div>
@@ -38,11 +48,12 @@
 
 
 
-
+<div class="container">
 <div class="recipients-flex">
   <!-- <div class="item-cards"> -->
     <div class="items">
-      <h4 id= "requested-items", style="margin-left: 30px">Items requested by <%= @recipient.first_name %>:</h4>
+      <h4 id= "requested-items", style="margin-left: 13px; color: #636060;">Items requested by <%= @recipient.first_name %>: </h4>
+
       <% @recipient.items.each do |item| %>
       <div class="col-md-6 col-xs-12 cards">
         <div class="index existing-item">
@@ -76,12 +87,14 @@
                 <!-- cateogory logic -->
               </p>
 
-              <p><%= item.description.capitalize %></p>
+              <p id= "description"><%= item.description.capitalize %></p>
               <!-- <p><%#= item.contributions %></p> -->
+              <br>
+              <br>
               <% end %>
 
               <% if item.total_contributions && item.price_cents %>
-              <p id = "amount-raised"><%= humanized_money_with_symbol(item.total_contributions/100) %> of <%= humanized_money_with_symbol(item.price_cents/100) %> raised | <%= ((item.total_contributions.to_f/ item.price_cents.to_f) * 100).to_i %>% raised  </p>
+              <p id = "amount-raised"><%= humanized_money_with_symbol(item.total_contributions/100) %> of <%= humanized_money_with_symbol(item.price_cents/100) %><%= ((item.total_contributions.to_f/ item.price_cents.to_f) * 100).to_i %> %  raised</p>
 
             </div>
 
@@ -103,9 +116,9 @@
             <div class="form-inline donate-form">
               <%= simple_form_for [@recipient, item, @contribution] do |f| %>
 
-              <%= f.input :amount_cents, label: false, class:"form-control donation-small-input", input_html: { value: 1}%>
+              <%= f.input :amount_cents, label: false, class:"form-control donation-small-input", input_html: { value: 1}, style:"margin-left:36px;"%>
 
-              <%= f.submit value: "Donate" %>
+              <%= f.submit value: "Donate" , class:"tertiary-btn" %>
             </div>
 
 
@@ -122,7 +135,7 @@
       <% end %>
     </div>
     <!-- </div> -->
-    <div class="col-md-5 col-xs-12">
+    <div class="col-md-5 col-xs-12" id="donations-title">
       <!-- contribution messages -->
       <h3 id="contributions-title" >Previous donations</h3>
       <% if @contributions.count == 0 %>
@@ -146,11 +159,10 @@
         </div>
       </div>
 
+</div>
 
 
 
-
-      <%= link_to "Add A New Item For #{@recipient.first_name.capitalize}", new_recipient_item_path(@recipient) %>
 
 
       <br>
