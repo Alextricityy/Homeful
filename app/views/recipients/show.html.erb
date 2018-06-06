@@ -144,11 +144,12 @@
         <p> No Donations So Far. Let's Change that! </p>
         <%else%>
 
-        <% @contributions.first(5).each do |contribution| %>
-        <%if contribution == @contributions.find(5) %>
+        <% @contributions.last(5).each do |contribution| %>
+        <%if contribution == @contributions.last(5) %>
         <div class = "comment">
           <%else%>
           <div class = "comment line">
+            <!-- <div></div> -->
             <%end%>
             <p class = "donation-giver"><%= User.find(contribution.user_id).first_name.capitalize %> donated <strong><%= humanized_money_with_symbol(contribution.amount_cents / 100.0) %> </strong></p>
             <p class = "donation-time"><%= contribution.created_at.strftime("%b %d, %Y")  %></p>
