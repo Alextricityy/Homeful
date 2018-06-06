@@ -6,6 +6,40 @@
 
 
 }
+.our-buttons{
+  margin-top:-8px;
+}
+#closer-button{
+  margin-left:5px;
+}
+#small-text{
+  font-size:14px;
+}
+#grey-text{
+  opacity: 0.8;
+  // color:$light-grey;
+  font-size:15px;
+}
+#my-item-descriptions{
+ font-size: 0.8em;
+  text-align: left;
+  line-height: 1.6em;
+  height:40px;
+  overflow: visible;
+  color:black;
+}
+.my-user-profile{
+  margin-top: 20px;
+  background-color: $white;
+border-radius: 4px;
+padding: 20px;
+box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+margin: 50px 135px 20px 50px;
+width:800px;
+}
+#less-margin{
+  margin-top: -4px;
+}
 
 .recipient-content {
   flex: 1 1 auto;
@@ -102,10 +136,50 @@
 }
 
 #requested-items{
-  margin-left: 18px;
+  // margin-left: 18px;
+  font-family: Muli;
 }
-
+#donations-title{
+  margin-top:-210px;
+}
 #success{
   padding-left: 33%;
   height: 16px;
 }
+.my-profile-button{
+margin-bottom: 11px;
+background-color: $light-purple;
+border: none;
+color: $white;
+padding: 15px 25px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+border-radius: 4px;
+box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+font-style: $body-font;
+p {
+  margin-bottom: 0px;
+}
+margin-left:50px;
+}
+.my-profile-button2{
+margin-bottom: 11px;
+background-color: $light-purple;
+border: none;
+color: $white;
+padding: 15px 25px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+border-radius: 4px;
+box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+font-style: $body-font;
+p {
+  margin-bottom: 0px;
+}
+margin-left:20px;
+}
+
