@@ -109,7 +109,7 @@ def create
       if contribution.state == "paid"
         @contributions << contribution
       end
-    @contributions
+    @contributions = @contributions.last(4)
 
     end
 

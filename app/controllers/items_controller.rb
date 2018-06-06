@@ -25,7 +25,7 @@ class ItemsController < ApplicationController
       if contribution.state == "paid"
         @contributions << contribution
       end
-      @contributions
+      @contribtutions = @contributions.last(4)
     end
   end
 
