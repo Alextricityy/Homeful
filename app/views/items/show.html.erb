@@ -71,6 +71,9 @@
   <div class="item-bottom-left">
     <h3 style="font-style: lighter">Other items wanted by <%= @recipient.first_name %>:</h3>
     <div class="row">
+      <% if @recipient.items.where.not(id: @item.id).count < 1 %>
+        <p style="margin-left: 50px">There are currently no other items!</p>
+      <% end %>
       <% @recipient.items.where.not(id: @item.id).each do |item| %>
         <%= link_to recipient_item_path(@recipient, item) do %>
           <div class="col-md-4 col-sm-6 col-xs-12">
