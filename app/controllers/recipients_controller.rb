@@ -103,7 +103,6 @@ def create
      end
         @markers << hash
     end
-
   end
 
   private
