@@ -125,12 +125,11 @@
     <div class="col-md-5 col-xs-12">
       <!-- contribution messages -->
       <h3 id="contributions-title" >Previous donations</h3>
-      <% if @recipient.contributions.count == 0 %>
+      <% if @contributions.count == 0 %>
       <p> No Donations So Far. Let's Change that! </p>
       <%else%>
-      <% @recipient.items.each do |item| %>
-      <% item.contributions.each do |contribution| %>
-      <%if contribution == @recipient.contributions.last %>
+      <% @contributions.each do |contribution| %>
+      <%if contribution == @contributions.last %>
       <div class = "comment">
         <%else%>
         <div class = "comment line">
@@ -141,7 +140,6 @@
             <p class = "donation-message"><em>"<%= contribution.message%>"</em></p>
             <%end%>
           </div>
-          <% end %>
           <% end %>
           <%end%>
         </div>
