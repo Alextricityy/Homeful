@@ -1,13 +1,13 @@
 
 <div class="recipients-flex" style=" background: linear-gradient(to right, #0f0c29, #302b63, #24243e);">
   <div class="recipient-avatar">
-    <%= cl_image_tag @recipient.photo, height: 225, width: 225, crop: :fill, class:"my-avatar" %>
+    <%= cl_image_tag @recipient.photo, height: 300, width: 300, crop: :fill, class:"my-avatar" %>
 
   </div>
   <div class="recipient-elements">
 
   </div>
-  <div>
+  <div id="moveleft">
         <% if @recipient.bio %>
           <div class="my-user-profile">
     <h3 id="less-margin"><%= @recipient.first_name.capitalize %></h3>
@@ -48,7 +48,7 @@
 
 
 
-<div class="container">
+<div class="my-container">
 <div class="recipients-flex">
   <!-- <div class="item-cards"> -->
     <div class="items">
@@ -58,12 +58,12 @@
       <div class="col-md-6 col-xs-12 cards">
         <div class="index existing-item">
           <%= link_to recipient_item_path(@recipient, item) do %>
-          <div class="caption">
+          <div class="my-caption">
             <h2><%= item.title.capitalize %></h2>
             <br>
             <br>
 
-            <div id = "item-descriptions">
+            <div id = "my-item-descriptions">
               <p id = "category-type"> Category:
                 <!-- cateogory logic -->
                 <%= item.category %>
@@ -94,11 +94,11 @@
               <% end %>
 
               <% if item.total_contributions && item.price_cents %>
-              <p id = "amount-raised"><%= humanized_money_with_symbol(item.total_contributions/100) %> of <%= humanized_money_with_symbol(item.price_cents/100) %><%= ((item.total_contributions.to_f/ item.price_cents.to_f) * 100).to_i %> %  raised</p>
+              <p class="text-center"><%= humanized_money_with_symbol(item.total_contributions/100) %> of <%= humanized_money_with_symbol(item.price_cents/100) %> | <%= ((item.total_contributions.to_f/ item.price_cents.to_f) * 100).to_i %> %  raised</p>
 
             </div>
 
-            <div class="performance-container">
+            <div class="my-performance-container">
               <% value = ( item.total_contributions.to_f / item.price_cents.to_f) * 275 %>
               <% if value >= 275 %>
               <% color = "green-complete"%>
@@ -116,9 +116,9 @@
             <div class="form-inline donate-form">
               <%= simple_form_for [@recipient, item, @contribution] do |f| %>
 
-              <%= f.input :amount_cents, label: false, class:"form-control donation-small-input", input_html: { value: 1}, style:"margin-left:36px;"%>
-
-              <%= f.submit value: "Donate" , class:"tertiary-btn" %>
+              <%= f.input :amount_cents, label: false, class:"form-control donation-small-input", input_html: { value: 1}, style:"margin-left:200px;", id:"move-me-left"%>
+                <br>
+              <%= f.submit value: "Donate" , class:"tertiary-btn", id:"move-me-left" %>
             </div>
 
 
@@ -142,8 +142,8 @@
       <p> No Donations So Far. Let's Change that! </p>
       <%else%>
 
-      <% @contributions.each do |contribution| %>
-      <%if contribution == @contributions.last %>
+      <% @contributions.first(5).each do |contribution| %>
+      <%if contribution == @contributions.find(5) %>
       <div class = "comment">
         <%else%>
         <div class = "comment line">

@@ -8,6 +8,16 @@
   border-radius: 5px;
   margin-bottom: 15px;
 }
+.my-performance-container {
+  width: 275px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(220,220,220);
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
 
 .performance-rate {
   margin-left: 10px;
@@ -40,9 +50,13 @@
 }
 
 #contribution_amount_cents {
-height: 30px;
-width: 195px;
-margin-left: 36px;
+// height: 30px;
+// width: 195px;
+// // margin-left: 36px;
+// margin-left: 150px;
+    height: 30px;
+    width: 124px;
+    margin-left: 145px;
 }
 
 .donate-form {
