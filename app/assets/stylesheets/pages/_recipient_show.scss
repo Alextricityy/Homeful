@@ -66,6 +66,7 @@ width:800px;
     height: 300px;
     margin-right: 16px;
     width: auto;
+    margin:auto;
   }
   h1 {
 
@@ -91,10 +92,10 @@ width:800px;
   }
 }
 
-// .item-card {
-//   flex: 0 1 auto;
-//   padding: 20px;
-// }
+.item-card {
+  flex: 0 1 auto;
+  padding: 20px;
+}
 
 .items {
   width: 70%;

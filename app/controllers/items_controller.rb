@@ -20,40 +20,47 @@ class ItemsController < ApplicationController
 
   def show
     @contribution = Contribution.new
+    @contributions = []
+    @item.contributions.each do |contribution|
+      if contribution.state == "paid"
+        @contributions << contribution
+      end
+      @contributions
+    end
   end
 
   def edit
    if current_user != @item.recipient.user
-      redirect_to root_path
-    end
-  end
-
-  def update
-    @item.update(item_params)
-    if @item.save
-      redirect_to item_path(@item)
-    else
-      render "edit"
-    end
-  end
-
-  def delete
-    @item.destroy
     redirect_to root_path
   end
+end
 
-  private
-
-  def item_params
-    params.require(:item).permit(:title, :description, :category, :price_cents)
+def update
+  @item.update(item_params)
+  if @item.save
+    redirect_to item_path(@item)
+  else
+    render "edit"
   end
+end
 
-  def set_item
-    @item = Item.find(params[:id])
-  end
+def delete
+  @item.destroy
+  redirect_to root_path
+end
 
-  def set_recipient
-    @recipient = Recipient.find(params[:recipient_id])
-  end
+private
+
+def item_params
+  params.require(:item).permit(:title, :description, :category, :price_cents)
+end
+
+def set_item
+  @item = Item.find(params[:id])
+end
+
+def set_recipient
+  @recipient = Recipient.find(params[:recipient_id])
+end
 
 end

@@ -1,6 +1,8 @@
+
 <div class="recipients-flex" style=" background: linear-gradient(to right, #0f0c29, #302b63, #24243e);">
   <div class="recipient-avatar">
     <%= cl_image_tag @recipient.photo, height: 225, width: 225, crop: :fill, class:"my-avatar" %>
+
   </div>
   <div class="recipient-elements">
 
@@ -136,12 +138,12 @@
     <div class="col-md-5 col-xs-12" id="donations-title">
       <!-- contribution messages -->
       <h3 id="contributions-title" >Previous donations</h3>
-      <% if @recipient.contributions.count == 0 %>
+      <% if @contributions.count == 0 %>
       <p> No Donations So Far. Let's Change that! </p>
       <%else%>
-      <% @recipient.items.each do |item| %>
-      <% item.contributions.each do |contribution| %>
-      <%if contribution == @recipient.contributions.last %>
+
+      <% @contributions.each do |contribution| %>
+      <%if contribution == @contributions.last %>
       <div class = "comment">
         <%else%>
         <div class = "comment line">
@@ -152,7 +154,6 @@
             <p class = "donation-message"><em>"<%= contribution.message%>"</em></p>
             <%end%>
           </div>
-          <% end %>
           <% end %>
           <%end%>
         </div>

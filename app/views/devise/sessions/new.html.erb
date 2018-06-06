@@ -1,16 +1,9 @@
-
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
+<br>
    <!-- <div class="facebook-google"> -->
-    <div class="loginform">
-    <h2 class="fb-login text-center">Log in with Facebook </h2>
-    <h2 class="goo-login text-center">Log in with Google </h2>
+<div class="container">
+  <div class="col-xs-6 col-xs-offset-3">
+    <a href="#"><h2 class="fb-login text-center">Log in with Facebook</h2></a>
+    <a href="#"><h2 class="goo-login text-center">Log in with Google</h2><a/>
   <!-- </div> -->
     <div class="sign-in-line">
       <hr>
@@ -18,7 +11,7 @@
       <hr>
     </div>
 
-    <div class="sign-in-form">
+
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="form-inputs">
           <%= f.input :email, required: false, autofocus: true, placeholder: "Email", label: false %>
@@ -30,14 +23,14 @@
           <% end %>
         </div>
         <div class="form-actions">
-          <%= f.button :submit, "Log in" %>
+          <%= f.button :submit, "Log in", id: "log" %>
         </div>
       <% end %>
-    </div>
+
     <%= render "devise/shared/links" %>
 
     </div>
   </div>
-</div>
+
 
 
