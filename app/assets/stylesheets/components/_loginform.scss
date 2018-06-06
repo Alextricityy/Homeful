@@ -7,28 +7,36 @@
 }
 
 .fb-login{
-background-color: #3d3dd4;
+background-color: #3B5998;
 color: white;
-font-weight: bold;
 padding: 14px;
 font-size: 18px;
 border-radius: 6px;
 margin: 15px auto;
 }
+
+.fb-login a:hover {
+  text-decoration: none;
+}
+
+
 .goo-login{
-border-color: black;
 border-radius: 6px;
 // margin-bottom: 8px;
 // margin-top: 12px;
 margin: 10px auto;
 // color: white;
 font-size: 20px;
-border: 1px black;
-font-weight: bold;
-border: 1.4px solid #9e8f8f;
-color: gray;
+border: 1px #db3236;
+border: 1.4px solid #db3236;
+color: white;
 font-size: 18px;
 padding: 14px;
+background-color: #db3236
+}
+
+.goo-login a:hover {
+  text-decoration: none;
 }
 
 .sign-in-line {
@@ -112,4 +120,9 @@ display: flex;
 }
 .modal-content{
   margin-top: 50px;
+}
+
+#log {
+  width: 100%;
+
 }
