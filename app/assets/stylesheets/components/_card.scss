@@ -221,6 +221,8 @@
   line-height: 1.6em;
   height:5vh;
   overflow: visible;
+  padding-left: 2px;
+  padding-right: 2px;
 }
 
 #category-type{
@@ -270,7 +272,14 @@
   box-shadow: 0 0 5px rgba(0,0,0,0.15);
   /* margin-top: 10px; */
   transition: all 0.3s ease;
+  text-decoration: none ;
+
 }
+
+.cards-ben a:hover {
+text-decoration: none ;
+}
+
 
 .cards-rest {
   text-align: center;
@@ -281,12 +290,24 @@
 }
 
 .description {
+  text-weight: lighter;
   padding-bottom: 5px;
+  padding-left: 3px;
+  padding-right: 5px;
   min-height: 74px;
   overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 3;
+    text-decoration: none !important;
+
 }
+
+.description p {
+  opacity: 0.8;
+  font-family: "Muli", "Helvetica", "sans-serif";
+  color:  #333
+}
+
 
 .amount-raised {
   margin-top: 25px;
@@ -310,3 +331,8 @@
   min-width: 150px;
   font-size: 24px;
 }
+
+a:hover {
+  text-decoration:none;
+}
+
