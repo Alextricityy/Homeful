@@ -142,7 +142,7 @@
           <p> No Donations So Far. Let's Change that! </p>
         <%else%>
           <% @contributions.each do |contribution| %>
-            <div class = "comment <%= 'line' if contribution == @contributions.last %>">
+            <div class = "comment <%= 'line' unless contribution == @contributions.last %>">
               <p class = "donation-giver"><%= User.find(contribution.user_id).first_name.capitalize %> donated <strong><%= humanized_money_with_symbol(contribution.amount_cents / 100.0) %> </strong></p>
               <p class = "donation-time"><%= contribution.created_at.strftime("%b %d, %Y")  %></p>
               <% unless contribution.message.nil? %>
