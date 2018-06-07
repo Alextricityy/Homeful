@@ -15,8 +15,10 @@
 <div class="item-on-show">
   <div class="donation-card">
     <h1 class="item-header"><%= @item.title.capitalize %></h1>
-    <h3><%= @item.description %></h3>
-    <h3><%= @item.category %>
+    <div class="item-description-main">
+      <p><%= @item.description %></p>
+    </div>
+      <h3><%= @item.category %>
       <%  if @item.category == "Animal" %>
         <i class="fas fa-paw"></i>
       <% elsif @item.category == "Living" %>
@@ -44,7 +46,7 @@
     <div class="donation-bar-item-show">
       <%= simple_form_for [@recipient, @item, @contribution] do |f| %>
         <%= f.input :amount_cents, label: "Donation amount", class:"form-control", input_html: { value: 5} %>
-        <%= f.submit value: "Make a donation", class:"profile-button2" %>
+        <%= f.submit value: "Make a donation", class:"profile-button" %>
       <% end %>
     </div>
   </div>
