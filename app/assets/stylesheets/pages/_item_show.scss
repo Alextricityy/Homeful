@@ -54,6 +54,13 @@
 
 }
 
+.item-description-main {
+  p {
+    font-size: 18px;
+    font-family: $body-font;
+  }
+  text-align: center;
+}
 
 .donation-bar-item-show {
   margin: 0 auto;
