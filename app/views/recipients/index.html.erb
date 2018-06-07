@@ -20,11 +20,8 @@
           </div>
         </div>
         <div class = "icons">
-
          <% if recipient.items.count > 0 %>
-
          <% recipient.items.each do |item| %>
-
          <%  if item.category == "Animal" %>
          <i class="fas fa-paw"></i>
          <% elsif item.category == "Living" %>
@@ -43,14 +40,15 @@
          <i class="fas fa-bomb"></i>
          <% end %>
          <% end %>
-       </div>
        <% end %>
+        </div>
      </div>
    </div>
  </div>
  <%end%>
  <%end%>
 </div>
+
 <div class="col-xs-12 col-sm-3">
   <div class="map-homeful">
     <div
