@@ -4,6 +4,7 @@
   position: relative;
   float: left;
   overflow: hidden;
+  text-overflow: ellipsis;
   margin: 10px 1%;
   width: 100%;
   background: #fcfcfc;
@@ -74,6 +75,7 @@
   line-height: 1.6em;
   height: 21vh;
   overflow: hidden;
+  text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -119,6 +121,7 @@
  // width:  93% !important;
  padding: 10px;
  overflow: hidden;
+ text-overflow: ellipsis;
 }
 
 .card-link {
@@ -126,7 +129,7 @@
 }
 
 .slick-prev:before, .slick-next:before {
-  color: grey !important;
+  color: gray !important;
 }
 
 .cards a {
