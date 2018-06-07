@@ -29,23 +29,23 @@
 }
 
 .performance-bar-green {
-  background-color: green;
+  background-color: #51CB20;
   border-radius:5px 0px 0px 5px;
 }
 
 .performance-bar-green-complete {
-  background-color: green;
+  background-color: $light-purple;
   border-radius:5px 5px 5px 5px;
 }
 
 .performance-bar-red {
-  background-color: red;
+  background-color: #be3030;
   border-radius:5px 0px 0px 5px;
 
 }
 
 .performance-bar-orange {
-  background-color: orange;
+  background-color: #ffd700;
   border-radius:5px 0px 0px 5px;
 }
 

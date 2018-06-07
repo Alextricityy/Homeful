@@ -83,8 +83,15 @@
   padding: 20px;
 }
 
+.cards {
+  flex: 0 0 45%;
+}
+
 .items {
   margin-right:100px;
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: space-between;
 }
 .donations {
   width: 30%;

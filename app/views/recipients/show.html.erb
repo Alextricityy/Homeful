@@ -47,133 +47,120 @@
 </div>
 
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-8">
 
-
-
-<div class="my-container">
-  <div class="recipients-flex">
-    <!-- <div class="item-cards"> -->
-      <div class="items">
         <h4 id= "requested-items", style="margin-left: 13px; color: #636060;">Items requested by <%= @recipient.first_name %>: </h4>
+        <div class="items">
 
-        <% @recipient.items.each do |item| %>
-        <div class="col-md-6 col-xs-12 cards">
-          <div class="index existing-item less-width">
-            <%= link_to recipient_item_path(@recipient, item) do %>
-            <div class="my-caption">
-              <h2><%= item.title.capitalize %></h2>
-              <br>
-              <br>
+          <% @recipient.items.each do |item| %>
+            <div class="cards">
+              <div class="index existing-item less-width">
+                <%= link_to recipient_item_path(@recipient, item) do %>
+                <div class="my-caption">
+                  <h2><%= item.title.capitalize %></h2>
+                  <br>
+                  <br>
 
-              <div id = "my-item-descriptions">
-                <p id = "category-type"> Category:
-                  <!-- cateogory logic -->
-                  <%= item.category %>
-                  <%  if item.category == "Animal" %>
-                  <i class="fas fa-paw"></i>
-                  <% elsif item.category == "Living" %>
-                  <i class="fas fa-home"></i>
-                  <% elsif item.category == "Food" %>
-                  <i class="fas fa-utensils"></i>
-                  <% elsif item.category == "Health" %>
-                  <i class="fas fa-medkit"></i>
-                  <% elsif item.category == "Education" %>
-                  <i class="fas fa-book"></i>
-                  <% elsif item.category == "Transport" %>
-                  <i class="fas fa-bus"></i>
-                  <% elsif item.category == "Leisure" %>
-                  <i class="fas fa-futbol"></i>
-                  <% else %>
-                  <i class="fas fa-bomb"></i>
+                  <div id = "my-item-descriptions">
+                    <p id = "category-type"> Category:
+                      <!-- cateogory logic -->
+                      <%= item.category %>
+                      <%  if item.category == "Animal" %>
+                      <i class="fas fa-paw"></i>
+                      <% elsif item.category == "Living" %>
+                      <i class="fas fa-home"></i>
+                      <% elsif item.category == "Food" %>
+                      <i class="fas fa-utensils"></i>
+                      <% elsif item.category == "Health" %>
+                      <i class="fas fa-medkit"></i>
+                      <% elsif item.category == "Education" %>
+                      <i class="fas fa-book"></i>
+                      <% elsif item.category == "Transport" %>
+                      <i class="fas fa-bus"></i>
+                      <% elsif item.category == "Leisure" %>
+                      <i class="fas fa-futbol"></i>
+                      <% else %>
+                      <i class="fas fa-bomb"></i>
+                      <% end %>
+                      <!-- cateogory logic -->
+                    </p>
+
+                    <p id= "description"><%= item.description.capitalize %></p>
+                    <!-- <p><%#= item.contributions %></p> -->
+                    <br>
+                    <br>
+                    <% end %>
+                  </div>
+
+                  <% if item.total_contributions && item.price_cents %>
+                  <p class="text-center"><%= humanized_money_with_symbol(item.total_contributions/100) %> of <%= humanized_money_with_symbol(item.price_cents/100) %> | <%= ((item.total_contributions.to_f/ item.price_cents.to_f) * 100).to_i %> %  raised</p>
+
+
+                  <div class="my-performance-container">
+                    <% value = ( item.total_contributions.to_f / item.price_cents.to_f) * 275 %>
+                    <% if value >= 275 %>
+                    <% color = "green-complete"%>
+                    <% elsif value >= 195 %>
+                    <%color = "green" %>
+                    <% elsif value < 195 && value >= 104 %>
+                    <% color = "orange" %>
+                    <% else %>
+                    <%color = "red" %>
+                    <%end%>
+                    <%= progress_bar(color, value) %>
+                  </div>
                   <% end %>
-                  <!-- cateogory logic -->
-                </p>
+                  <%if item.total_contributions < item.price_cents %>
+                  <div class="form-inline donate-form">
+                    <%= simple_form_for [@recipient, item, @contribution] do |f| %>
 
-                <p id= "description"><%= item.description.capitalize %></p>
-                <!-- <p><%#= item.contributions %></p> -->
-                <br>
-                <br>
-                <% end %>
+                    <%= f.input :amount_cents, label: false, class:"form-control donation-small-input", input_html: { value: 1} %>
+                    <br>
+                    <%= f.submit value: "Donate" , class:"tertiary-btn" %>
+                  </div>
+
+
+                  <% end %>
+                  <% else %>
+                  <p id="success"> Item Funded! </p>
+                  <% end %>
+                  <%#= link_to "Donate", new_recipient_item_contribution_path(@recipient, item) %>
+                </div>
               </div>
-
-              <% if item.total_contributions && item.price_cents %>
-              <p class="text-center"><%= humanized_money_with_symbol(item.total_contributions/100) %> of <%= humanized_money_with_symbol(item.price_cents/100) %> | <%= ((item.total_contributions.to_f/ item.price_cents.to_f) * 100).to_i %> %  raised</p>
-
-
-              <div class="my-performance-container">
-                <% value = ( item.total_contributions.to_f / item.price_cents.to_f) * 275 %>
-                <% if value >= 275 %>
-                <% color = "green-complete"%>
-                <% elsif value >= 195 %>
-                <%color = "green" %>
-                <% elsif value < 195 && value >= 104 %>
-                <% color = "orange" %>
-                <% else %>
-                <%color = "red" %>
-                <%end%>
-                <%= progress_bar(color, value) %>
-              </div>
-              <% end %>
-              <%if item.total_contributions < item.price_cents %>
-              <div class="form-inline donate-form">
-                <%= simple_form_for [@recipient, item, @contribution] do |f| %>
-
-                <%= f.input :amount_cents, label: false, class:"form-control donation-small-input", input_html: { value: 1} %>
-                <br>
-                <%= f.submit value: "Donate" , class:"tertiary-btn" %>
-              </div>
-
-
-              <% end %>
-              <% else %>
-              <p id="success"> Item Funded! </p>
-              <% end %>
-              <%#= link_to "Donate", new_recipient_item_contribution_path(@recipient, item) %>
             </div>
-          </div>
-        </div>
-
-
-
-      <% end %>
-    </div>
-    <!-- </div> -->
-    <div class="col-md-5 col-xs-12" id="donations-title">
-      <!-- contribution messages -->
-      <h3 id="contributions-title" >Previous donations</h3>
-      <% if @contributions.count == 0 %>
-      <p> No Donations So Far. Let's Change that! </p>
-      <%else%>
-        <% @contributions.each do |contribution| %>
-        <%if contribution == @contributions.last %>
-        <div class = "comment">
-          <%else%>
-          <div class = "comment line">
-            <!-- <div></div> -->
-            <%end%>
-            <p class = "donation-giver"><%= User.find(contribution.user_id).first_name.capitalize %> donated <strong><%= humanized_money_with_symbol(contribution.amount_cents / 100.0) %> </strong></p>
-            <p class = "donation-time"><%= contribution.created_at.strftime("%b %d, %Y")  %></p>
-            <% unless contribution.message.nil? %>
-            <p class = "donation-message"><em>"<%= contribution.message%>"</em></p>
-            <%end%>
-          </div>
           <% end %>
-          <%end%>
-        </div>
       </div>
 
     </div>
+    <div class="col-xs-4">
+      <div id="donations-title">
 
-  </div>
-<!-- </div> -->
+        <h3 id="contributions-title" >Previous donations</h3>
+        <% if @contributions.count == 0 %>
+          <p> No Donations So Far. Let's Change that! </p>
+        <%else%>
+          <% @contributions.each do |contribution| %>
+            <div class = "comment <%= 'line' if contribution == @contributions.last %>">
+              <p class = "donation-giver"><%= User.find(contribution.user_id).first_name.capitalize %> donated <strong><%= humanized_money_with_symbol(contribution.amount_cents / 100.0) %> </strong></p>
+              <p class = "donation-time"><%= contribution.created_at.strftime("%b %d, %Y")  %></p>
+              <% unless contribution.message.nil? %>
+                <p class = "donation-message"><em>"<%= contribution.message%>"</em></p>
+              <%end%>
+            </div>
+          <% end %>
+        <%end%>
 
-
-  <br>
-  <br>
-  <div class="map-recipient">
-    <div id="map" data-markers="<%= @markers.to_json %>">
+      </div>
     </div>
-    <div id="legend">
-      <%= image_tag("Legend.png") %>
-    </div>
   </div>
+</div>
+
+<div class="map-recipient">
+  <div id="map" data-markers="<%= @markers.to_json %>">
+  </div>
+  <div id="legend">
+    <%= image_tag("Legend.png") %>
+  </div>
+</div>
