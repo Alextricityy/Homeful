@@ -55,7 +55,7 @@
         <div class="items">
 
           <% @recipient.items.each do |item| %>
-          <%= link_to recipient_item_url(item) do %>
+          <%= link_to recipient_item_path(@recipient, item) do %>
             <div class="cards-ben">
               <div class="card-flexbox">
                 <div class="cards-top">
