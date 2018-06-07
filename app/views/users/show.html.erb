@@ -1,7 +1,7 @@
 <div class="user-profile-banner" style="background-image: url(<%= image_path('profile-background.jpg') %>)">
     <div class="user-actions">
-      <div class="text-center", style="width:200px; height:200px; margin-left: 53px; border-radius: 50%; background-color:white; color: black;">
-        <hr style="border-color: black; margin-top:50px;">
+      <div class="text-center", style="width:200px; height:200px; margin:auto; border-radius: 50%; background-color:white; color: black;padding-top: 40px; ">
+        <hr style="border-color: black;">
       <h3 class="user-name", style="font-size: 55px; margin-top:0;"><%= @user.first_name.capitalize %></h3>
       <hr style="border-color: black;">
       </div>
@@ -12,8 +12,7 @@
             </div>
           <% end %>
       <% else %>
-      <div class="our-buttons", style="margin-left: 57px;
-    margin-top: 47px;">
+      <div class="group-btn", style="margin:auto;">
           <%= link_to edit_user_registration_path do %>
             <div class="profile-button">
              <p>Edit <i class="fas fa-user-edit"></i></p>
