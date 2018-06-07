@@ -58,6 +58,7 @@
 }
 .secondary-btn{
   // background-color: $dark-purple;
+
   border-radius: 5px;
   // border:  1px solid white;
   box-shadow: 1px 2px $dark-grey;
@@ -71,6 +72,7 @@
   background:transparent;
   // color:#fff;
   // border:none;
+  // font-size: 20px;
   position:relative;
   height:60px;
   font-size:1.6em;
@@ -171,6 +173,9 @@
   color: #312F2F;
   border: solid 1px black;
  box-shadow:1px 1px gray;
+     font-size: 20px;
+
+
 }
 
 #start:hover {
