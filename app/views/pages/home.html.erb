@@ -119,7 +119,11 @@
 
 <br>
 <div class= "col-xs-12 text-center">
+  <% if user_signed_in? %>
+  <%= link_to "  GET STARTED  ", recipients_path, class: "secondary-btn", id: "start"%>
+  <%else%>
   <%= link_to "  GET STARTED  ", new_user_registration_path, class: "secondary-btn", id: "start"%>
+  <% end %>
 </div>
 <br>
 <br>
