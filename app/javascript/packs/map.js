@@ -7,21 +7,13 @@ const mapElement = document.getElementById('map');
 
 
 const style= [
-    {
+   {
+        "featureType": "administrative.country",
         "elementType": "geometry",
         "stylers": [
             {
-                "hue": "#ff4400"
+                "visibility": "simplified"
             },
-            {
-                "saturation": -68
-            },
-            {
-                "lightness": -4
-            },
-            {
-                "gamma": 0.72
-            }
         ]
     },
     {
