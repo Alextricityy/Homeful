@@ -35,7 +35,7 @@
       <% end %>
       <% else %>
       <%= link_to user_path(@recipient.user) do %>
-      <div class="my-profile-button" id="small-text">
+      <div class="my-profile-button2" id="small-text" style="margin-left: 0;">
         <p>View Volunteer</p>
       </div>
       <% end %>
@@ -48,7 +48,7 @@
 
 
 <div class="container-fluid">
-  <div class="row">
+  <div class="padded-row">
     <div class="col-xs-8">
 
         <h4 id= "requested-items", style="margin-left: 13px; color: #636060;">Items requested by <%= @recipient.first_name %>: </h4>
