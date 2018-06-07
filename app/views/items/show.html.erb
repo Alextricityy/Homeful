@@ -56,7 +56,7 @@
 <div class="item-flex-box">
   <div class="item-bottom-left">
     <h3 style="font-style: lighter">Other items wanted by <%= @recipient.first_name %>:</h3>
-    <div class="row">
+    <div class="padded-row">
       <% if @recipient.items.where.not(id: @item.id).count < 1 %>
         <p style="margin-left: 50px">There are currently no other items!</p>
       <% end %>
