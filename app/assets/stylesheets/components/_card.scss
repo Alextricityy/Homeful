@@ -241,3 +241,72 @@
   padding-bottom: 5px;
   background: white;
 }
+
+
+
+
+
+
+
+
+
+
+
+.cards-ben {
+  width: 295px;
+  margin-bottom: 15px;
+  margin-top: 10px;
+  margin-left: 10px;
+  font-family: 'Raleway', Arial, sans-serif;
+  position: relative;
+  /* float: left; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* margin: 10px 1%; */
+  /* width: 100%; */
+  background: #fcfcfc;
+  color: #333;
+  /* text-align: left; */
+  box-shadow: 0 0 5px rgba(0,0,0,0.15);
+  /* margin-top: 10px; */
+  transition: all 0.3s ease;
+}
+
+.cards-rest {
+  text-align: center;
+}
+
+#category-type {
+  margin-top: 20%;
+}
+
+.description {
+  padding-bottom: 5px;
+  min-height: 74px;
+  overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+}
+
+.amount-raised {
+  margin-top: 25px;
+}
+
+.contribu-form {
+  margin-bottom: 15px;
+}
+
+.item-name h2 {
+  position: absolute;
+  padding-left: 20px;
+  padding-right: 10px;
+  top: 5%;
+  margin: 0;
+  text-transform: capitalize;
+  border-radius: 0 5px 0 0;
+  font-weight: 90;
+  color: white;
+  background-color: #7272AB;
+  min-width: 150px;
+  font-size: 24px;
+}
