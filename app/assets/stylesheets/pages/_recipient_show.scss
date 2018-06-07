@@ -1,57 +1,29 @@
-
-.recipients-flex {
-  display: flex;
-  // justify-content: space-between;
-  align-items: center;
-  // text-align:center;
-}
-
-.sub-flexbox {
-  display: flex;
-  justify-content: space-around;
-}
-#moveleft{
-  margin-left:80px;
-}
 .our-buttons{
   margin-top:-8px;
   margin-left:-50px;
 }
-#closer-button{
-  margin-left:5px;
-}
-#small-text{
-  font-size:14px;
-}
-#grey-text{
-  opacity: 0.8;
-  // color:$light-grey;
-  font-size:15px;
+
+.recipients-flex {
+  display: flex;
+  align-items: center;
+  .sub-flexbox {
+    display: flex;
+    justify-content: space-around;
+  }
 }
 .my-container{
   margin-left:70px;
   margin-right:70px;
 }
-#my-item-descriptions{
- font-size: 16px;
-  text-align: left;
-  line-height: 1.6em;
-  // height:80px;
-  overflow: visible;
-  color:black;
-  padding-left:30px;
-}
+
 .my-user-profile{
   margin-top: 20px;
   background-color: $white;
-border-radius: 4px;
-padding: 20px;
-box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-margin: 50px 80px 20px 0px;
-width:1000px;
-}
-#less-margin{
-  margin-top: -4px;
+  border-radius: 4px;
+  padding: 20px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  margin: 50px 80px 20px 0px;
+  width:1000px;
 }
 
 .recipient-content {
@@ -59,13 +31,14 @@ width:1000px;
   background-color: #d8d4d4;
 
 }
+
 .recipient-name {
   h3 {
-  color: $white !important;
-  font-size: 50px;
-  font-family: $headers-font;
-  text-align: left;
-}
+    color: $white !important;
+    font-size: 50px;
+    font-family: $headers-font;
+    text-align: left;
+  }
   margin-left: 80px;
   margin-top: 15px;
 
@@ -75,7 +48,7 @@ width:1000px;
   padding: 16px;
   display: flex;
   color: #353333;
-   img {
+  img {
     height: 300px;
     margin-right: 16px;
     width: auto;
@@ -111,8 +84,6 @@ width:1000px;
 }
 
 .items {
-  // width: 70%;
-  // justify-content: space-around;
   margin-right:100px;
 }
 .donations {
@@ -123,17 +94,15 @@ width:1000px;
   padding-right: 30px;
   padding-top: 16px;
 }
+
 .item-card{
   position: relative;
   margin: auto;
-  //box-shadow: 0.3px 0.7px 0.3px 3px #ffffff;
- // width:  93% !important;
- padding: 10px;
- overflow: hidden;
+  padding: 10px;
+  overflow: hidden;
   text-decoration:none;
   color:black;
   background-position: center;
-
   a{
     color:black;
 
@@ -142,60 +111,47 @@ width:1000px;
     text-decoration:none;
     color:green;
   }
-  // border: solid 1px black;
   border-radius: 10px;
   box-shadow:1px 2px #718b9c99;
   margin-bottom: 20px;
 
 }
 
-#requested-items{
-  // margin-left: 18px;
-  font-family: Muli;
-}
-#donations-title{
-  // margin-top:-210px;
-}
-#success{
-  padding-left: 33%;
-  height: 16px;
-  padding-bottom: 75px;
-}
 .my-profile-button{
-margin-bottom: 11px;
-background-color: $light-purple;
-border: none;
-color: $white;
-padding: 15px 25px;
-text-align: center;
-text-decoration: none;
-display: inline-block;
-font-size: 16px;
-border-radius: 4px;
-box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-font-style: $body-font;
-p {
-  margin-bottom: 0px;
-}
-margin-left:50px;
+  margin-bottom: 11px;
+  background-color: $light-purple;
+  border: none;
+  color: $white;
+  padding: 15px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-style: $body-font;
+  p {
+    margin-bottom: 0px;
+  }
+  margin-left:50px;
 }
 .my-profile-button2{
-margin-bottom: 11px;
-background-color: $light-purple;
-border: none;
-color: $white;
-padding: 15px 25px;
-text-align: center;
-text-decoration: none;
-display: inline-block;
-font-size: 16px;
-border-radius: 4px;
-box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-font-style: $body-font;
-p {
-  margin-bottom: 0px;
-}
-margin-left:20px;
+  margin-bottom: 11px;
+  background-color: $light-purple;
+  border: none;
+  color: $white;
+  padding: 15px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-style: $body-font;
+  p {
+    margin-bottom: 0px;
+  }
+  margin-left:20px;
 }
 
 // cards
@@ -205,55 +161,84 @@ margin-left:20px;
   padding: 5px 5px 10px;
   width: 100%;
 
-h3 {
-  padding-left: 20px;
-  position: absolute;
-  bottom: 100%;
-  text-transform: uppercase;
-  border-radius: 0 5px 0 0;
-  margin: 0;
-  left: 0;
-  font-weight:90;
-  color: white;
-  background-color: $light-purple;
-  min-width: 150px;
-  font-size: 24px;
-}
+  h3 {
+    padding-left: 20px;
+    position: absolute;
+    bottom: 100%;
+    text-transform: uppercase;
+    border-radius: 0 5px 0 0;
+    margin: 0;
+    left: 0;
+    font-weight:90;
+    color: white;
+    background-color: $light-purple;
+    min-width: 150px;
+    font-size: 24px;
+  }
 
-h2 {
-  padding-left: 20px;
-  padding-right: 10px;
-  position: absolute;
-  top: 20px;
-  text-transform: uppercase;
-  border-radius: 0 5px 0 0;
-  margin: 0;
-  left: 0;
-  font-weight:90;
-  color: white;
-  background-color: $light-purple;
-  min-width: 150px;
-  font-size: 24px;
-}
-
-// p {
-//   font-size: 0.8em;
-//   font-weight: 300;
-//   text-align: left;
-//   line-height: 1.6em;
-//   // height: 21vh;
-//   overflow: hidden;
-//   display: -webkit-box;
-//   -webkit-line-clamp: 3;
-//   -webkit-box-orient: vertical;
-//   margin-bottom: 15px;
-
-// }
-}
-#move-me-left{
-  margin-left:170px !important;
+  h2 {
+    padding-left: 20px;
+    padding-right: 10px;
+    position: absolute;
+    top: 20px;
+    text-transform: uppercase;
+    border-radius: 0 5px 0 0;
+    margin: 0;
+    left: 0;
+    font-weight:90;
+    color: white;
+    background-color: $light-purple;
+    min-width: 150px;
+    font-size: 24px;
+  }
 }
 .less-width{
   width:89%;
   text-align:center;
 }
+// id styling
+
+#move-me-left{
+  margin-left:170px !important;
+}
+
+
+#moveleft{
+  margin-left:80px;
+}
+#closer-button{
+  margin-left:5px;
+}
+#small-text{
+  font-size:14px;
+}
+#less-margin{
+  margin-top: -4px;
+}
+#grey-text{
+  opacity: 0.8;
+  font-size:15px;
+}
+#my-item-descriptions{
+ font-size: 16px;
+ text-align: left;
+ line-height: 1.6em;
+ overflow: visible;
+ color:black;
+ padding-left:30px;
+}
+
+#requested-items{
+  font-family: Muli;
+}
+#donations-title{
+
+}
+#success{
+  height: 16px;
+  padding-bottom: 75px;
+}
+
+
+
+// id styling
