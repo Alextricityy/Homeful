@@ -135,14 +135,22 @@
         </div>
 
 
-        <% end %>
-      </div>
-      <!-- </div> -->
-      <div class="col-md-5 col-xs-12" id="donations-title">
-        <!-- contribution messages -->
-        <h3 id="contributions-title" >Previous donations</h3>
-        <% if @contributions.count == 0 %>
-        <p> No Donations So Far. Let's Change that! </p>
+
+      <% end %>
+    </div>
+    <!-- </div> -->
+    <div class="col-md-5 col-xs-12" id="donations-title">
+      <!-- contribution messages -->
+      <h3 id="contributions-title" >Previous donations</h3>
+      <% if @contributions.count == 0 %>
+      <p> No Donations So Far. Let's Change that! </p>
+      <%else%>
+
+      <% @contributions.each do |contribution| %>
+
+      <%if contribution == @contributions.last %>
+      <div class = "comment">
+
         <%else%>
 
         <% @contributions.first(5).each do |contribution| %>
