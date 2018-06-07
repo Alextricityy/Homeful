@@ -5,8 +5,7 @@
 
 <%= f.input :first_name %>
 <%= f.input :last_name %>
-<%= f.input :bio, hint: ("100 characters minimum"), input_html: {minlength:100} %>
-<%= f.input :date_of_birth %>
+<%= f.input :bio %>
 <%= f.input :phone_number %>
 <%= f.input :photo %>
 <%= f.input :photo_cache, as: :hidden %>
@@ -15,7 +14,7 @@
    <%= fields.input :address, label: "Primary Location" %>
   <% end %>
   <p id= "takecare">By creating a profile for this person in need I agree to be responsible for the upkeep their profile, for managing and ensuring the appropriateness of the items they have requested, and to make sure the fully funded items are purchased and handed over to them in a timely manner.</p>
-<%= f.submit %>
+<%= f.submit class:"tertiary-btn" %>
 <% end %>
 </div>
 
