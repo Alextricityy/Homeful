@@ -1,9 +1,9 @@
-<div class="user-profile-banner" style="background-image: url(<%= image_path('profile-background.jpg') %>)">
+<div class="user-profile-banner" style="background-image :linear-gradient(-225deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.5) 50%), url(<%= image_path('profile-background.jpg') %>)">
     <div class="user-actions">
-      <div class="text-center", style="width:200px; height:200px; margin:auto; border-radius: 50%; background-color:white; color: black;padding-top: 40px; ">
-        <hr style="border-color: black;">
-      <h3 class="user-name", style="font-size: 55px; margin-top:0;"><%= @user.first_name.capitalize %></h3>
-      <hr style="border-color: black;">
+      <div class="text-center", style="width:200px; height:200px; margin:auto; border-radius: 50%; background-color:white; color: black;padding-top: 16px; ">
+        <hr style="border-color: black; width:100px;">
+      <h3 class="user-name", style="font-size: 40px; margin-top:0;"><%= @user.first_name.capitalize %></h3>
+      <hr style="border-color: black; width: 100px;">
       </div>
       <% if  @user != current_user %>
           <%= mail_to @user.email do %>
