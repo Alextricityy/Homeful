@@ -14,6 +14,7 @@
 <%= f.fields_for @location do |fields| %>
    <%= fields.input :address, label: "Primary Location" %>
   <% end %>
+  <p id= "takecare">By creating a profile for a person in need I agree to be responsible for the upkeep of their profile, for managing the items needed by this person in need, and to make sure the fully funded items are purchased and handed over to the person in need.</p>
 <%= f.submit %>
 <% end %>
 </div>
