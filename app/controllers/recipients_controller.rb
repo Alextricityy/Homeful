@@ -110,7 +110,7 @@ def create
         @contributions << contribution
       end
     @contributions = @contributions.last(4)
-
+    @contributions.reverse!
     end
 
   end
