@@ -22,6 +22,11 @@
           <p>Edit <i class="fas fa-user-edit"></i></p>
         </div>
         <% end %>
+        <%= link_to new_recipient_location_path(@recipient, @location) do %>
+        <div class="my-profile-button2" id="small-text">
+          <p>Add Location <i class="fas fa-map-marker"></i></p>
+        </div>
+        <% end %>
         <%= link_to new_recipient_item_path(@recipient) do%>
         <div class="my-profile-button2" id="small-text">
           <p>Add Item <i class="fas fa-plus"></i></p>
