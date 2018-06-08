@@ -55,7 +55,7 @@
         <div class="items">
 
           <% @recipient.items.each do |item| %>
-          <%= link_to recipient_item_path(@recipient, item) do %>
+
             <div class="cards-ben">
               <div class="card-flexbox">
                 <div class="cards-top">
@@ -106,7 +106,7 @@
                   </div>
                   <% end %>
                 </div>
-                 <% end %>
+
 
                 <div class="contribu-form">
                   <%if item.total_contributions < item.price_cents %>
@@ -128,6 +128,11 @@
               </div>
               <div class="item-name">
                 <h2><%= item.title.capitalize %></h2>
+            </div>
+            <div class="item-link">
+              <%= link_to recipient_item_path(@recipient, item) do%>
+
+              <% end %>
             </div>
             </div>
 

@@ -351,4 +351,9 @@ a:hover {
   text-decoration:none;
 }
 
-
+.item-link a {
+  position: absolute;
+  top: 0;
+  height: 60%;
+  width: 100%;
+}
