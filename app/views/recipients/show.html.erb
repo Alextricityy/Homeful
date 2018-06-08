@@ -94,7 +94,7 @@
                     <br>
                     <br>
                   </div>
-
+                <div class="amout-raised">
                   <% if item.total_contributions && item.price_cents %>
                   <p class="text-center"><%= humanized_money_with_symbol(item.total_contributions/100) %> of <%= humanized_money_with_symbol(item.price_cents/100) %> | <%= ((item.total_contributions.to_f/ item.price_cents.to_f) * 100).to_i %> %  raised</p>
 
@@ -114,6 +114,9 @@
                   </div>
                   <% end %>
                     <% end %>
+                </div>
+
+                <div class="contribu-form">
                   <%if item.total_contributions < item.price_cents %>
                   <div class="form-inline donate-form">
                     <%= simple_form_for [@recipient, item, @contribution] do |f| %>
@@ -128,11 +131,19 @@
                   <% else %>
                   <p id="success"> Item Funded! </p>
                   <% end %>
-                  <%#= link_to "Donate", new_recipient_item_contribution_path(@recipient, item) %>
                 </div>
+
+
+
+
               </div>
+              </div>
+              <div class="item-name">
+                <h2><%= item.title.capitalize %></h2>
+            </div>
             </div>
           <% end %>
+          <%end%>
       </div>
 
     </div>
@@ -167,3 +178,10 @@
     <%= image_tag("Legend.png") %>
   </div>
 </div>
+
+<script>
+  document.querySelectorAll(".description").forEach((description) => {
+    description.style.webkitBoxOrient = "vertical"
+  });
+"vertical"
+</script>

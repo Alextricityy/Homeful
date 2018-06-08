@@ -221,6 +221,8 @@
   line-height: 1.6em;
   height:5vh;
   overflow: visible;
+  padding-left: 2px;
+  padding-right: 2px;
 }
 
 #category-type{
@@ -241,3 +243,96 @@
   padding-bottom: 5px;
   background: white;
 }
+
+
+
+
+
+
+
+
+
+
+
+.cards-ben {
+  width: 295px;
+  margin-bottom: 15px;
+  margin-top: 10px;
+  margin-left: 10px;
+  font-family: 'Raleway', Arial, sans-serif;
+  position: relative;
+  /* float: left; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* margin: 10px 1%; */
+  /* width: 100%; */
+  background: #fcfcfc;
+  color: #333;
+  /* text-align: left; */
+  box-shadow: 0 0 5px rgba(0,0,0,0.15);
+  /* margin-top: 10px; */
+  transition: all 0.3s ease;
+  text-decoration: none ;
+
+}
+
+.cards-ben a:hover {
+text-decoration: none ;
+}
+
+
+.cards-rest {
+  text-align: center;
+}
+
+#category-type {
+  margin-top: 20%;
+}
+
+.description {
+  text-weight: lighter;
+  padding-bottom: 5px;
+  padding-left: 3px;
+  padding-right: 5px;
+  min-height: 74px;
+  overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    text-decoration: none !important;
+
+}
+
+.description p {
+  opacity: 0.8;
+  font-family: "Muli", "Helvetica", "sans-serif";
+  color:  #333
+}
+
+
+.amount-raised {
+  margin-top: 25px;
+}
+
+.contribu-form {
+  margin-bottom: 15px;
+}
+
+.item-name h2 {
+  position: absolute;
+  padding-left: 20px;
+  padding-right: 10px;
+  top: 5%;
+  margin: 0;
+  text-transform: capitalize;
+  border-radius: 0 5px 0 0;
+  font-weight: 90;
+  color: white;
+  background-color: #7272AB;
+  min-width: 150px;
+  font-size: 24px;
+}
+
+a:hover {
+  text-decoration:none;
+}
+
