@@ -2,7 +2,7 @@ import Typed from 'typed.js';
 
 function loadDynamicBannerText() {
   new Typed('#homeful-typed', {
-    strings: ["meaningful", "life changing", "specific", "special", ""],
+    strings: ["meaningful", "life changing", "specific", "heart warming", "special"],
     typeSpeed: 80,
     loop: true
   });
