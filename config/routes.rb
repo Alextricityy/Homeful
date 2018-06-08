@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :recipients do
-    resources :locations, only: :create
+    resources :locations, only: [:create, :new]
     resources :items do
       resources :contributions, only: [:create, :new, :show, :update] do
          resources :payments, only: [:new, :create]

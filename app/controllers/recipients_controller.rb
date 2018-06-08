@@ -91,6 +91,7 @@ def create
   def show
     @user = @recipient.user
     @contribution = Contribution.new
+    @location = Location.new
 
     @markers = []
     @recipient.locations.each do |location|
