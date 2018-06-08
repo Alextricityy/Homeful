@@ -267,7 +267,7 @@
   /* margin: 10px 1%; */
   /* width: 100%; */
   background: #fcfcfc;
-  color: #333;
+  color: #333333;
   /* text-align: left; */
   box-shadow: 0 0 5px rgba(0,0,0,0.15);
   /* margin-top: 10px; */
@@ -277,7 +277,12 @@
 }
 
 .cards-ben a:hover {
-text-decoration: none ;
+  text-decoration: none ;
+}
+
+.cards-ben a {
+  text-decoration: none;
+  color: #333333;
 }
 
 
@@ -291,21 +296,31 @@ text-decoration: none ;
 
 .description {
   text-weight: lighter;
+  font-family: "Muli", "Helvetica", "sans-serif";
+  color:  #333;
+  font-size: 0.8em;
+  font-weight: 300;
+  text-align: left;
+  line-height: 1.6em;
   padding-bottom: 5px;
-  padding-left: 3px;
-  padding-right: 5px;
+  padding-left: 20px;
+  padding-right: 10px;
   min-height: 74px;
   overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    text-decoration: none !important;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  text-decoration: none !important;
 
 }
 
 .description p {
   opacity: 0.8;
   font-family: "Muli", "Helvetica", "sans-serif";
-  color:  #333
+  color:  #333333;
+  font-size: 0.8em;
+  font-weight: 300;
+  text-align: left;
+  line-height: 1.6em;
 }
 
 
@@ -335,4 +350,5 @@ text-decoration: none ;
 a:hover {
   text-decoration:none;
 }
+
 
