@@ -16,6 +16,7 @@
         <p id= "grey-text"><%= @recipient.bio %></p>
       </div>
       <% if  @recipient.user == current_user %>
+      <!-- <div style="display: flex; justify-content: space-around;"> -->
       <div class="our-buttons">
         <%= link_to edit_recipient_path(@recipient) do %>
         <div class="my-profile-button" id="small-text">
@@ -32,6 +33,7 @@
           <p>Delete <i class="far fa-trash-alt"></i></p>
         </div>
       </div>
+      <!-- </div> -->
       <% end %>
       <% else %>
       <%= link_to user_path(@recipient.user) do %>
@@ -91,7 +93,6 @@
                     <!-- <p><%#= item.contributions %></p> -->
                     <br>
                     <br>
-                    <% end %>
                   </div>
 
                   <% if item.total_contributions && item.price_cents %>
@@ -112,6 +113,7 @@
                     <%= progress_bar(color, value) %>
                   </div>
                   <% end %>
+                    <% end %>
                   <%if item.total_contributions < item.price_cents %>
                   <div class="form-inline donate-form">
                     <%= simple_form_for [@recipient, item, @contribution] do |f| %>
