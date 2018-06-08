@@ -56,7 +56,7 @@
   <div class="padded-row">
     <div class="col-xs-8">
 
-        <h4 id= "requested-items", style="margin-left: 13px; color: #636060;">Items requested by <%= @recipient.first_name %>: </h4>
+        <h4 id= "requested-items", style="margin-left: 13px; color: #636060;">Items requested by <%= @recipient.first_name.capitalize %>: </h4>
         <div class="items">
 
           <% @recipient.items.each do |item| %>
