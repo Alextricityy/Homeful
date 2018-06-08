@@ -122,7 +122,7 @@ def create
   end
 
   def recipient_params
-    params.require(:recipient).permit(:first_name, :last_name, :gender, :date_of_birth, :bio, :phone_number, :photo)
+    params.require(:recipient).permit(:first_name, :last_name, :gender, :bio, :phone_number, :photo)
   end
 
   # def location_params
