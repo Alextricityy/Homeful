@@ -8,6 +8,7 @@ class Recipient < ApplicationRecord
 
   validates :first_name, presence:true
   validates :gender, presence:true , inclusion: { in: %w(Male Female Other)}
+  validates :date_of_birth, presence:true
   validates :bio, presence:true
   validates :photo, presence:true
    include PgSearch

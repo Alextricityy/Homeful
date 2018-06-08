@@ -1,10 +1,6 @@
-<div class="user-profile-banner" style="background-image :linear-gradient(-225deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.5) 50%), url(<%= image_path('profile-background.jpg') %>)">
+<div class="user-profile-banner" style="background-image: url(<%= image_path('profile-background.jpg') %>)">
     <div class="user-actions">
-      <div class="text-center", style="width:200px; height:200px; margin:auto; border-radius: 50%; background-color:white; color: black;padding-top: 16px; ">
-        <hr style="border-color: black; width:100px;">
-      <h3 class="user-name", style="font-size: 40px; margin-top:0;"><%= @user.first_name.capitalize %></h3>
-      <hr style="border-color: black; width: 100px;">
-      </div>
+      <h3 class="user-name"><%= @user.first_name.capitalize %></h3>
       <% if  @user != current_user %>
           <%= mail_to @user.email do %>
             <div class="profile-button" style="margin-left: 45px">
@@ -12,7 +8,6 @@
             </div>
           <% end %>
       <% else %>
-      <div class="group-btn", style="margin:auto;">
           <%= link_to edit_user_registration_path do %>
             <div class="profile-button">
              <p>Edit <i class="fas fa-user-edit"></i></p>
@@ -28,7 +23,6 @@
             <p>sign out <i class="fas fa-sign-out-alt"></i></p>
           </div>
         <% end %>
-        </div>
           <% if @user.recipients.count < 1 %>
             <%= link_to new_recipient_path do %>
               <div class="profile-button2">
@@ -39,11 +33,18 @@
         <% end %>
     </div>
 
-
+    <div class="user-bio">
+      <% if @user.bio %>
+        <div class="card-user-profile">
+          <p><%= @user.bio %></p>
+        </div>
+      <% end %>
+    </div>
 </div>
 <% if current_user == @user %>
   <p id= "myrecipient">My recipients:</p>
-    <% if @user.recipients.count < 1 %>
+    <% if %>
+    <% @user.recipients.count < 1 %>
       <p id= "norecipients">You don't have recipients yet.</p>
     <% end %>
 <% else %>
@@ -51,8 +52,8 @@
 <% end %>
 
 <!-- recipient cards -->
-    <div class = "row", style="    padding-left: 114px;">
-      <!-- <div class="col-xs-12 cards"> -->
+    <div class = "row">
+      <div class="col-xs-12 cards">
         <% @user.recipients.each do |recipient|%>
         <%=link_to recipient do%>
         <div class="col-xs-12 col-sm-3">
@@ -110,7 +111,7 @@
 
 
    </div>
- <!-- </div> -->
+ </div>
 </div>
 
 <!-- map with recipients -->

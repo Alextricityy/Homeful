@@ -16,7 +16,6 @@
         <p id= "grey-text"><%= @recipient.bio %></p>
       </div>
       <% if  @recipient.user == current_user %>
-      <!-- <div style="display: flex; justify-content: space-around;"> -->
       <div class="our-buttons">
         <%= link_to edit_recipient_path(@recipient) do %>
         <div class="my-profile-button" id="small-text">
@@ -33,7 +32,6 @@
           <p>Delete <i class="far fa-trash-alt"></i></p>
         </div>
       </div>
-      <!-- </div> -->
       <% end %>
       <% else %>
       <%= link_to user_path(@recipient.user) do %>
@@ -57,43 +55,37 @@
         <div class="items">
 
           <% @recipient.items.each do |item| %>
-            <div class="cards">
-              <div class="index existing-item less-width">
-                <%= link_to recipient_item_path(@recipient, item) do %>
-                <div class="my-caption">
-                  <h2><%= item.title.capitalize %></h2>
-                  <br>
-                  <br>
+          <%= link_to recipient_item_path(@recipient, item) do %>
+            <div class="cards-ben">
+              <div class="card-flexbox">
+                <div class="cards-top">
 
-                  <div id = "my-item-descriptions">
-                    <p id = "category-type"> Category:
-                      <!-- cateogory logic -->
-                      <%= item.category %>
-                      <%  if item.category == "Animal" %>
-                      <i class="fas fa-paw"></i>
-                      <% elsif item.category == "Living" %>
-                      <i class="fas fa-home"></i>
-                      <% elsif item.category == "Food" %>
-                      <i class="fas fa-utensils"></i>
-                      <% elsif item.category == "Health" %>
-                      <i class="fas fa-medkit"></i>
-                      <% elsif item.category == "Education" %>
-                      <i class="fas fa-book"></i>
-                      <% elsif item.category == "Transport" %>
-                      <i class="fas fa-bus"></i>
-                      <% elsif item.category == "Leisure" %>
-                      <i class="fas fa-futbol"></i>
-                      <% else %>
-                      <i class="fas fa-bomb"></i>
-                      <% end %>
-                      <!-- cateogory logic -->
-                    </p>
+              </div>
+              <div class="cards-rest">
+                <p id = "category-type"> Category:
+                  <!-- cateogory logic -->
+                  <%= item.category %>
+                  <%  if item.category == "Animal" %>
+                  <i class="fas fa-paw"></i>
+                  <% elsif item.category == "Living" %>
+                  <i class="fas fa-home"></i>
+                  <% elsif item.category == "Food" %>
+                  <i class="fas fa-utensils"></i>
+                  <% elsif item.category == "Health" %>
+                  <i class="fas fa-medkit"></i>
+                  <% elsif item.category == "Education" %>
+                  <i class="fas fa-book"></i>
+                  <% elsif item.category == "Transport" %>
+                  <i class="fas fa-bus"></i>
+                  <% elsif item.category == "Leisure" %>
+                  <i class="fas fa-futbol"></i>
+                  <% else %>
+                  <i class="fas fa-bomb"></i>
+                  <% end %>
+                  <!-- cateogory logic -->
+                </p>
+                <p class="description"><%= item.description.capitalize %></p>
 
-                    <p id= "description"><%= item.description.capitalize %></p>
-                    <!-- <p><%#= item.contributions %></p> -->
-                    <br>
-                    <br>
-                  </div>
                 <div class="amout-raised">
                   <% if item.total_contributions && item.price_cents %>
                   <p class="text-center"><%= humanized_money_with_symbol(item.total_contributions/100) %> of <%= humanized_money_with_symbol(item.price_cents/100) %> | <%= ((item.total_contributions.to_f/ item.price_cents.to_f) * 100).to_i %> %  raised</p>
@@ -113,7 +105,6 @@
                     <%= progress_bar(color, value) %>
                   </div>
                   <% end %>
-                    <% end %>
                 </div>
 
                 <div class="contribu-form">
